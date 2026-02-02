@@ -1,0 +1,51 @@
+@import "tailwindcss";
+@config "../tailwind.config.ts";
+
+/* 
+  Re-declaring CSS variables for the utility classes to bind to if config doesn't pick them up automatically,
+  but @config should work. 
+  Just in case, I'll keep the root variables as they are used by the config.
+*/
+
+:root {
+  /* Premium Light Theme Palette */
+  --color-background: #fafafa;
+  --color-surface: #ffffff;
+
+  --color-primary: #b8860b; /* Dark Goldenrod */
+  --color-primary-light: #d4af37;
+  --color-primary-dark: #8b6508;
+
+  --color-secondary: #c2410c;
+
+  --color-text-main: #1a1918;
+  --color-text-muted: #52525b;
+
+  --color-border: #e4e4e7;
+
+  --font-sans: var(--font-sans);
+  --font-serif: var(--font-serif);
+}
+
+@layer utilities {
+  .text-shadow {
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-background text-text-main font-sans antialiased;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @apply font-serif font-semibold text-text-main;
+}

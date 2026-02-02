@@ -1,0 +1,816 @@
+export interface MenuItem {
+  image: string;
+  title: string;
+  description: string;
+  category: string;
+  variants?: {
+    label: string;
+    price: number;
+  }[];
+  price?: number;
+  isPopular?: boolean;
+}
+
+export const CATEGORY: string[] = [
+  "Gourmet Rolls",
+  "Gourmet Wraps",
+  "Pita Pockets",
+  "Baked Dinner Packs",
+  "Roasts",
+  "Snacks & Sauces",
+  "Tasty Charcoal Chicken",
+  "Chicken Chips & Salad Packs",
+  "Family Deals",
+  "Hot Chips",
+  "Wedges",
+  "Sweet Potato",
+  "Hot Foods",
+  "Salads",
+];
+
+// --- REUSABLE COMPONENT FOR RENDERING A MENU SECTION ---
+export interface MenuSectionProps {
+  category: string;
+  // Optional prop to adjust card height for specific sections if needed
+  isShortCard?: boolean;
+}
+
+export const menus: MenuItem[] = [
+  // =====================
+  // GOURMET ROLLS
+  // =====================
+  {
+    image: "/assets/img/menu/menuThumb2_6.png",
+    title: "Peri Peri Chicken Roll",
+    description:
+      "marinated grilled chicken breast, lettuce, mayo, peri peri sauce, cheese",
+    price: 13.9,
+    category: "Gourmet Rolls",
+  },
+  {
+    image: "/assets/img/menu/menuThumb2_6.png",
+    title: "Chicken Roll with Gravy",
+    description: "bbq chicken roll with gravy",
+    price: 12.9,
+    category: "Gourmet Rolls",
+    isPopular: true,
+  },
+  {
+    image: "/assets/img/menu/menuThumb2_6.png",
+    title: "BBQ Chicken Roll",
+    description: "shredded bbq chicken with lettuce, mayo",
+    price: 12.9,
+    category: "Gourmet Rolls",
+    isPopular: true,
+  },
+  {
+    image: "/top-down-transparent/schnitzel-roll.png",
+    title: "Schnitzel Roll",
+    description: "chicken schnitzel with lettuce & mayo",
+    price: 12.9,
+    category: "Gourmet Rolls",
+  },
+  {
+    image: "/top-down-transparent/roost-n-roost-chicken-roll.png",
+    title: "Roost & Roast Chicken Roll",
+    description: "charcoal chicken, tabouli, garlic mayo",
+    price: 13.9,
+    category: "Gourmet Rolls",
+  },
+  {
+    image: "/top-down-transparent/pork-roll-with-gravy.png",
+    title: "Pork Roll with Gravy",
+    description: "roast pork & gravy",
+    price: 12.9,
+    category: "Gourmet Rolls",
+  },
+  {
+    image: "/assets/img/menu/menuThumb2_6.png",
+    title: "Lamb Roll with Gravy",
+    description: "charcoal roasted lamb with rocket & mint jelly",
+    price: 14.5,
+    category: "Gourmet Rolls",
+  },
+  {
+    image: "/top-down-transparent/bacon-and-egg-roll.png",
+    title: "Bacon & Egg Roll",
+    description: "bacon, egg, cheese, bbq sauce or tomato sauce",
+    price: 10.0,
+    category: "Gourmet Rolls",
+  },
+  {
+    image: "/top-down-transparent/chips-and-gravy-roll.png",
+    title: "Chips & Gravy Roll",
+    description: "chips & gravy in a roll",
+    price: 8.0,
+    category: "Gourmet Rolls",
+  },
+
+  // =====================
+  // GOURMET WRAPS
+  // =====================
+  {
+    image: "/assets/img/menu/menuThumb2_6.png",
+    title: "Roost & Roast Wrap",
+    description:
+      "Marinated & grilled chicken breast, cheese, lettuce, Mayo, Sweet chilli Sauce",
+    price: 13.9,
+    category: "Gourmet Wraps",
+    isPopular: true,
+  },
+  {
+    image: "/assets/img/menu/menuThumb2_6.png",
+    title: "Portuguese Wrap",
+    description:
+      "Marinated & Grilled chicken breast, cheese, lettuce, Mayo, Peri-Peri Sauce",
+    price: 13.9,
+    category: "Gourmet Wraps",
+  },
+  {
+    image: "/assets/img/menu/menuThumb2_6.png",
+    title: "BLAT Chicken Wrap",
+    description: "Bacon, Lettuce, Avocado, Tomato, Chicken Breast, Mayo",
+    price: 13.9,
+    category: "Gourmet Wraps",
+  },
+  {
+    image: "/assets/img/menu/menuThumb2_6.png",
+    title: "Schnitzel Wrap",
+    description: "Chicken Schnitzel, lettuce, Cheese, Mayo",
+    price: 13.9,
+    category: "Gourmet Wraps",
+  },
+  {
+    image: "/assets/img/menu/menuThumb2_6.png",
+    title: "Breakie Wrap",
+    description: "Bacon, Egg, Potato Scallop, Lettuce, BBQ & Mayo",
+    price: 13.9,
+    category: "Gourmet Wraps",
+    isPopular: true,
+  },
+  {
+    image: "/assets/img/menu/menuThumb2_6.png",
+    title: "Falafel Wrap",
+    description: "Falafel, Tabouli, Hummus",
+    price: 13.9,
+    category: "Gourmet Wraps",
+  },
+
+  // =====================
+  // PITA POCKETS
+  // =====================
+  {
+    image: "/assets/img/menu/menuThumb2_6.png",
+    title: "GGC Pocket",
+    description: "Marinated & Grilled Breast, Tabouli, Garlic Sauce",
+    price: 13.9,
+    category: "Pita Pockets",
+  },
+  {
+    image: "/assets/img/menu/menuThumb2_6.png",
+    title: "Portuguese Pocket",
+    description:
+      "Marinated & Grilled Breast, Cheese, Lettuce, Aioli, Peri-Peri Sauce",
+    price: 13.9,
+    category: "Pita Pockets",
+  },
+  {
+    image: "/assets/img/menu/menuThumb2_6.png",
+    title: "Falafel Pocket",
+    description: "Falafel, Tabouli, Garlic sauce",
+    price: 13.9,
+    category: "Pita Pockets",
+  },
+
+  // =====================
+  // BAKED DINNER PACKS
+  // =====================
+  {
+    image: "/top-down-transparent/pork-dinner-pack.png",
+    title: "Pork Dinner Pack",
+    description: "220gms Roast pork, 2 choices of vegetables, Peas & Gravy",
+    price: 20.9,
+    category: "Baked Dinner Packs",
+    isPopular: true,
+  },
+  {
+    image: "/top-down-transparent/beef-dinner-pack.png",
+    title: "Beef Dinner Pack",
+    description: "220gms Roast Beef, 2 choices of vegetables, Peas & Gravy",
+    price: 20.9,
+    category: "BakedDinner Packs",
+  },
+  {
+    image: "/assets/img/menu/menuThumb2_6.png",
+    title: "Lamb Dinner Pack",
+    description: "220gms Roast Lamb, 2 choices of Vegetables, Peas & Gravy",
+    price: 20.9,
+    category: "Baked Dinner Packs",
+  },
+  {
+    image: "/top-down-transparent/half-chicken-dinner-pack.png",
+    title: "½ Chicken Dinner Pack",
+    description: "½ Charcoal Chicken, 2 choices of vegetables, Peas & Gravy",
+    price: 21.9,
+    category: "Baked Dinner Packs",
+  },
+  {
+    image: "/top-down-transparent/quarter-chicken-dinner-pack.png",
+    title: "¼ Chicken Dinner Pack",
+    description: "¼ Chicken, 2 choices of vegetables, Peas & Gravy",
+    price: 19.9,
+    category: "Baked Dinner Packs",
+  },
+
+  // =====================
+  // ROASTS
+  // =====================
+  {
+    image: "/top-down-transparent/pork-with-crackle.png",
+    title: "Pork with Crackling",
+    description: "Price per kg",
+    price: 45,
+    category: "Roasts",
+  },
+  {
+    image: "/top-down-transparent/beef-roast.png",
+    title: "Roast Beef",
+    description: "Price per kg",
+    price: 50,
+    category: "Roasts",
+  },
+  {
+    image: "/assets/img/menu/menuThumb2_6.png",
+    title: "Roast Lamb",
+    description: "Price per kg",
+    price: 50,
+    category: "Roasts",
+  },
+
+  // =====================
+  // SNACKS & SAUCES
+  // =====================
+  {
+    image: "/top-down-transparent/devil-wings.png",
+    title: "Devil Wings",
+    description: "or 5 for $10",
+    price: 2.5,
+    category: "Snacks & Sauces",
+  },
+  {
+    image: "/top-down-transparent/chicken-tenders.png",
+    title: "Sweet Chilli Tenders",
+    description: "or 5 for $10",
+    price: 2.5,
+    category: "Snacks & Sauces",
+  },
+  {
+    image: "/top-down-transparent/chicken-skewers.png",
+    title: "Chicken Skewers",
+    description: "",
+    price: 3.9,
+    category: "Snacks & Sauces",
+  },
+  {
+    image: "/top-down-transparent/spring-roll.png",
+    title: "Spring Roll",
+    description: "",
+    price: 3.9,
+    category: "Snacks & Sauces",
+  },
+  {
+    image: "/top-down-transparent/curry-puff.png",
+    title: "Curry Puff",
+    description: "",
+    price: 3.0,
+    category: "Snacks & Sauces",
+  },
+  {
+    image: "/top-down-transparent/potato-scallops.png",
+    title: "Potato Scallops",
+    description: "",
+    price: 2.0,
+    category: "Snacks & Sauces",
+  },
+  {
+    image: "/assets/img/menu/menuThumb2_6.png",
+    title: "Sauces (Peri Peri / Garlic Sauce / Chilli Mayo)",
+    description: "",
+    price: 2.5,
+    category: "Snacks & Sauces",
+  },
+  {
+    image: "/assets/img/menu/menuThumb2_6.png",
+    title:
+      "Other Sauces (Garlic Mayo / Sour Cream / Sweet Chilli / Tomato / BBQ)",
+    description: "",
+    price: 1.5,
+    category: "Snacks & Sauces",
+  },
+  {
+    image: "/assets/img/menu/menuThumb2_6.png",
+    title: "Chicken Salt or Peri Peri Salt",
+    description: "",
+    price: 2.5,
+    category: "Snacks & Sauces",
+  },
+  {
+    image: "/top-down-transparent/peri-peri-sauce.png",
+    title: "Bottled Peri Peri Sauce",
+    description: "",
+    price: 10.0,
+    category: "Snacks & Sauces",
+  },
+  {
+    image: "/assets/img/menu/menuThumb2_6.png",
+    title: "Bottled Salad Dressing",
+    description: "",
+    price: 7.0,
+    category: "Snacks & Sauces",
+  },
+
+  // =====================
+  // Tasty CHARCOAL CHICKEN
+  // =====================
+  {
+    image: "/top-down-transparent/whole-chicken.png",
+    title: "Whole Chicken",
+    description: "Flame kissed chicken",
+    price: 20.0,
+    category: "Tasty Charcoal Chicken",
+    isPopular: true,
+  },
+  {
+    image: "/top-down-transparent/half-chicken.png",
+    title: "Half Chicken",
+    description: "Flame kissed chicken",
+    price: 12.5,
+    category: "Tasty Charcoal Chicken",
+  },
+  {
+    image: "/top-down-transparent/quarter-chicken.png",
+    title: "Quarter Chicken",
+    description: "Flame kissed chicken",
+    price: 8.0,
+    category: "Tasty Charcoal Chicken",
+  },
+
+  // =====================
+  // CHICKEN CHIPS & SALAD PACKS
+  // =====================
+  {
+    image: "/top-down-transparent/quarter-chicken-chips-salad.png",
+    title: "¼ Chicken chips & salad",
+    description: "¼ chicken, choice of a salad & Chips",
+    price: 20.9,
+    category: "Chicken Chips & Salad Packs",
+  },
+  {
+    image: "/top-down-transparent/half-chicken-chips-salad.png",
+    title: "½ Chicken chips & salad",
+    description: "½ chicken, choice of a salad & Chips",
+    price: 22.9,
+    category: "Chicken Chips & Salad Packs",
+  },
+  {
+    image: "/top-down-transparent/quarter-chicken-chips.png",
+    title: "¼ Chicken & chips",
+    description: "¼ chicken & Chips",
+    price: 15.9,
+    category: "Chicken Chips & Salad Packs",
+  },
+  {
+    image: "/top-down-transparent/half-chicken-chips.png",
+    title: "½ Chicken & Chips",
+    description: "½ Chicken Chips & Gravy",
+    price: 19.9,
+    category: "Chicken Chips & Salad Packs",
+    isPopular: true,
+  },
+  {
+    image: "/assets/img/menu/menuThumb2_6.png",
+    title: "Schnitzel & Chips",
+    description: "Chicken Schnitzel & chips",
+    price: 19.9,
+    category: "Chicken Chips & Salad Packs",
+  },
+
+  // =====================
+  // FAMILY DEALS
+  // =====================
+  {
+    image: "/menu/familydeals/chicken-and-chips-deals.png",
+    title: "Chicken & Chips Deal",
+    description:
+      "1* XL Charcoal Chicken, 1* Large Chips, 1* Large Drink (1.25L) or Small Gravy",
+    price: 33,
+    category: "Family Deals",
+  },
+  {
+    image: "/assets/img/menu/menuThumb2_6.png",
+    title: "Chicken & Salad Deal",
+    description:
+      "1* XL Charcoal Chicken, 1* Large Salad, 1* Large Drink (1.25L) or Small Gravy",
+    price: 35,
+    category: "Family Deals",
+  },
+  {
+    image: "/menu/familydeals/family-deal.png",
+    title: "Family Deal",
+    description:
+      "1* XL Charcoal Chicken, 1* Large Chips, 1* Large Salad or Large Veggies, 1* Small Gravy",
+    price: 45,
+    category: "Family Deals",
+  },
+  {
+    image: "/menu/familydeals/r-and-r-deal.png",
+    title: "R&R Deal",
+    description:
+      "2* Charcoal Chickens, 2* Large Chips, 1* Large Gravy, 1* 1.25 ltr Drink",
+    price: 65,
+    category: "Family Deals",
+  },
+  {
+    image: "/menu/familydeals/big-roost-deal.png",
+    title: "Big Roost Deal",
+    description:
+      "2* XL Charcoal Chickens, 2* Large Chips, 2* Large Salad or Large Veggies, 1* Large Drink (1.25L), 1* Large Gravy",
+    price: 92,
+    category: "Family Deals",
+  },
+  {
+    image: "/assets/img/menu/menuThumb2_6.png",
+    title: "Roost & Roast Deal",
+    description:
+      "1/2 Kg Pork, 1* XL Charcoal Chicken, 1* Large Chips, 1* Regular Veggie, 1* Regular Salad, 1* Large Gravy",
+    price: 85,
+    category: "Family Deals",
+  },
+
+  // =====================
+  // HOT CHIPS
+  // =====================
+  {
+    image: "/top-down-transparent/chips.png",
+    title: "Hot Chips",
+    description: "Choice of chicken, plain, or peri peri salt.",
+    variants: [
+      { label: "Small", price: 7.0 },
+      { label: "Regular", price: 9.0 },
+      { label: "Large", price: 12.0 },
+    ],
+    category: "Hot Chips",
+  },
+  {
+    image: "/top-down-transparent/chips-with-gravy.png",
+    title: "Hot Chips with Gravy",
+    description: "Choice of chicken, plain, or peri peri salt.",
+    variants: [
+      { label: "Small", price: 7.9 },
+      { label: "Regular", price: 10.5 },
+      { label: "Large", price: 14.0 },
+    ],
+    category: "Hot Chips",
+    isPopular: true,
+  },
+
+  // =====================
+  // WEDGES
+  // =====================
+  {
+    image: "/top-down-transparent/wedges.png",
+    title: "Wedges",
+    description: "Sauces ($1.5 ea): Sour cream or sweet chilli.",
+    variants: [
+      { label: "Small", price: 8.0 },
+      { label: "Medium", price: 10.0 },
+      { label: "Large", price: 14.0 },
+    ],
+    category: "Wedges",
+    isPopular: true,
+  },
+
+  // =====================
+  // SWEET POTATO
+  // =====================
+  {
+    image: "/assets/img/menu/menuThumb2_6.png",
+    title: "Sweet Potato",
+    description: "Chilli sauce available for $1.5 ea.",
+    variants: [
+      { label: "Small", price: 8.0 },
+      { label: "Medium", price: 10.0 },
+      { label: "Large", price: 14.0 },
+    ],
+    category: "Sweet Potato",
+  },
+
+  // =====================
+  // HOT FOODS
+  // =====================
+  {
+    image: "/menu/hotfoods/baked-honey-mustard-veggies.png",
+    title: "Baked Honey Mustard Vegetables",
+    description:
+      "Oven-baked seasonal vegetables in a sweet honey mustard glaze.",
+    category: "Hot Foods",
+    variants: [
+      { label: "Small", price: 7.9 },
+      { label: "Regular", price: 12.9 },
+      { label: "Large", price: 14.9 },
+      { label: "Family", price: 20.0 },
+    ],
+  },
+  {
+    image: "/menu/hotfoods/roast-potatoes.png",
+    title: "Roast Potato",
+    description: "Crispy roasted potatoes seasoned with herbs.",
+    category: "Hot Foods",
+    variants: [
+      { label: "Small", price: 7.9 },
+      { label: "Regular", price: 12.9 },
+      { label: "Large", price: 14.9 },
+      { label: "Family", price: 20.0 },
+    ],
+  },
+  {
+    image: "/menu/hotfoods/baked-pumpkin.png",
+    title: "Baked Pumpkin",
+    description: "Tender baked pumpkin with light seasoning.",
+    category: "Hot Foods",
+    variants: [
+      { label: "Small", price: 7.9 },
+      { label: "Regular", price: 12.9 },
+      { label: "Large", price: 14.9 },
+      { label: "Family", price: 20.0 },
+    ],
+  },
+  {
+    image: "",
+    title: "Steamed Vegetables with Mornay Sauce",
+    description: "Fresh steamed vegetables topped with creamy mornay sauce.",
+    category: "Hot Foods",
+    variants: [
+      { label: "Small", price: 7.9 },
+      { label: "Regular", price: 12.9 },
+      { label: "Large", price: 14.9 },
+      { label: "Family", price: 20.0 },
+    ],
+  },
+  {
+    image: "/menu/hotfoods/creamy-potato-bake.png",
+    title: "Creamy Potato Bake",
+    description: "Baked potatoes in a rich and creamy sauce.",
+    category: "Hot Foods",
+    variants: [
+      { label: "Small", price: 7.9 },
+      { label: "Regular", price: 12.9 },
+      { label: "Large", price: 14.9 },
+      { label: "Family", price: 20.0 },
+    ],
+  },
+  {
+    image: "",
+    title: "Creamy Chicken Pasta with Bacon & Mushroom",
+    description: "Creamy pasta with chicken, bacon, and mushrooms.",
+    category: "Hot Foods",
+    variants: [
+      { label: "Small", price: 7.9 },
+      { label: "Regular", price: 12.9 },
+      { label: "Large", price: 14.9 },
+      { label: "Family", price: 20.0 },
+    ],
+  },
+  {
+    image: "/menu/hotfoods/fried-rice.png",
+    title: "Fried Rice",
+    description: "Classic fried rice with vegetables and seasoning.",
+    category: "Hot Foods",
+    variants: [
+      { label: "Small", price: 7.9 },
+      { label: "Regular", price: 12.9 },
+      { label: "Large", price: 14.9 },
+      { label: "Family", price: 20.0 },
+    ],
+  },
+  {
+    image: "",
+    title: "Stir Fried Hokkien Noodle",
+    description: "Stir-fried hokkien noodles with vegetables and sauce.",
+    category: "Hot Foods",
+    variants: [
+      { label: "Small", price: 7.9 },
+      { label: "Regular", price: 12.9 },
+      { label: "Large", price: 14.9 },
+      { label: "Family", price: 20.0 },
+    ],
+  },
+
+  // =====================
+  // SALADS
+  // =====================
+  {
+    image: "/menu/salads/chicken-cesar.png",
+    title: "Chicken Caesar",
+    description: "Classic Caesar salad with grilled chicken.",
+    category: "Salads",
+    variants: [
+      { label: "Small", price: 7.9 },
+      { label: "Regular", price: 12.9 },
+      { label: "Large", price: 14.9 },
+      { label: "Family", price: 20.0 },
+    ],
+  },
+  {
+    image: "/menu/salads/avocado.png",
+    title: "Rocket Avocado",
+    description: "Fresh rocket leaves with creamy avocado.",
+    category: "Salads",
+    variants: [
+      { label: "Small", price: 7.9 },
+      { label: "Regular", price: 12.9 },
+      { label: "Large", price: 14.9 },
+      { label: "Family", price: 20.0 },
+    ],
+  },
+  {
+    image: "/menu/salads/fresh-garden-salad.png",
+    title: "Fresh Garden Salad",
+    description: "Seasonal fresh vegetables with light dressing.",
+    category: "Salads",
+    variants: [
+      { label: "Small", price: 7.9 },
+      { label: "Regular", price: 12.9 },
+      { label: "Large", price: 14.9 },
+      { label: "Family", price: 20.0 },
+    ],
+  },
+  {
+    image: "",
+    title: "Lemongrass Chicken Salad",
+    description: "Lemongrass-marinated chicken with fresh herbs.",
+    category: "Salads",
+    variants: [
+      { label: "Small", price: 7.9 },
+      { label: "Regular", price: 12.9 },
+      { label: "Large", price: 14.9 },
+      { label: "Family", price: 20.0 },
+    ],
+  },
+  {
+    image: "",
+    title: "Chicken Avocado",
+    description: "Grilled chicken with avocado and greens.",
+    category: "Salads",
+    variants: [
+      { label: "Small", price: 7.9 },
+      { label: "Regular", price: 12.9 },
+      { label: "Large", price: 14.9 },
+      { label: "Family", price: 20.0 },
+    ],
+  },
+  {
+    image: "/menu/salads/chicken-pesto-pasta.png",
+    title: "Chicken Pesto Pasta",
+    description: "Pasta salad with chicken and basil pesto.",
+    category: "Salads",
+    variants: [
+      { label: "Small", price: 7.9 },
+      { label: "Regular", price: 12.9 },
+      { label: "Large", price: 14.9 },
+      { label: "Family", price: 20.0 },
+    ],
+  },
+  {
+    image: "/menu/salads/coleslaw.png",
+    title: "Coleslaw",
+    description: "Creamy coleslaw with fresh cabbage.",
+    category: "Salads",
+    variants: [
+      { label: "Small", price: 7.9 },
+      { label: "Regular", price: 12.9 },
+      { label: "Large", price: 14.9 },
+      { label: "Family", price: 20.0 },
+    ],
+  },
+  {
+    image: "/menu/salads/tabouli.png",
+    title: "Tabouli",
+    description: "Traditional parsley, tomato, and bulgur salad.",
+    category: "Salads",
+    variants: [
+      { label: "Small", price: 7.9 },
+      { label: "Regular", price: 12.9 },
+      { label: "Large", price: 14.9 },
+      { label: "Family", price: 20.0 },
+    ],
+  },
+  {
+    image: "",
+    title: "Potato Salad",
+    description: "Creamy potato salad with herbs.",
+    category: "Salads",
+    variants: [
+      { label: "Small", price: 7.9 },
+      { label: "Regular", price: 12.9 },
+      { label: "Large", price: 14.9 },
+      { label: "Family", price: 20.0 },
+    ],
+  },
+  {
+    image: "/menu/salads/fruit-salad.png",
+    title: "Fruit Salad",
+    description: "Seasonal fresh fruit mix.",
+    category: "Salads",
+    variants: [
+      { label: "Small", price: 7.9 },
+      { label: "Regular", price: 12.9 },
+      { label: "Large", price: 14.9 },
+      { label: "Family", price: 20.0 },
+    ],
+  },
+  {
+    image: "",
+    title: "Avocado Bean Salad",
+    description: "Mixed beans with avocado and herbs.",
+    category: "Salads",
+    variants: [
+      { label: "Small", price: 7.9 },
+      { label: "Regular", price: 12.9 },
+      { label: "Large", price: 14.9 },
+      { label: "Family", price: 20.0 },
+    ],
+  },
+  {
+    image: "/menu/salads/seafood-salad.png",
+    title: "Seafood Salad",
+    description: "Mixed seafood with crisp salad greens.",
+    category: "Salads",
+    variants: [
+      { label: "Small", price: 7.9 },
+      { label: "Regular", price: 12.9 },
+      { label: "Large", price: 14.9 },
+      { label: "Family", price: 20.0 },
+    ],
+  },
+  {
+    image: "/menu/salads/baked-veggies-salad-with-fetta.png",
+    title: "Baked Vegetable with Fetta Salad",
+    description: "Roasted vegetables with fetta cheese.",
+    category: "Salads",
+    variants: [
+      { label: "Small", price: 7.9 },
+      { label: "Regular", price: 12.9 },
+      { label: "Large", price: 14.9 },
+      { label: "Family", price: 20.0 },
+    ],
+  },
+  {
+    image: "/menu/salads/rocket-chickpea-and-pumpkin.png",
+    title: "Rocket Chickpea & Pumpkin Salad",
+    description: "Rocket leaves with chickpea and roasted pumpkin.",
+    category: "Salads",
+    variants: [
+      { label: "Small", price: 7.9 },
+      { label: "Regular", price: 12.9 },
+      { label: "Large", price: 14.9 },
+      { label: "Family", price: 20.0 },
+    ],
+  },
+  {
+    image: "",
+    title: "Mango Chicken Salad",
+    description: "Grilled chicken with fresh mango slices.",
+    category: "Salads",
+    variants: [
+      { label: "Small", price: 7.9 },
+      { label: "Regular", price: 12.9 },
+      { label: "Large", price: 14.9 },
+      { label: "Family", price: 20.0 },
+    ],
+  },
+  {
+    image: "",
+    title: "Snitzel Slaw",
+    description: "Crispy chicken schnitzel with fresh slaw.",
+    category: "Salads",
+    variants: [
+      { label: "Small", price: 7.9 },
+      { label: "Regular", price: 12.9 },
+      { label: "Large", price: 14.9 },
+      { label: "Family", price: 20.0 },
+    ],
+  },
+  {
+    image: "",
+    title: "Vegetarian Cous Cous",
+    description: "Cous cous with vegetables and herbs.",
+    category: "Salads",
+    variants: [
+      { label: "Small", price: 7.9 },
+      { label: "Regular", price: 12.9 },
+      { label: "Large", price: 14.9 },
+      { label: "Family", price: 20.0 },
+    ],
+  },
+];
