@@ -8,9 +8,9 @@ import Logo from "./ui/Logo";
 
 const navItems = [
   { name: "Home", path: "/" },
-  { name: "Menu", path: "#menu" },
-  { name: "Our Story", path: "#story" },
-  { name: "Location", path: "#contact" },
+  { name: "Menu", path: "/menu" },
+  { name: "Our Story", path: "/story" },
+  { name: "Location", path: "/contact" },
 ];
 
 export default function Navbar() {
@@ -27,15 +27,15 @@ export default function Navbar() {
 
   return (
     <header
-      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 py-4 ${
+      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 py-2 ${
         isScrolled
-          ? "bg-white/90 backdrop-blur-md border-b border-black/5 shadow-sm py-2"
-          : "bg-transparent"
+          ? "bg-white/95 backdrop-blur-md"
+          : "bg-gradient-to-b from-white/80 to-transparent py-3"
       }`}
     >
       <div className="container mx-auto px-4 md:px-8">
         <nav className="flex items-center justify-between">
-          <Logo variant="full" width={180} />
+          <Logo variant="full" width={110} />
 
           {/* Desktop Nav */}
           <div className="hidden md:flex items-center gap-8">
@@ -43,7 +43,7 @@ export default function Navbar() {
               <Link
                 key={item.name}
                 href={item.path}
-                className="relative font-medium text-sm text-text-main uppercase tracking-wider opacity-80 transition-opacity hover:opacity-100 hover:text-primary group"
+                className={`relative font-medium text-sm result text-transform uppercase tracking-wider transition-opacity hover:opacity-100 hover:text-primary group text-text-main opacity-90`}
               >
                 {item.name}
                 <span className="absolute bottom-[-4px] left-0 w-0 h-[2px] bg-primary transition-all duration-300 group-hover:w-full" />
@@ -66,15 +66,8 @@ export default function Navbar() {
             {mobileMenuOpen ? (
               <X size={28} className="text-primary" />
             ) : (
-              // Using text-text-main (blackish) for light mode visibility on scroll or hero
-              // If hero is dark, we might need white. But user asked for light mode and Unsplash images.
-              // Assuming generic visibility, we'll use conditional or just dark color if background is light.
-              // But on top of hero image (if dark), we need white.
-              // Let's use conditional logic based on scroll, OR inverted color.
-              <Menu
-                size={28}
-                className={`transition-colors ${isScrolled ? "text-black" : "text-white"}`}
-              />
+              // Icon: Always black because hero is now light
+              <Menu size={28} className="text-text-main transition-colors" />
             )}
           </button>
         </nav>

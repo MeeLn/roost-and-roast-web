@@ -5,7 +5,7 @@ import { MapPin, Phone, Mail } from "lucide-react";
 export default function Footer() {
   return (
     <footer
-      className="bg-black text-white/60 pt-16 pb-8 border-t border-white/5"
+      className="bg-surface text-text-main pt-16 pb-8 border-t border-border"
       id="contact"
     >
       <div className="container mx-auto px-4">
@@ -29,19 +29,19 @@ export default function Footer() {
                 Home
               </Link>
               <Link
-                href="#menu"
+                href="/menu"
                 className="hover:text-primary transition-colors"
               >
                 Our Favorites
               </Link>
               <Link
-                href="#story"
+                href="/story"
                 className="hover:text-primary transition-colors"
               >
                 Our Story
               </Link>
               <Link
-                href="#order"
+                href="/contact"
                 className="hover:text-primary transition-colors"
               >
                 Order Online
