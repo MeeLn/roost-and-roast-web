@@ -18,6 +18,7 @@ export default function FeaturedMenu() {
   const [itemWidth, setItemWidth] = useState(300); // Default fallback
   const [visibleItems, setVisibleItems] = useState(3);
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [isMobile, setIsMobile] = useState(false); // Fix: Track mobile state
 
   const GAP = 32; // Fixed gap in pixels (gap-8)
 
@@ -27,10 +28,15 @@ export default function FeaturedMenu() {
       if (!carouselWrapperRef.current) return;
 
       const containerWidth = carouselWrapperRef.current.offsetWidth;
-      const windowWidth = window.innerWidth;
+      // Safety check for window existence (though useEffect only runs on client)
+      const windowWidth =
+        typeof window !== "undefined" ? window.innerWidth : 1024;
 
       let newVisibleItems = 3;
       let calculatedWidth = 0;
+
+      // Update mobile state safely
+      setIsMobile(windowWidth < 768);
 
       if (windowWidth < 768) {
         // Mobile: Show 1 item, but make it 85% width to show a peek of the next one
@@ -69,11 +75,8 @@ export default function FeaturedMenu() {
   // 2. Logic boundaries
   const maxIndex = Math.max(0, popularItems.length - visibleItems);
 
-  // We add 'visibleItems - 1' to maxIndex on mobile if we want to scroll to the very last item
-  // effectively, but usually stopping when the last item is in view is better.
-  // However, for peeking capability (85% width), allowing scroll to the very end is usually desired:
-  const effectiveMaxIndex =
-    window.innerWidth < 768 ? popularItems.length - 1 : maxIndex;
+  // Fix: Use state variable instead of direct window access
+  const effectiveMaxIndex = isMobile ? popularItems.length - 1 : maxIndex;
 
   const scrollTo = (index: number) => {
     const target = Math.max(0, Math.min(index, effectiveMaxIndex));
@@ -89,7 +92,7 @@ export default function FeaturedMenu() {
         {/* Header */}
         <div className="text-center mb-12">
           <span className="text-primary font-bold tracking-wider uppercase text-sm mb-2 block">
-            Customers' Choice
+            Customers&apos; Choice
           </span>
           <h2 className="text-4xl md:text-6xl font-modern font-black text-text-main mb-2 uppercase tracking-tighter">
             Our{" "}

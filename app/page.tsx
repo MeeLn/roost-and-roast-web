@@ -6,6 +6,7 @@ import Testimonials from "@/components/home/Testimonials";
 import AboutStory from "@/components/about/AboutStory";
 import ContactSection from "@/components/contact/ContactSection";
 import Footer from "@/components/layout/Footer";
+import CTASection from "@/components/home/CTASection";
 
 export default function Home() {
   return (
@@ -16,6 +17,7 @@ export default function Home() {
       <FeaturedMenu />
       <AboutStory />
       <Testimonials />
+      <CTASection />
       <ContactSection />
       <Footer />
     </main>
