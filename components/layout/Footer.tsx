@@ -49,7 +49,7 @@ export default function Footer() {
           {/* Quick Links */}
           <div className="md:col-span-2 md:col-start-6">
             <h3 className="flex items-center gap-1 mb-6 uppercase tracking-wider">
-              <span className="font-modern text-xl text-white font-black">
+              <span className="font-modern text-xl text-white font-semibold">
                 EXPLO
               </span>
               <span className="font-artistic text-primary normal-case text-4xl -translate-x-1 -translate-y-1 inline-block -rotate-3">
@@ -90,7 +90,7 @@ export default function Footer() {
           {/* Contact Info */}
           <div className="md:col-span-3">
             <h3 className="flex items-center gap-1 mb-6 uppercase tracking-wider">
-              <span className="font-modern text-xl text-white font-black">
+              <span className="font-modern text-xl text-white font-semibold">
                 CONT
               </span>
               <span className="font-artistic text-primary normal-case text-4xl -translate-x-1 -translate-y-1 inline-block -rotate-3">
@@ -120,13 +120,13 @@ export default function Footer() {
           {/* Opening Hours */}
           <div className="md:col-span-3">
             <h3 className="flex items-center gap-1 mb-6 uppercase tracking-wider">
-              <span className="font-modern text-xl text-white font-black">
+              <span className="font-modern text-xl text-white font-semibold">
                 OPEN
               </span>
               <span className="font-artistic text-primary normal-case text-4xl -translate-x-1 -translate-y-1 inline-block -rotate-3">
                 ing
               </span>
-              <span className="font-modern text-xl text-white -translate-x-1 font-black ml-1">
+              <span className="font-modern text-xl text-white -translate-x-1 font-semibold ml-1">
                 HOURS
               </span>
             </h3>
