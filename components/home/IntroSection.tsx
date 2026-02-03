@@ -2,6 +2,7 @@
 
 import { Instagram } from "lucide-react";
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 const foodIcons = [
   { name: "Burger", emoji: "🍔" },
@@ -81,14 +82,20 @@ export default function IntroSection() {
       </div>
 
       {/* Footer Strip from Image */}
-      <div className="mt-16 text-center">
-        <div className="inline-flex items-center gap-4 py-3 px-8 rounded-full border border-primary/20 hover:border-primary/50 transition-colors group">
-          <Instagram className="text-secondary w-6 h-6 group-hover:scale-110 transition-transform" />
-          <span className="text-lg md:text-xl font-bold text-secondary uppercase tracking-widest font-modern">
-            FOLLOW US @ROOSTANDROAST
-          </span>
+      <Link
+        href="https://www.instagram.com/roostandroast/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <div className="mt-16 text-center">
+          <div className="inline-flex items-center gap-4 py-3 px-8 rounded-full border border-primary/20 hover:border-primary/50 transition-colors group">
+            <Instagram className="text-secondary w-6 h-6 group-hover:scale-110 transition-transform" />
+            <span className="text-lg md:text-xl font-bold text-secondary uppercase tracking-widest font-modern">
+              FOLLOW US @ROOSTANDROAST
+            </span>
+          </div>
         </div>
-      </div>
+      </Link>
     </section>
   );
 }

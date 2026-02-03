@@ -62,7 +62,6 @@ const testimonials = [
 ];
 
 export default function Testimonials() {
-  // Duplicate list 4 times to ensure no gaps during the infinite loop
   const marqueeList = [
     ...testimonials,
     ...testimonials,
@@ -112,10 +111,9 @@ export default function Testimonials() {
         {/* Moving Track */}
         <motion.div
           className="flex gap-8"
-          // Move from 0% to -50% -> Moves LEFT (Right to Left)
           animate={{ x: ["0%", "-50%"] }}
           transition={{
-            duration: 80, // Slower speed
+            duration: 80,
             ease: "linear",
             repeat: Infinity,
           }}

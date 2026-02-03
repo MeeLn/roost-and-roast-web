@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
@@ -15,6 +16,7 @@ const navItems = [
 ];
 
 export default function Navbar() {
+  const pathname = usePathname();
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -40,19 +42,28 @@ export default function Navbar() {
 
           {/* Desktop Nav */}
           <div className="hidden md:flex items-center gap-8">
-            {navItems.map((item) => (
-              <Link
-                key={item.name}
-                href={item.path}
-                className="relative font-medium text-sm result text-transform uppercase tracking-wider transition-all hover:text-primary group text-text-main"
-              >
-                {item.name}
-                <span className="absolute bottom-[-4px] left-0 w-0 h-[2px] bg-primary transition-all duration-300 group-hover:w-full" />
-              </Link>
-            ))}
+            {navItems.map((item) => {
+              const isActive = pathname === item.path;
+              return (
+                <Link
+                  key={item.name}
+                  href={item.path}
+                  className={`relative font-bold text-sm uppercase tracking-wider transition-all hover:text-primary focus:text-primary focus:outline-none group ${
+                    isActive ? "text-primary" : "text-text-main"
+                  }`}
+                >
+                  {item.name}
+                  <span
+                    className={`absolute bottom-[-4px] left-0 h-[2px] bg-primary transition-all duration-300 group-hover:w-full ${
+                      isActive ? "w-full" : "w-0"
+                    }`}
+                  />
+                </Link>
+              );
+            })}
             <Link
               href="#order"
-              className="bg-primary text-white px-6 py-2.5 font-semibold rounded-full uppercase tracking-wider transition-all hover:bg-primary-light hover:-translate-y-0.5 shadow-md"
+              className="bg-primary text-white px-6 py-2.5 font-semibold rounded-[18px] uppercase tracking-wider transition-all hover:bg-primary-light hover:-translate-y-0.5 shadow-md"
             >
               Order Now
             </Link>
@@ -83,22 +94,27 @@ export default function Navbar() {
             transition={{ type: "tween", duration: 0.3 }}
             className="absolute top-full left-0 mt-4 w-full bg-white/95 backdrop-blur-md rounded-3xl shadow-xl flex flex-col justify-center items-center gap-6 py-8 border border-white/20 origin-top"
           >
-            {navItems.map((item, i) => (
-              <motion.div
-                key={item.name}
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.1 + i * 0.05 }}
-              >
-                <Link
-                  href={item.path}
-                  className="text-xl font-serif text-text-main"
-                  onClick={() => setMobileMenuOpen(false)}
+            {navItems.map((item, i) => {
+              const isActive = pathname === item.path;
+              return (
+                <motion.div
+                  key={item.name}
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.1 + i * 0.05 }}
                 >
-                  {item.name}
-                </Link>
-              </motion.div>
-            ))}
+                  <Link
+                    href={item.path}
+                    className={`text-xl font-bold font-serif hover:text-primary focus:text-primary focus:outline-none transition-colors ${
+                      isActive ? "text-primary" : "text-text-main"
+                    }`}
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    {item.name}
+                  </Link>
+                </motion.div>
+              );
+            })}
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}

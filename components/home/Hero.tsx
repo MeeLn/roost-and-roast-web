@@ -33,7 +33,7 @@ export default function Hero() {
             The Charcoal Specialists
           </span>
           <h1 className="relative">
-            <span className="block text-6xl md:text-8xl lg:text-[10rem] font-modern font-black text-white uppercase leading-[0.8] tracking-tighter opacity-10 blur-[1px] absolute -top-10 left-1/2 -translate-x-1/2 w-full select-none">
+            <span className="block text-6xl md:text-8xl lg:text-[11rem] font-modern font-black text-white uppercase leading-[0.8] tracking-tighter opacity-20 blur-[2px] absolute -top-10 left-1/2 translate-y-10 -translate-x-1/2 w-full select-none">
               CHARCOAL
             </span>
             <span className="block text-4xl md:text-6xl lg:text-7xl font-modern font-black text-white uppercase leading-none tracking-tighter relative z-10">
@@ -63,13 +63,13 @@ export default function Hero() {
         >
           <Link
             href="/menu"
-            className="bg-primary text-white px-10 py-4 text-lg font-modern font-black rounded-full uppercase tracking-widest transition-all hover:bg-primary-light hover:-translate-y-1 hover:shadow-xl hover:shadow-primary/20"
+            className="bg-primary text-white px-10 py-4 text-lg font-modern font-black rounded-3xl uppercase tracking-widest transition-all hover:bg-primary-light hover:-translate-y-1 hover:shadow-xl hover:shadow-primary/20"
           >
             View Menu
           </Link>
           <Link
             href="/contact"
-            className="bg-white text-text-main px-10 py-4 text-lg font-modern font-black rounded-full uppercase tracking-widest transition-all hover:bg-gray-100 hover:-translate-y-1 hover:shadow-xl shadow-md"
+            className="bg-white text-text-main px-10 py-4 text-lg font-modern font-black rounded-3xl uppercase tracking-widest transition-all hover:bg-gray-100 hover:-translate-y-1 hover:shadow-xl hover:bg-text-main hover:text-white shadow-md"
           >
             Order Online
           </Link>
