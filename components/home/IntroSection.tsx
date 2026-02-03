@@ -83,7 +83,7 @@ export default function IntroSection() {
 
       {/* Footer Strip from Image */}
       <Link
-        href="https://www.instagram.com/roostandroast/"
+        href="https://www.instagram.com/roost_roast/"
         target="_blank"
         rel="noopener noreferrer"
       >
