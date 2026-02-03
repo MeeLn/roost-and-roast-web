@@ -29,7 +29,7 @@ export default function IntroSection() {
       <div className="container mx-auto px-4 text-center mb-16 px-6">
         <h2 className="text-4xl md:text-5xl lg:text-[5rem] font-modern font-black text-secondary uppercase tracking-tighter leading-none mb-4">
           WELCOME TO <br />
-          <span className="font-artistic text-primary font-bold normal-case text-6xl md:text-8xl lg:text-[9rem] inline-block rotate-[-1deg] my-2 filter drop-shadow-[0_2px_2px_rgba(0,0,0,0.05)]">
+          <span className="font-artistic text-primary font-bold normal-case text-6xl md:text-8xl lg:text-[9rem] inline-block rotate-[-1deg] my-2 drop-shadow-[0_5px_5px_rgba(0,0,0,0.3)]">
             Roost & Roast
           </span>
         </h2>
