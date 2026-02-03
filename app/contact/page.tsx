@@ -1,6 +1,7 @@
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
-import Contact from "@/components/Contact";
+import Navbar from "@/components/layout/Navbar";
+import Footer from "@/components/layout/Footer";
+import ContactHero from "@/components/contact/ContactHero";
+import ContactSection from "@/components/contact/ContactSection";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -12,18 +13,8 @@ export default function ContactPage() {
   return (
     <main className="min-h-screen pt-24">
       <Navbar />
-
-      <div className="container mx-auto px-4 text-center mb-12">
-        <h1 className="text-5xl md:text-6xl font-serif font-bold text-primary mb-4">
-          Visit Us
-        </h1>
-        <p className="text-xl text-text-muted max-w-2xl mx-auto">
-          Order online, book a table, or drop by for a takeaway.
-        </p>
-      </div>
-
-      <Contact />
-
+      <ContactHero />
+      <ContactSection />
       <Footer />
     </main>
   );

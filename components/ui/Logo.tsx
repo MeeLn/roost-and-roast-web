@@ -12,7 +12,7 @@ export default function Logo({
   variant = "full",
   className,
   width = 150,
-  height = 50,
+  height = 80,
 }: LogoProps) {
   const src =
     variant === "full"
@@ -30,7 +30,7 @@ export default function Logo({
         alt="Roost and Roast Logo"
         width={width}
         height={height}
-        className="w-auto h-auto object-contain"
+        className={`w-68 h-22 object-contain`}
         priority
       />
     </Link>
