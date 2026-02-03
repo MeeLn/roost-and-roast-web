@@ -15,9 +15,7 @@ export default function Logo({
   height = 80,
 }: LogoProps) {
   const src =
-    variant === "full"
-      ? "/assets/logos/logo.svg"
-      : "/assets/logos/logo-rounded.png";
+    variant === "full" ? "/logos/logo.svg" : "/logos/logo-rounded.png";
 
   return (
     <Link
