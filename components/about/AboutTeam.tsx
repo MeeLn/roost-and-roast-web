@@ -29,9 +29,9 @@ const team = [
 
 export default function AboutTeam() {
   return (
-    <section className="py-24 bg-white">
+    <section className="py-24 bg-white overflow-hidden">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
+        <div className="text-center mb-24">
           <h2 className="text-4xl md:text-5xl font-modern font-black text-secondary uppercase tracking-tighter mb-4">
             Meet the{" "}
             <span className="text-primary italic font-artistic normal-case text-6xl">
@@ -43,19 +43,22 @@ export default function AboutTeam() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-60 md:gap-y-72 pt-40 md:pt-60">
+        {/* Increased pt-32 to accommodate the image moving higher up */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-48 pt-32">
           {team.map((member, index) => (
             <motion.div
               key={member.name}
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.2, delay: index * 0.1 }}
-              className="relative flex flex-col bg-background rounded-3xl border border-border shadow-sm hover:shadow-xl hover:border-primary/50 transition-all group mx-2 md:mx-0 bg-white"
+              transition={{ duration: 0.4, delay: index * 0.1 }}
+              className="relative flex flex-col group mx-2 md:mx-0"
             >
-              <div className="absolute -top-40 md:-top-60 left-1/2 -translate-x-1/2 w-48 h-48 md:w-64 md:h-64 z-10 translate-y-6 group-hover:translate-y-0 text-center transition-transform duration-500 ease-out">
+              {/* --- 1. FLOATING IMAGE SECTION --- */}
+              <div className="absolute top-[-10rem] left-1/2 -translate-x-1/2 w-54 h-54 z-20 transition-transform duration-500 ease-out group-hover:-translate-y-6">
+                {/* Rotating Dashed Ring */}
                 <motion.div
-                  className="absolute -inset-4 rounded-full border-2 border-dashed border-primary/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                  className="absolute -inset-3 rounded-full border-2 border-dashed border-primary opacity-0 group-hover:opacity-100 transition-opacity duration-500"
                   animate={{ rotate: 360 }}
                   transition={{
                     repeat: Infinity,
@@ -63,27 +66,39 @@ export default function AboutTeam() {
                     ease: "linear",
                   }}
                 />
-                <div className="relative w-full h-full rounded-full border-4 border-white shadow-lg overflow-hidden bg-white transition-transform duration-300 group-hover:scale-105">
+
+                {/* Image Container */}
+                <div className="relative w-full h-full rounded-full border border-gray-200/5 shadow-xl overflow-hidden bg-white transition-transform duration-500 group-hover:scale-105">
                   <Image
                     src={member.image}
                     alt={member.name}
                     fill
-                    className="object-cover transition-transform duration-500 group-hover:scale-110"
+                    className="object-cover transition-transform duration-700 group-hover:scale-110"
                   />
                 </div>
               </div>
 
-              <div className="pt-24 pb-8 px-6 flex flex-col items-center flex-grow text-center gap-4 mt-8 md:mt-0">
-                <div className="flex flex-col items-center gap-2">
-                  <h3 className="font-modern text-2xl font-black text-secondary uppercase tracking-tight">
+              {/* --- 2. CARD BODY --- */}
+              <div className="relative bg-white border border-gray-100 rounded-[18px] shadow-sm group-hover:shadow-2xl hover:border-primary/20 transition-all duration-500 overflow-hidden flex flex-col min-h-[280px]">
+                <div
+                  className="absolute bottom-0 left-0 w-full h-[62%] bg-primary z-0 translate-y-[101%] group-hover:translate-y-0 transition-transform duration-500 ease-out"
+                  style={{
+                    clipPath: "polygon(0 20%, 100% 0, 100% 100%, 0% 100%)",
+                  }}
+                />
+
+                <div className="relative z-10 flex flex-col items-center text-center flex-grow pt-18 px-6">
+                  <h3 className="font-modern text-2xl md:text-3xl font-black text-secondary uppercase tracking-tight mb-6 transition-colors duration-300">
                     {member.name}
                   </h3>
-                  <p className="font-artistic text-xl text-primary -rotate-2">
+                  <p className="font-artistic text-2xl text-primary -rotate-2 transition-colors duration-300 group-hover:text-white">
                     {member.role}
                   </p>
-                  <p className="font-serif italic text-base text-text-muted leading-relaxed line-clamp-3 mt-2">
-                    "{member.bio}"
-                  </p>
+                  <div className="mt-4">
+                    <p className="font-serif italic text-base text-text-muted leading-relaxed transition-colors duration-300 group-hover:text-white/90">
+                      "{member.bio}"
+                    </p>
+                  </div>
                 </div>
               </div>
             </motion.div>

@@ -47,7 +47,6 @@ export default function MenuFilters() {
         return;
       }
 
-      // 2. Desktop Sticky Logic
       const navOffset = 100;
       const buffer = 30;
       const scrollY = window.scrollY;
@@ -60,7 +59,6 @@ export default function MenuFilters() {
       }
     };
 
-    // Add resize listener to handle orientation changes or window resizing
     const handleResize = () => {
       handleScroll();
     };
@@ -101,7 +99,6 @@ export default function MenuFilters() {
   return (
     <section ref={sectionRef} className="relative px-4 pb-20 mt-10 z-30">
       {/* Filter Bar */}
-      {/* Note: 'sticky' class is conditional in the logic below, effectively handled by motion.div */}
       <motion.div
         layout
         transition={{
@@ -164,7 +161,6 @@ export default function MenuFilters() {
                     {cat}
                   </span>
                 )}
-                {/* Mobile-only text label when not sticky (since we hid the one above on mobile to save space, or keep it if you prefer) */}
                 {!isSticky && (
                   <span className="text-sm font-modern font-bold uppercase tracking-wider md:hidden">
                     {cat}
@@ -180,8 +176,8 @@ export default function MenuFilters() {
           layout
           className={`relative transition-all duration-500 ${
             isSticky
-              ? "w-12 md:w-80 flex-shrink-0 ml-auto group" // Compact on sticky
-              : "w-full md:w-[800px] mx-auto" // Full width on non-sticky
+              ? "w-12 md:w-80 flex-shrink-0 ml-auto group"
+              : "w-full md:w-[800px] mx-auto"
           }`}
         >
           <Search
@@ -199,13 +195,9 @@ export default function MenuFilters() {
             onChange={(e) => setSearchTerm(e.target.value)}
             className={`w-full py-3 rounded-[20px] border border-border focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all shadow-sm ${
               isSticky
-                ? "pl-10 pr-4 opacity-0 w-0 md:w-full md:opacity-100 pointer-events-none md:pointer-events-auto" // Hide input text on desktop sticky small mode if needed, or keep standard
+                ? "pl-10 pr-4 opacity-0 w-0 md:w-full md:opacity-100 pointer-events-none md:pointer-events-auto"
                 : "pl-10 pr-4"
-            } ${
-              // Force input to be visible and standard on mobile since isSticky is always false there
-              "md:block"
-            }`}
-            // Fix for search bar input visibility in sticky mode
+            } md:block`}
             style={
               isSticky
                 ? { opacity: 1, width: "100%", paddingLeft: "2.5rem" }
@@ -215,7 +207,7 @@ export default function MenuFilters() {
         </motion.div>
       </motion.div>
 
-      {/* Grid Results Grouped by Category */}
+      {/* Grid Results */}
       <div className="container mx-auto px-0 md:px-4 min-h-[50vh]">
         <AnimatePresence mode="popLayout">
           {menuGroups.map((group) => (
@@ -225,14 +217,15 @@ export default function MenuFilters() {
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  className="text-4xl md:text-7xl font-artistic text-secondary mb-12 inline-block relative text-center mt-8 px-2"
+                  className="text-4xl md:text-7xl font-artistic text-secondary mb-12 md:mb-28 inline-block relative text-center mt-0 md:mt-8 px-2"
                 >
                   <span className="relative z-10">{group.category}</span>
                   <span className="absolute bottom-2 left-0 w-full h-2 md:h-3 bg-primary/20 -z-0 -rotate-1 rounded-full"></span>
                 </motion.h2>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-60 md:gap-y-72 pt-40 md:pt-60">
+              {/* Reduced gap-y for tighter layout */}
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-42 md:gap-y-60 pt-24 md:pt-32">
                 {group.items.map((item) => (
                   <motion.div
                     layout
@@ -242,10 +235,23 @@ export default function MenuFilters() {
                     viewport={{ once: true, margin: "-50px" }}
                     exit={{ opacity: 0, scale: 0.9 }}
                     transition={{ duration: 0.2 }}
-                    className="relative flex flex-col bg-background rounded-3xl border border-border shadow-sm hover:shadow-xl hover:border-primary/50 transition-all group mx-2 md:mx-0"
+                    className="relative flex flex-col group mx-2 md:mx-0 mt-8 md:mt-0"
                   >
-                    <div className="absolute -top-40 md:-top-60 left-1/2 -translate-x-1/2 w-48 h-48 md:w-64 md:h-64 z-10 translate-y-6 group-hover:translate-y-0 transition-transform duration-500 ease-out">
-                      <div className="relative w-full h-full rounded-full border-4 border-background shadow-lg overflow-hidden bg-background transition-transform duration-300 group-hover:scale-105">
+                    {/* IMAGE SECTION */}
+                    <div className="absolute -top-40 left-1/2 -translate-x-1/2 w-54 h-54 z-20 transition-transform duration-500 ease-out group-hover:-translate-y-6">
+                      {/* THE DASHED RING */}
+                      <motion.div
+                        animate={{ rotate: 360 }}
+                        transition={{
+                          duration: 8,
+                          repeat: Infinity,
+                          ease: "linear",
+                        }}
+                        className="absolute -inset-2 rounded-full border-2 border-dashed border-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-0"
+                      />
+
+                      {/* The Image Circle */}
+                      <div className="relative w-full h-full rounded-full border border-gray-100/5 shadow-lg overflow-hidden bg-background z-10">
                         <Image
                           src={PLACEHOLDER_IMAGE}
                           alt={item.title}
@@ -255,54 +261,52 @@ export default function MenuFilters() {
                       </div>
                     </div>
 
-                    <div className="pt-16 pb-8 px-6 flex flex-col items-center flex-grow text-center gap-4">
-                      <div className="flex flex-col items-center gap-2">
-                        <h3 className="font-modern text-xl font-black text-secondary uppercase tracking-tight">
-                          {item.title}
-                        </h3>
-                        <p className="font-serif italic text-base text-text-muted leading-relaxed line-clamp-3">
-                          {item.description}
-                        </p>
+                    {/* ACTUAL CARD CONTENT WRAPPER */}
+                    <div className="relative z-10 bg-background rounded-3xl border border-border shadow-sm hover:shadow-xl hover:border-primary/50 transition-all overflow-hidden flex flex-col flex-grow pt-20">
+                      <div className="px-6 pb-4 flex flex-col items-center flex-grow text-center gap-2">
+                        <div className="flex flex-col items-center gap-1">
+                          <h3 className="font-modern text-xl font-black text-secondary uppercase tracking-tight leading-tight">
+                            {item.title}
+                          </h3>
+                          <p className="font-serif italic text-sm text-text-muted leading-relaxed line-clamp-2">
+                            {item.description}
+                          </p>
+                        </div>
                       </div>
 
-                      <div className="mt-auto w-full flex flex-col items-center justify-center pt-4">
-                        {item.variants ? (
-                          <div className="flex flex-wrap justify-center gap-4 w-full">
-                            {item.variants.map((variant) => (
-                              <div
-                                key={variant.label}
-                                className="flex flex-col items-center gap-1 p-2 rounded-lg bg-secondary/5 border border-border/50 min-w-[80px] group/variant relative overflow-hidden transition-all duration-300 hover:border-primary"
-                              >
-                                {/* Variant Fill Effect */}
-                                <div className="absolute inset-0 bg-primary origin-left scale-x-0 group-hover/variant:scale-x-100 transition-transform duration-500 ease-out" />
+                      {/* Flush Bottom Price/Variant Section */}
+                      <div className="mt-auto w-full relative">
+                        {/* Red Overlay */}
+                        <div className="absolute inset-0 bg-primary origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500 ease-out z-0" />
 
-                                <span className="relative z-10 font-artistic text-2xl text-primary -rotate-3 group-hover/variant:text-white transition-colors duration-300">
-                                  {variant.label}
-                                </span>
-                                <span className="relative z-10 font-modern text-xl font-bold text-primary group-hover/variant:text-white transition-colors duration-300">
-                                  ${variant.price.toFixed(0)}
-                                </span>
-                              </div>
-                            ))}
-                          </div>
-                        ) : (
-                          <div className="w-full relative mt-4">
-                            {/* Full Width Loading Bar Container */}
-                            <div className="relative w-full overflow-hidden rounded-full py-2 bg-secondary/5 group-hover:bg-transparent transition-colors duration-500">
-                              {/* Red Filling Overlay */}
-                              <div className="absolute inset-0 bg-primary origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500 ease-out" />
-
-                              <div className="relative z-10 flex flex-col items-center justify-center">
-                                <span className="font-artistic text-3xl text-primary -rotate-6 lowercase mb-0 transition-colors duration-500 group-hover:text-white">
-                                  price
-                                </span>
-                                <span className="font-modern text-3xl font-bold text-primary transition-colors duration-500 group-hover:text-white">
-                                  ${item.price?.toFixed(2) || "12.00"}
-                                </span>
-                              </div>
+                        <div className="relative z-10 py-3 px-4 flex flex-col items-center justify-center min-h-[70px]">
+                          {item.variants ? (
+                            <div className="flex flex-wrap justify-center gap-2 w-full">
+                              {item.variants.map((variant) => (
+                                <div
+                                  key={variant.label}
+                                  className="flex flex-col items-center justify-center px-6 py-1 rounded-lg min-w-[60px] transition-all duration-300"
+                                >
+                                  <span className="font-artistic text-lg text-primary -rotate-3 group-hover:text-white transition-colors duration-300">
+                                    {variant.label}
+                                  </span>
+                                  <span className="font-modern text-sm font-bold text-primary group-hover:text-white transition-colors duration-300">
+                                    ${variant.price.toFixed(0)}
+                                  </span>
+                                </div>
+                              ))}
                             </div>
-                          </div>
-                        )}
+                          ) : (
+                            <div className="flex items-baseline gap-2">
+                              <span className="font-artistic text-2xl text-primary -rotate-6 lowercase mb-0 transition-colors duration-500 group-hover:text-white">
+                                only
+                              </span>
+                              <span className="font-modern text-2xl font-bold text-primary transition-colors duration-500 group-hover:text-white">
+                                ${item.price?.toFixed(2) || "12.00"}
+                              </span>
+                            </div>
+                          )}
+                        </div>
                       </div>
                     </div>
                   </motion.div>
