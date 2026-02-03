@@ -28,6 +28,163 @@ const CATEGORY_EMOJIS: Record<string, string> = {
   default: "🍴",
 };
 
+const MenuCard = ({ item }: { item: (typeof menus)[0] }) => {
+  const cardRef = useRef<HTMLDivElement>(null);
+  const [isMobileActive, setIsMobileActive] = useState(false);
+
+  useEffect(() => {
+    if (window.innerWidth >= 768) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsMobileActive(entry.isIntersecting);
+      },
+      {
+        // This defines the "center" zone.
+        // -40% from top and -40% from bottom means the element
+        // is considered "intersecting" only when it is in the middle 20% of the screen.
+        rootMargin: "-40% 0px -40% 0px",
+        threshold: 0,
+      },
+    );
+
+    if (cardRef.current) {
+      observer.observe(cardRef.current);
+    }
+
+    return () => {
+      if (cardRef.current) observer.unobserve(cardRef.current);
+    };
+  }, []);
+
+  // Helper string to combine hover (desktop) and active (mobile) states
+  const activeClass = (base: string, active: string) =>
+    `${base} ${isMobileActive ? active : ""}`;
+
+  return (
+    <motion.div
+      layout
+      ref={cardRef}
+      initial={{ opacity: 0, scale: 0.9 }}
+      whileInView={{ opacity: 1, scale: 1 }}
+      viewport={{ once: true, margin: "-50px" }}
+      exit={{ opacity: 0, scale: 0.9 }}
+      transition={{ duration: 0.2 }}
+      className="relative flex flex-col group mx-2 md:mx-0 mt-8 md:mt-0"
+    >
+      {/* IMAGE SECTION */}
+      <div
+        className={activeClass(
+          "absolute -top-40 left-1/2 -translate-x-1/2 w-54 h-54 z-20 transition-transform duration-500 ease-out group-hover:-translate-y-6",
+          "-translate-y-6",
+        )}
+      >
+        {/* THE DASHED RING */}
+        <motion.div
+          animate={{ rotate: 360 }}
+          transition={{
+            duration: 8,
+            repeat: Infinity,
+            ease: "linear",
+          }}
+          className={activeClass(
+            "absolute -inset-2 rounded-full border-2 border-dashed border-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-0",
+            "opacity-100",
+          )}
+        />
+
+        {/* The Image Circle */}
+        <div className="relative w-full h-full rounded-full border border-gray-100/5 shadow-lg overflow-hidden bg-background z-10">
+          <Image
+            src={PLACEHOLDER_IMAGE}
+            alt={item.title}
+            fill
+            className={activeClass(
+              "object-cover transition-transform duration-500 group-hover:scale-110",
+              "scale-110",
+            )}
+          />
+        </div>
+      </div>
+
+      {/* ACTUAL CARD CONTENT WRAPPER */}
+      <div className="relative z-10 bg-background rounded-3xl border border-border shadow-sm hover:shadow-xl hover:border-primary/50 transition-all overflow-hidden flex flex-col flex-grow pt-20">
+        <div className="px-6 pb-4 flex flex-col items-center flex-grow text-center gap-2">
+          <div className="flex flex-col items-center gap-1">
+            <h3 className="font-modern text-xl font-black text-secondary uppercase tracking-tight leading-tight">
+              {item.title}
+            </h3>
+            <p className="font-serif italic text-sm text-text-muted leading-relaxed line-clamp-2">
+              {item.description}
+            </p>
+          </div>
+        </div>
+
+        {/* Flush Bottom Price/Variant Section */}
+        <div className="mt-auto w-full relative">
+          {/* Red Overlay */}
+          <div
+            className={activeClass(
+              "absolute inset-0 bg-primary origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500 ease-out z-0",
+              "scale-x-100",
+            )}
+          />
+
+          <div className="relative z-10 py-3 px-4 flex flex-col items-center justify-center min-h-[70px]">
+            {item.variants ? (
+              <div className="flex flex-wrap justify-center gap-2 w-full">
+                {item.variants.map((variant) => (
+                  <div
+                    key={variant.label}
+                    className="flex flex-col items-center justify-center px-6 py-1 rounded-lg min-w-[60px] transition-all duration-300"
+                  >
+                    <span
+                      className={activeClass(
+                        "font-artistic text-lg text-primary -rotate-3 group-hover:text-white transition-colors duration-300",
+                        "text-white",
+                      )}
+                    >
+                      {variant.label}
+                    </span>
+                    <span
+                      className={activeClass(
+                        "font-modern text-sm font-bold text-primary group-hover:text-white transition-colors duration-300",
+                        "text-white",
+                      )}
+                    >
+                      ${variant.price.toFixed(0)}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            ) : (
+              <div className="flex items-baseline gap-2">
+                <span
+                  className={activeClass(
+                    "font-artistic text-2xl text-primary -rotate-6 lowercase mb-0 transition-colors duration-500 group-hover:text-white",
+                    "text-white",
+                  )}
+                >
+                  only
+                </span>
+                <span
+                  className={activeClass(
+                    "font-modern text-2xl font-bold text-primary transition-colors duration-500 group-hover:text-white",
+                    "text-white",
+                  )}
+                >
+                  ${item.price?.toFixed(2) || "12.00"}
+                </span>
+              </div>
+            )}
+          </div>
+        </div>
+      </div>
+    </motion.div>
+  );
+};
+
+// --- Main Component ---
 export default function MenuFilters() {
   const [activeCategory, setActiveCategory] = useState("All");
   const [searchTerm, setSearchTerm] = useState("");
@@ -217,7 +374,7 @@ export default function MenuFilters() {
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  className="text-4xl md:text-7xl font-artistic text-secondary mb-12 md:mb-28 inline-block relative text-center mt-0 md:mt-8 px-2"
+                  className="text-4xl md:text-7xl font-artistic text-secondary mb-22 md:mb-28 inline-block relative text-center mt-0 md:mt-8 px-2"
                 >
                   <span className="relative z-10">{group.category}</span>
                   <span className="absolute bottom-2 left-0 w-full h-2 md:h-3 bg-primary/20 -z-0 -rotate-1 rounded-full"></span>
@@ -225,91 +382,9 @@ export default function MenuFilters() {
               </div>
 
               {/* Reduced gap-y for tighter layout */}
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-42 md:gap-y-60 pt-24 md:pt-32">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-46 md:gap-y-60 pt-24 md:pt-32">
                 {group.items.map((item) => (
-                  <motion.div
-                    layout
-                    key={item.title}
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    viewport={{ once: true, margin: "-50px" }}
-                    exit={{ opacity: 0, scale: 0.9 }}
-                    transition={{ duration: 0.2 }}
-                    className="relative flex flex-col group mx-2 md:mx-0 mt-8 md:mt-0"
-                  >
-                    {/* IMAGE SECTION */}
-                    <div className="absolute -top-40 left-1/2 -translate-x-1/2 w-54 h-54 z-20 transition-transform duration-500 ease-out group-hover:-translate-y-6">
-                      {/* THE DASHED RING */}
-                      <motion.div
-                        animate={{ rotate: 360 }}
-                        transition={{
-                          duration: 8,
-                          repeat: Infinity,
-                          ease: "linear",
-                        }}
-                        className="absolute -inset-2 rounded-full border-2 border-dashed border-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-0"
-                      />
-
-                      {/* The Image Circle */}
-                      <div className="relative w-full h-full rounded-full border border-gray-100/5 shadow-lg overflow-hidden bg-background z-10">
-                        <Image
-                          src={PLACEHOLDER_IMAGE}
-                          alt={item.title}
-                          fill
-                          className="object-cover transition-transform duration-500 group-hover:scale-110"
-                        />
-                      </div>
-                    </div>
-
-                    {/* ACTUAL CARD CONTENT WRAPPER */}
-                    <div className="relative z-10 bg-background rounded-3xl border border-border shadow-sm hover:shadow-xl hover:border-primary/50 transition-all overflow-hidden flex flex-col flex-grow pt-20">
-                      <div className="px-6 pb-4 flex flex-col items-center flex-grow text-center gap-2">
-                        <div className="flex flex-col items-center gap-1">
-                          <h3 className="font-modern text-xl font-black text-secondary uppercase tracking-tight leading-tight">
-                            {item.title}
-                          </h3>
-                          <p className="font-serif italic text-sm text-text-muted leading-relaxed line-clamp-2">
-                            {item.description}
-                          </p>
-                        </div>
-                      </div>
-
-                      {/* Flush Bottom Price/Variant Section */}
-                      <div className="mt-auto w-full relative">
-                        {/* Red Overlay */}
-                        <div className="absolute inset-0 bg-primary origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500 ease-out z-0" />
-
-                        <div className="relative z-10 py-3 px-4 flex flex-col items-center justify-center min-h-[70px]">
-                          {item.variants ? (
-                            <div className="flex flex-wrap justify-center gap-2 w-full">
-                              {item.variants.map((variant) => (
-                                <div
-                                  key={variant.label}
-                                  className="flex flex-col items-center justify-center px-6 py-1 rounded-lg min-w-[60px] transition-all duration-300"
-                                >
-                                  <span className="font-artistic text-lg text-primary -rotate-3 group-hover:text-white transition-colors duration-300">
-                                    {variant.label}
-                                  </span>
-                                  <span className="font-modern text-sm font-bold text-primary group-hover:text-white transition-colors duration-300">
-                                    ${variant.price.toFixed(0)}
-                                  </span>
-                                </div>
-                              ))}
-                            </div>
-                          ) : (
-                            <div className="flex items-baseline gap-2">
-                              <span className="font-artistic text-2xl text-primary -rotate-6 lowercase mb-0 transition-colors duration-500 group-hover:text-white">
-                                only
-                              </span>
-                              <span className="font-modern text-2xl font-bold text-primary transition-colors duration-500 group-hover:text-white">
-                                ${item.price?.toFixed(2) || "12.00"}
-                              </span>
-                            </div>
-                          )}
-                        </div>
-                      </div>
-                    </div>
-                  </motion.div>
+                  <MenuCard key={item.title} item={item} />
                 ))}
               </div>
             </div>
