@@ -102,7 +102,7 @@ export default function MenuFilters() {
               <motion.h2
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
-                className="text-3xl font-serif font-bold text-primary mb-8 border-b border-border/50 pb-2"
+                className="text-3xl font-modern font-black text-primary mb-8 border-b border-border/50 pb-2 uppercase tracking-tighter"
               >
                 {group.category}
               </motion.h2>
@@ -132,7 +132,7 @@ export default function MenuFilters() {
                     </div>
                     <div className="p-6 flex flex-col flex-grow gap-3">
                       <div className="flex justify-between items-start">
-                        <h3 className="font-serif text-lg font-bold text-text-main line-clamp-2">
+                        <h3 className="font-modern text-lg font-black text-secondary uppercase tracking-tight line-clamp-2">
                           {item.title}
                         </h3>
                         <span className="font-bold text-primary shrink-0 ml-2">

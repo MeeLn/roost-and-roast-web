@@ -3,6 +3,7 @@ import Footer from "@/components/layout/Footer";
 import AboutStory from "@/components/about/AboutStory";
 import AboutHero from "@/components/about/AboutHero";
 import AboutCommitment from "@/components/about/AboutCommitment";
+import AboutTeam from "@/components/about/AboutTeam";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -17,6 +18,7 @@ export default function AboutPage() {
       <Navbar />
       <AboutHero />
       <AboutStory />
+      <AboutTeam />
       <AboutCommitment />
       <Footer />
     </main>

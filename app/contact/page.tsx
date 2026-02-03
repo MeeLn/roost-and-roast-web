@@ -2,6 +2,7 @@ import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import ContactHero from "@/components/contact/ContactHero";
 import ContactSection from "@/components/contact/ContactSection";
+import ContactLocation from "@/components/contact/ContactLocation";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -14,6 +15,7 @@ export default function ContactPage() {
     <main className="min-h-screen pt-24">
       <Navbar />
       <ContactHero />
+      <ContactLocation />
       <ContactSection />
       <Footer />
     </main>
