@@ -180,7 +180,7 @@ export default function ContactSection() {
         >
           <h2 className="text-4xl md:text-6xl font-modern font-black text-primary mb-12 uppercase tracking-tighter">
             Reserve a Table or Order <br />
-            <span className="font-artistic normal-case text-5xl md:text-8xl inline-block rotate-[-2deg] mt-2">
+            <span className="font-artistic text-primary normal-case text-5xl md:text-8xl inline-block rotate-[-2deg] mt-2">
               Online
             </span>
           </h2>

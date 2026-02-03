@@ -109,7 +109,7 @@ export default function FeaturedMenu() {
         {/* Carousel Outer Wrapper */}
         <div className="relative group/carousel max-w-[1400px] mx-auto">
           {/* DESKTOP NAV ARROWS */}
-          <div className="hidden md:block absolute top-1/2 -left-6 lg:-left-12 -translate-y-1/2 z-30">
+          <div className="hidden md:block absolute top-1/2 -left-6 lg:-left-18 -translate-y-1/2 z-30">
             <button
               onClick={slideLeft}
               disabled={currentIndex === 0}
@@ -124,7 +124,7 @@ export default function FeaturedMenu() {
             </button>
           </div>
 
-          <div className="hidden md:block absolute top-1/2 -right-6 lg:-right-12 -translate-y-1/2 z-30">
+          <div className="hidden md:block absolute top-1/2 -right-6 lg:-right-18 -translate-y-1/2 z-30">
             <button
               onClick={slideRight}
               disabled={currentIndex >= effectiveMaxIndex}
