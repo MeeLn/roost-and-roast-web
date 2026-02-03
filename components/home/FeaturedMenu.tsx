@@ -11,42 +11,83 @@ const PLACEHOLDER_IMAGE =
 
 export default function FeaturedMenu() {
   const popularItems = menus.filter((item) => item.isPopular);
-  const carouselRef = useRef<HTMLDivElement>(null);
-  const [width, setWidth] = useState(0);
-  const [xOffset, setXOffset] = useState(0);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const carouselWrapperRef = useRef<HTMLDivElement>(null);
 
+  // Layout State
+  const [itemWidth, setItemWidth] = useState(300); // Default fallback
+  const [visibleItems, setVisibleItems] = useState(3);
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const GAP = 32; // Fixed gap in pixels (gap-8)
+
+  // 1. Exact Size Calculation Logic
   useEffect(() => {
-    const updateWidth = () => {
-      if (carouselRef.current) {
-        setWidth(
-          carouselRef.current.scrollWidth - carouselRef.current.offsetWidth,
-        );
+    const updateDimensions = () => {
+      if (!carouselWrapperRef.current) return;
+
+      const containerWidth = carouselWrapperRef.current.offsetWidth;
+      const windowWidth = window.innerWidth;
+
+      let newVisibleItems = 3;
+      let calculatedWidth = 0;
+
+      if (windowWidth < 768) {
+        // Mobile: Show 1 item, but make it 85% width to show a peek of the next one
+        newVisibleItems = 1;
+        calculatedWidth = containerWidth * 0.85;
+      } else if (windowWidth < 1024) {
+        // Tablet: Show 2 items
+        newVisibleItems = 2;
+        // Formula: (Container - (Gap * (Items - 1))) / Items
+        calculatedWidth = (containerWidth - GAP) / 2;
+      } else {
+        // Desktop: Show 3 items
+        newVisibleItems = 3;
+        calculatedWidth = (containerWidth - GAP * 2) / 3;
       }
+
+      setVisibleItems(newVisibleItems);
+      setItemWidth(calculatedWidth);
     };
 
-    updateWidth();
-    window.addEventListener("resize", updateWidth);
-    return () => window.removeEventListener("resize", updateWidth);
-  }, [popularItems.length]);
+    // Observer handles resize more accurately than window.resize
+    const observer = new ResizeObserver(() => {
+      updateDimensions();
+    });
 
-  const slideLeft = () => {
-    const newX = Math.min(0, xOffset + (carouselRef.current?.offsetWidth || 0));
-    setXOffset(newX);
+    if (carouselWrapperRef.current) {
+      observer.observe(carouselWrapperRef.current);
+    }
+
+    // Initial calculation
+    updateDimensions();
+
+    return () => observer.disconnect();
+  }, []);
+
+  // 2. Logic boundaries
+  const maxIndex = Math.max(0, popularItems.length - visibleItems);
+
+  // We add 'visibleItems - 1' to maxIndex on mobile if we want to scroll to the very last item
+  // effectively, but usually stopping when the last item is in view is better.
+  // However, for peeking capability (85% width), allowing scroll to the very end is usually desired:
+  const effectiveMaxIndex =
+    window.innerWidth < 768 ? popularItems.length - 1 : maxIndex;
+
+  const scrollTo = (index: number) => {
+    const target = Math.max(0, Math.min(index, effectiveMaxIndex));
+    setCurrentIndex(target);
   };
 
-  const slideRight = () => {
-    const newX = Math.max(
-      -width,
-      xOffset - (carouselRef.current?.offsetWidth || 0),
-    );
-    setXOffset(newX);
-  };
+  const slideLeft = () => scrollTo(currentIndex - 1);
+  const slideRight = () => scrollTo(currentIndex + 1);
 
   return (
     <section className="py-24 bg-surface" id="menu">
       <div className="container mx-auto px-4 md:px-8">
         {/* Header */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-12">
           <span className="text-primary font-bold tracking-wider uppercase text-sm mb-2 block">
             Customers' Choice
           </span>
@@ -62,69 +103,84 @@ export default function FeaturedMenu() {
           </p>
         </div>
 
-        {/* Carousel Container */}
-        <div className="relative group/carousel max-w-[1400px] mx-auto px-4 md:px-20">
-          {/* Navigation Buttons - Left and Right */}
-          <div
-            className={`absolute top-1/2 left-2 md:left-4 -translate-y-1/2 z-30 transition-all duration-300 ${xOffset >= 0 ? "opacity-0 pointer-events-none" : "opacity-0 group-hover/carousel:opacity-100"}`}
-          >
+        {/* Carousel Outer Wrapper */}
+        <div className="relative group/carousel max-w-[1400px] mx-auto">
+          {/* DESKTOP NAV ARROWS */}
+          <div className="hidden md:block absolute top-1/2 -left-6 lg:-left-12 -translate-y-1/2 z-30">
             <button
               onClick={slideLeft}
-              className="p-4 rounded-full bg-white shadow-xl border border-border hover:bg-primary hover:text-white transition-all duration-300 group"
-              aria-label="Previous Slide"
+              disabled={currentIndex === 0}
+              className={`p-4 rounded-full bg-white shadow-xl border border-border transition-all duration-300 group
+                ${
+                  currentIndex === 0
+                    ? "opacity-40 cursor-not-allowed bg-gray-50 text-gray-400"
+                    : "hover:bg-primary hover:text-white hover:scale-110 active:scale-95"
+                }`}
             >
-              <ChevronLeft
-                size={24}
-                className="group-hover:-translate-x-0.5 transition-transform"
-              />
+              <ChevronLeft size={24} />
             </button>
           </div>
 
-          <div
-            className={`absolute top-1/2 right-2 md:right-4 -translate-y-1/2 z-30 transition-all duration-300 ${xOffset <= -width + 10 ? "opacity-0 pointer-events-none" : "opacity-0 group-hover/carousel:opacity-100"}`}
-          >
+          <div className="hidden md:block absolute top-1/2 -right-6 lg:-right-12 -translate-y-1/2 z-30">
             <button
               onClick={slideRight}
-              className="p-4 rounded-full bg-white shadow-xl border border-border hover:bg-primary hover:text-white transition-all duration-300 group"
-              aria-label="Next Slide"
+              disabled={currentIndex >= effectiveMaxIndex}
+              className={`p-4 rounded-full bg-white shadow-xl border border-border transition-all duration-300 group
+                ${
+                  currentIndex >= effectiveMaxIndex
+                    ? "opacity-40 cursor-not-allowed bg-gray-50 text-gray-400"
+                    : "hover:bg-primary hover:text-white hover:scale-110 active:scale-95"
+                }`}
             >
-              <ChevronRight
-                size={24}
-                className="group-hover:translate-x-0.5 transition-transform"
-              />
+              <ChevronRight size={24} />
             </button>
           </div>
 
-          {/* Carousel Area */}
-          <div
-            className="overflow-hidden no-scrollbar"
-            ref={carouselRef}
-            style={{ msOverflowStyle: "none", scrollbarWidth: "none" }}
-          >
-            <style jsx global>{`
-              .no-scrollbar::-webkit-scrollbar {
-                display: none;
-              }
-            `}</style>
+          {/* Viewport (The Window) */}
+          {/* We ref this to calculate widths */}
+          <div ref={carouselWrapperRef} className="overflow-hidden py-4">
             <motion.div
-              drag="x"
-              dragConstraints={{ right: 0, left: -width }}
-              dragElastic={0}
-              animate={{ x: xOffset }}
-              transition={{ type: "spring", stiffness: 300, damping: 30 }}
-              onDragEnd={(e, info) => {
-                setXOffset(info.offset.x + xOffset);
+              ref={containerRef}
+              className="flex"
+              // Ensure the gap in CSS matches our JS constant
+              style={{ gap: `${GAP}px` }}
+              animate={{
+                // THE CORE FIX: Move by exactly (ItemWidth + Gap) * Index
+                x: -(currentIndex * (itemWidth + GAP)),
               }}
-              className="flex gap-8 pb-12 pt-4 cursor-grab active:cursor-grabbing"
-              style={{ width: "max-content" }}
+              transition={{
+                type: "spring",
+                stiffness: 300,
+                damping: 30,
+              }}
+              drag="x"
+              dragConstraints={{
+                left: -(effectiveMaxIndex * (itemWidth + GAP)),
+                right: 0,
+              }}
+              dragElastic={0.1}
+              onDragEnd={(e, { offset, velocity }) => {
+                const swipeThreshold = 50;
+                const dragDistance = -offset.x;
+
+                // Logic to snap to next/prev based on swipe direction
+                if (dragDistance > swipeThreshold || velocity.x < -500) {
+                  scrollTo(currentIndex + 1);
+                } else if (dragDistance < -swipeThreshold || velocity.x > 500) {
+                  scrollTo(currentIndex - 1);
+                } else {
+                  scrollTo(currentIndex);
+                }
+              }}
             >
               {popularItems.map((item, index) => (
-                <div
+                <motion.div
                   key={index}
-                  className="group bg-white rounded-3xl p-4 shadow-sm hover:shadow-xl transition-all duration-300 border border-border/50 flex flex-col w-[320px] md:w-[calc((100vw-min(100vw,1400px)+min(100vw,1400px)-160px-64px)/3)] lg:w-[calc((min(1400px,100vw)-160px-64px)/3)] flex-shrink-0 snap-start select-none"
-                  style={{ width: "calc((min(1400px, 100vw) - 224px) / 3)" }}
+                  className="relative flex-shrink-0 bg-white rounded-3xl p-4 shadow-sm hover:shadow-xl transition-all duration-300 border border-border/50 flex flex-col snap-start select-none"
+                  // 3. Apply the calculated width directly via inline styles
+                  style={{ width: itemWidth }}
                 >
-                  <div className="relative w-full h-[320px] rounded-2xl overflow-hidden mb-6 bg-gray-100">
+                  <div className="relative w-full aspect-square md:h-[320px] rounded-2xl overflow-hidden mb-6 bg-gray-100">
                     <Image
                       src={
                         item.image && item.image.startsWith("http")
@@ -171,9 +227,54 @@ export default function FeaturedMenu() {
                       </button>
                     </div>
                   </div>
-                </div>
+                </motion.div>
               ))}
             </motion.div>
+          </div>
+
+          {/* MOBILE CONTROLS */}
+          <div className="mt-6 flex md:hidden items-center justify-between px-2">
+            <button
+              onClick={slideLeft}
+              disabled={currentIndex === 0}
+              className={`p-3 rounded-full border border-border transition-all ${
+                currentIndex === 0
+                  ? "opacity-40 cursor-not-allowed bg-gray-50"
+                  : "bg-white active:scale-95 text-primary border-primary"
+              }`}
+            >
+              <ChevronLeft size={20} />
+            </button>
+
+            {/* Pagination Dots */}
+            <div className="flex gap-2">
+              {popularItems.map((_, idx) => (
+                <button
+                  key={idx}
+                  onClick={() => scrollTo(idx)}
+                  className={`h-2 rounded-full transition-all duration-300 ${
+                    idx === currentIndex ? "w-8 bg-primary" : "w-2 bg-gray-300"
+                  }`}
+                  // Optimization: Only show dots reasonably close to current index on mobile
+                  style={{
+                    display:
+                      Math.abs(currentIndex - idx) > 3 ? "none" : "block",
+                  }}
+                />
+              ))}
+            </div>
+
+            <button
+              onClick={slideRight}
+              disabled={currentIndex >= effectiveMaxIndex}
+              className={`p-3 rounded-full border border-border transition-all ${
+                currentIndex >= effectiveMaxIndex
+                  ? "opacity-40 cursor-not-allowed bg-gray-50"
+                  : "bg-white active:scale-95 text-primary border-primary"
+              }`}
+            >
+              <ChevronRight size={20} />
+            </button>
           </div>
         </div>
       </div>

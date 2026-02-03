@@ -109,8 +109,8 @@ export default function MenuFilters() {
         }}
         className={`bg-background/95 backdrop-blur-sm mx-auto transition-all duration-500 mb-20 ease-in-out flex ${
           isSticky
-            ? "sticky z-30 w-full md:w-[98%] max-w-[1600px] rounded-2xl shadow-sm border-b border-border border flex-row items-center justify-between py-4 px-6 top-[120px]"
-            : "relative z-40 w-full md:w-[99%] max-w-[1600px] rounded-3xl shadow-lg border border-white/20 flex-col items-center gap-8 py-6 px-4 top-2"
+            ? "sticky z-30 w-full md:w-[98%] max-w-[1590px] rounded-0 md:rounded-2xl shadow-sm border-b md:border border-border flex-row items-center justify-between py-4 px-4 md:px-6 top-[80px] md:top-[120px]"
+            : "relative z-40 w-[calc(100%-2rem)] md:w-[99%] max-w-[1600px] rounded-3xl shadow-lg border border-white/20 flex-col items-center gap-8 py-6 px-4 top-2"
         }`}
       >
         {/* Category Tabs */}
@@ -245,15 +245,6 @@ export default function MenuFilters() {
                     className="relative flex flex-col bg-background rounded-3xl border border-border shadow-sm hover:shadow-xl hover:border-primary/50 transition-all group mx-2 md:mx-0"
                   >
                     <div className="absolute -top-40 md:-top-60 left-1/2 -translate-x-1/2 w-48 h-48 md:w-64 md:h-64 z-10 translate-y-6 group-hover:translate-y-0 transition-transform duration-500 ease-out">
-                      <motion.div
-                        className="absolute -inset-4 rounded-full border-2 border-dashed border-primary/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                        animate={{ rotate: 360 }}
-                        transition={{
-                          repeat: Infinity,
-                          duration: 10,
-                          ease: "linear",
-                        }}
-                      />
                       <div className="relative w-full h-full rounded-full border-4 border-background shadow-lg overflow-hidden bg-background transition-transform duration-300 group-hover:scale-105">
                         <Image
                           src={PLACEHOLDER_IMAGE}
@@ -280,25 +271,36 @@ export default function MenuFilters() {
                             {item.variants.map((variant) => (
                               <div
                                 key={variant.label}
-                                className="flex flex-col items-center gap-1 p-2 rounded-lg bg-secondary/5 border border-border/50 min-w-[80px]"
+                                className="flex flex-col items-center gap-1 p-2 rounded-lg bg-secondary/5 border border-border/50 min-w-[80px] group/variant relative overflow-hidden transition-all duration-300 hover:border-primary"
                               >
-                                <span className="font-artistic text-2xl text-primary -rotate-3">
+                                {/* Variant Fill Effect */}
+                                <div className="absolute inset-0 bg-primary origin-left scale-x-0 group-hover/variant:scale-x-100 transition-transform duration-500 ease-out" />
+
+                                <span className="relative z-10 font-artistic text-2xl text-primary -rotate-3 group-hover/variant:text-white transition-colors duration-300">
                                   {variant.label}
                                 </span>
-                                <span className="font-modern text-xl font-bold text-primary">
+                                <span className="relative z-10 font-modern text-xl font-bold text-primary group-hover/variant:text-white transition-colors duration-300">
                                   ${variant.price.toFixed(0)}
                                 </span>
                               </div>
                             ))}
                           </div>
                         ) : (
-                          <div className="flex flex-col items-center">
-                            <span className="font-artistic text-3xl text-primary mb-2 -rotate-6 lowercase">
-                              price
-                            </span>
-                            <span className="font-modern text-3xl font-bold text-primary">
-                              ${item.price?.toFixed(2) || "12.00"}
-                            </span>
+                          <div className="w-full relative mt-4">
+                            {/* Full Width Loading Bar Container */}
+                            <div className="relative w-full overflow-hidden rounded-full py-2 bg-secondary/5 group-hover:bg-transparent transition-colors duration-500">
+                              {/* Red Filling Overlay */}
+                              <div className="absolute inset-0 bg-primary origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500 ease-out" />
+
+                              <div className="relative z-10 flex flex-col items-center justify-center">
+                                <span className="font-artistic text-3xl text-primary -rotate-6 lowercase mb-0 transition-colors duration-500 group-hover:text-white">
+                                  price
+                                </span>
+                                <span className="font-modern text-3xl font-bold text-primary transition-colors duration-500 group-hover:text-white">
+                                  ${item.price?.toFixed(2) || "12.00"}
+                                </span>
+                              </div>
+                            </div>
                           </div>
                         )}
                       </div>

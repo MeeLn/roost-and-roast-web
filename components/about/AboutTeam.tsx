@@ -43,33 +43,49 @@ export default function AboutTeam() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-60 md:gap-y-72 pt-40 md:pt-60">
           {team.map((member, index) => (
             <motion.div
               key={member.name}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1, duration: 0.8 }}
-              className="group"
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.2, delay: index * 0.1 }}
+              className="relative flex flex-col bg-background rounded-3xl border border-border shadow-sm hover:shadow-xl hover:border-primary/50 transition-all group mx-2 md:mx-0 bg-white"
             >
-              <div className="relative h-[400px] w-full rounded-2xl overflow-hidden mb-6 shadow-lg transition-transform duration-500 group-hover:-translate-y-2">
-                <Image
-                  src={member.image}
-                  alt={member.name}
-                  fill
-                  className="object-cover transition-transform duration-500 group-hover:scale-110"
+              <div className="absolute -top-40 md:-top-60 left-1/2 -translate-x-1/2 w-48 h-48 md:w-64 md:h-64 z-10 translate-y-6 group-hover:translate-y-0 text-center transition-transform duration-500 ease-out">
+                <motion.div
+                  className="absolute -inset-4 rounded-full border-2 border-dashed border-primary/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                  animate={{ rotate: 360 }}
+                  transition={{
+                    repeat: Infinity,
+                    duration: 10,
+                    ease: "linear",
+                  }}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-8">
-                  <p className="text-white text-sm italic">{member.bio}</p>
+                <div className="relative w-full h-full rounded-full border-4 border-white shadow-lg overflow-hidden bg-white transition-transform duration-300 group-hover:scale-105">
+                  <Image
+                    src={member.image}
+                    alt={member.name}
+                    fill
+                    className="object-cover transition-transform duration-500 group-hover:scale-110"
+                  />
                 </div>
               </div>
-              <h3 className="text-2xl font-modern font-bold text-secondary uppercase tracking-tight">
-                {member.name}
-              </h3>
-              <p className="text-primary font-medium tracking-wide border-b border-primary/20 pb-2 mb-2 inline-block">
-                {member.role}
-              </p>
+
+              <div className="pt-24 pb-8 px-6 flex flex-col items-center flex-grow text-center gap-4 mt-8 md:mt-0">
+                <div className="flex flex-col items-center gap-2">
+                  <h3 className="font-modern text-2xl font-black text-secondary uppercase tracking-tight">
+                    {member.name}
+                  </h3>
+                  <p className="font-artistic text-xl text-primary -rotate-2">
+                    {member.role}
+                  </p>
+                  <p className="font-serif italic text-base text-text-muted leading-relaxed line-clamp-3 mt-2">
+                    "{member.bio}"
+                  </p>
+                </div>
+              </div>
             </motion.div>
           ))}
         </div>
