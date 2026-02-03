@@ -1,23 +1,58 @@
+"use client";
+
 import Link from "next/link";
-import Logo from "../ui/Logo";
-import {
-  MapPin,
-  Phone,
-  Mail,
-  Instagram,
-  Facebook,
-  Twitter,
-} from "lucide-react";
+import Image from "next/image";
+import { motion } from "framer-motion";
+import { MapPin, Phone, Mail, Instagram, Facebook } from "lucide-react";
 
 export default function Footer() {
+  // Text to rotate. Repeated twice to fill the circle nicely.
+  const ROTATING_TEXT = "ROOST AND ROAST • ROOST AND ROAST • ";
+
   return (
     <footer className="bg-zinc-900 text-gray-300 pt-20 pb-10" id="contact">
       <div className="container mx-auto px-4 md:px-8">
         <div className="grid grid-cols-1 md:grid-cols-13 gap-12 mb-16">
           {/* Brand Column */}
           <div className="md:col-span-4 flex flex-col gap-6">
-            <div className="brightness-0 invert opacity-90">
-              <Logo variant="full" width={160} />
+            <div className="relative w-40 h-40 flex items-center justify-center">
+              {/* 1. Rotating Text Ring */}
+              <motion.div
+                className="absolute inset-0 w-full h-full z-0"
+                animate={{ rotate: 360 }}
+                transition={{
+                  repeat: Infinity,
+                  duration: 15,
+                  ease: "linear",
+                }}
+              >
+                <svg
+                  viewBox="0 0 100 100"
+                  width="100%"
+                  height="100%"
+                  className="fill-white font-artistic font-semibold tracking-widest uppercase"
+                >
+                  <defs>
+                    <path
+                      id="circlePath"
+                      d="M 50, 50 m -37, 0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0"
+                    />
+                  </defs>
+                  <text fontSize="11" fill="#ff4335ff">
+                    <textPath xlinkHref="#circlePath">{ROTATING_TEXT}</textPath>
+                  </text>
+                </svg>
+              </motion.div>
+
+              {/* 2. Static Center Image */}
+              <div className="relative w-24 h-24 rounded-full overflow-hidden border-1 border-primary/80 shadow-lg shadow-black/50 z-10 bg-zinc-800">
+                <Image
+                  src="/logos/logo-rounded.png"
+                  alt="Roost and Roast Logo"
+                  fill
+                  className="object-cover"
+                />
+              </div>
             </div>
             <p className="leading-relaxed text-gray-400 max-w-sm">
               Experience the authentic taste of charcoal-roasted perfection.
