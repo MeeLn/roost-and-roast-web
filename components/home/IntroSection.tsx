@@ -1,7 +1,6 @@
 "use client";
 
 import { Instagram } from "lucide-react";
-import { motion } from "framer-motion";
 import Link from "next/link";
 
 const foodIcons = [
@@ -25,7 +24,7 @@ export default function IntroSection() {
   ];
 
   return (
-    <section className="py-20 bg-[#FDF8F3] overflow-hidden">
+    <section className="pt-20 pb-10 bg-[#FDF8F3] overflow-hidden">
       <div className="container mx-auto px-4 text-center mb-16 px-6">
         <h2 className="text-4xl md:text-5xl lg:text-[5rem] font-modern font-black text-secondary uppercase tracking-tighter leading-none mb-4">
           WELCOME TO <br />
@@ -45,8 +44,6 @@ export default function IntroSection() {
           </span>{" "}
           CUISINE!
         </h3>
-
-        <div className="w-24 h-1 bg-primary mx-auto mb-12 rounded-full opacity-30" />
 
         <p className="text-text-muted max-w-3xl mx-auto text-lg md:text-xl leading-relaxed font-modern font-medium italic">
           "Dive into a{" "}
