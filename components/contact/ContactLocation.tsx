@@ -13,7 +13,7 @@ export default function ContactLocation() {
             className="flex-1 space-y-8"
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: false }}
             transition={{ duration: 0.8 }}
           >
             <div>
@@ -40,7 +40,8 @@ export default function ContactLocation() {
                       Location
                     </h4>
                     <p className="text-text-main text-sm font-medium">
-                      123 Smolder Lane, Foodville, NSW 2000
+                      West Gosford Shopping Village, 23/299 Brisbane Water Drive
+                      West Gosford NSW, 2250
                     </p>
                   </div>
                 </div>
@@ -53,7 +54,7 @@ export default function ContactLocation() {
                       Call Us
                     </h4>
                     <p className="text-text-main text-sm font-medium">
-                      (02) 9876 5432
+                      +61 02 43427887
                     </p>
                   </div>
                 </div>
@@ -66,7 +67,7 @@ export default function ContactLocation() {
                       Email
                     </h4>
                     <p className="text-text-main text-sm font-medium">
-                      hello@roostandroast.com
+                      info@roostnroast.com.au
                     </p>
                   </div>
                 </div>
@@ -79,7 +80,7 @@ export default function ContactLocation() {
                       Hours
                     </h4>
                     <p className="text-text-main text-sm font-medium">
-                      Mon-Fri: 11am-9pm | Sat-Sun: 10am-10pm
+                      Mon-Sun: 9am-8pm
                     </p>
                   </div>
                 </div>
@@ -106,7 +107,7 @@ export default function ContactLocation() {
             className="flex-1 w-full"
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
+            viewport={{ once: false }}
             transition={{ duration: 0.8 }}
           >
             <div className="relative h-[400px] md:h-[500px] w-full rounded-2xl overflow-hidden shadow-2xl">

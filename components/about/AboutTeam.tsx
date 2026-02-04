@@ -66,7 +66,7 @@ const TeamMemberCard = ({
       ref={cardRef}
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-50px" }}
+      viewport={{ once: false, margin: "-50px" }}
       transition={{ duration: 0.4, delay: index * 0.1 }}
       className="relative flex flex-col group mx-2 md:mx-0"
     >

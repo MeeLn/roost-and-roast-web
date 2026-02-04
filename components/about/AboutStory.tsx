@@ -24,7 +24,7 @@ export default function Story() {
           className="flex-1"
           initial={{ opacity: 0, x: -50 }}
           whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: false }}
           transition={{ duration: 0.8 }}
         >
           <h2 className="text-4xl md:text-6xl font-modern font-black text-primary mb-8 uppercase tracking-tighter">
@@ -50,7 +50,7 @@ export default function Story() {
           className="relative w-full h-[250px] md:h-[400px] lg:flex-1 lg:h-[500px] rounded-xl overflow-hidden shadow-2xl shadow-black/20"
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
+          viewport={{ once: false }}
           transition={{ duration: 0.8, delay: 0.2 }}
         >
           <div className="w-full h-full relative">

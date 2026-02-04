@@ -31,7 +31,7 @@ export default function CTASection() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: false }}
           className="flex items-center justify-center gap-3 mb-8"
         >
           <div className="h-[2px] w-12 bg-primary/60" />
@@ -47,7 +47,7 @@ export default function CTASection() {
             <motion.span
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              viewport={{ once: false }}
               transition={{ duration: 0.5 }}
               className="block mb-2 md:mb-4 text-teal-500/70"
             >
@@ -57,7 +57,7 @@ export default function CTASection() {
             <motion.span
               initial={{ opacity: 0, scale: 0.8 }}
               whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
+              viewport={{ once: false }}
               transition={{ duration: 0.5, delay: 0.2 }}
               className="font-artistic text-primary font-bold normal-case text-7xl md:text-9xl lg:text-[11rem] inline-block -rotate-2 filter drop-shadow-[0_10px_20px_rgba(0,0,0,0.5)] z-10 relative"
             >
@@ -70,7 +70,7 @@ export default function CTASection() {
         <motion.p
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
+          viewport={{ once: false }}
           transition={{ duration: 0.5, delay: 0.4 }}
           className="text-white/70 max-w-2xl mx-auto text-lg md:text-2xl leading-relaxed font-modern font-medium italic mb-14"
         >
@@ -89,7 +89,7 @@ export default function CTASection() {
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: false }}
           transition={{ duration: 0.5, delay: 0.6 }}
           className="flex flex-col md:flex-row items-center justify-center gap-6"
         >
@@ -116,7 +116,7 @@ export default function CTASection() {
         <motion.div
           initial={{ rotate: -12, scale: 0 }}
           whileInView={{ rotate: 12, scale: 1 }}
-          viewport={{ once: true }}
+          viewport={{ once: false }}
           transition={{ type: "spring", bounce: 0.5, delay: 0.8 }}
           className="absolute right-[10%] top-[10%] hidden lg:flex flex-col items-center justify-center w-32 h-32 bg-white rounded-full shadow-2xl z-20"
         >

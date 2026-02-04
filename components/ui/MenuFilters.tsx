@@ -67,7 +67,7 @@ const MenuCard = ({ item }: { item: (typeof menus)[0] }) => {
       ref={cardRef}
       initial={{ opacity: 0, scale: 0.9 }}
       whileInView={{ opacity: 1, scale: 1 }}
-      viewport={{ once: true, margin: "-50px" }}
+      viewport={{ once: false, margin: "-50px" }}
       exit={{ opacity: 0, scale: 0.9 }}
       transition={{ duration: 0.2 }}
       className="relative flex flex-col group mx-2 md:mx-0 mt-8 md:mt-0"
@@ -373,7 +373,7 @@ export default function MenuFilters() {
                 <motion.h2
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
+                  viewport={{ once: false }}
                   className="text-4xl md:text-7xl font-artistic text-secondary mb-22 md:mb-28 inline-block relative text-center mt-0 md:mt-8 px-2"
                 >
                   <span className="relative z-10">{group.category}</span>

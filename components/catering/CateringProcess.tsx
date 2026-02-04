@@ -212,7 +212,7 @@ export default function CateringProcess() {
           <motion.div
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
+            viewport={{ once: false, margin: "-100px" }}
             variants={formAnimation}
             className="lg:col-span-7 order-2 lg:order-1"
             id="catering-form"
@@ -575,7 +575,7 @@ export default function CateringProcess() {
               variants={slideInContainer}
               initial="hidden"
               whileInView="visible"
-              viewport={{ once: true, margin: "-100px" }}
+              viewport={{ once: false, margin: "-100px" }}
             >
               <motion.h2
                 variants={slideInItem}

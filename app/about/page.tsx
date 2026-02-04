@@ -5,6 +5,7 @@ import AboutHero from "@/components/about/AboutHero";
 import AboutCommitment from "@/components/about/AboutCommitment";
 import AboutTeam from "@/components/about/AboutTeam";
 import { Metadata } from "next";
+import StoryDescription from "@/components/about/StoryDescription";
 
 export const metadata: Metadata = {
   title: "About Us | Roost and Roast",
@@ -18,6 +19,7 @@ export default function AboutPage() {
       <Navbar />
       <AboutHero />
       <AboutStory />
+      <StoryDescription />
       <AboutTeam />
       <AboutCommitment />
       <Footer />

@@ -27,7 +27,7 @@ export default function GridMenuSection() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: false }}
             className="md:col-span-2 relative group rounded-[32px] overflow-hidden h-[300px] md:h-[380px]"
           >
             <Link href="/menu" className="block w-full h-full relative">
@@ -79,7 +79,7 @@ export default function GridMenuSection() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: false }}
             transition={{ delay: 0.1 }}
             className="relative group rounded-[32px] overflow-hidden h-[180px] md:h-[300px]"
           >
@@ -109,7 +109,7 @@ export default function GridMenuSection() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: false }}
             transition={{ delay: 0.2 }}
             className="relative group rounded-[32px] overflow-hidden h-[180px] md:h-[300px]"
           >
