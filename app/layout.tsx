@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter, Playfair_Display, Caveat, Raleway } from "next/font/google";
 import "./globals.css";
 import clsx from "clsx";
+import ScrollToTop from "@/components/ui/ScrollToTop";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -55,6 +56,7 @@ export default function RootLayout({
         )}
       >
         {children}
+        <ScrollToTop />
       </body>
     </html>
   );
