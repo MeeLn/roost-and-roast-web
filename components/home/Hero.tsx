@@ -298,7 +298,7 @@ export default function Hero() {
                   animate="animate"
                   exit="exit"
                   transition={{ delay: 0.1 }}
-                  className="block text-4xl md:text-6xl lg:text-7xl font-modern font-black text-stone-900 uppercase leading-none tracking-tighter"
+                  className="block text-4xl md:text-6xl lg:text-7xl font-modern font-black text-primary-light uppercase leading-none tracking-tighter"
                 >
                   {currentSlide.headlineLine1} <br />{" "}
                   {currentSlide.headlineLine2}

@@ -43,8 +43,8 @@ export default function StoryDescription() {
           <div className="flex-1 flex flex-col gap-8">
             <div>
               <div className="flex items-center gap-2 mb-4">
-                <UtensilsCrossed size={20} className="text-primary" />
-                <span className="font-modern font-bold text-primary uppercase tracking-[0.2em] text-sm">
+                <UtensilsCrossed size={20} className="text-primary-light" />
+                <span className="font-modern font-bold text-primary-light uppercase tracking-[0.2em] text-sm">
                   Our Legacy
                 </span>
               </div>
@@ -80,7 +80,7 @@ export default function StoryDescription() {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-6 border-t border-zinc-200">
               <div className="flex items-start gap-4">
                 <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
-                  <Award className="text-primary" />
+                  <Award className="text-primary-light" />
                 </div>
                 <div>
                   <h4 className="font-modern font-bold text-zinc-900 uppercase text-sm">
@@ -94,7 +94,7 @@ export default function StoryDescription() {
 
               <div className="flex items-start gap-4">
                 <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
-                  <Star className="text-primary fill-primary" />
+                  <Star className="text-primary-light fill-primary-light" />
                 </div>
                 <div>
                   <h4 className="font-modern font-bold text-zinc-900 uppercase text-sm">
@@ -109,7 +109,7 @@ export default function StoryDescription() {
 
             {/* Quote Signature */}
             <div className="mt-4">
-              <p className="font-artistic text-primary text-2xl opacity-80">
+              <p className="font-artistic text-primary-light text-2xl opacity-80">
                 &ldquo;Fresh, Quality, & Local&apos;s Favorite.&rdquo;
               </p>
             </div>

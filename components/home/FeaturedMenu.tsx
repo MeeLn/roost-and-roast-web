@@ -96,7 +96,7 @@ const MenuCard = ({ item }: { item: (typeof menus)[0] }) => {
             <h3 className="font-modern text-xl font-black text-secondary uppercase tracking-tight leading-tight">
               {item.title}
             </h3>
-            <p className="font-serif italic text-sm text-text-muted leading-relaxed line-clamp-2">
+            <p className="italic text-sm text-text-muted leading-relaxed line-clamp-2">
               {item.description}
             </p>
           </div>
@@ -175,7 +175,7 @@ export default function FeaturedMenu() {
       <div className="container mx-auto px-4 md:px-8">
         {/* Header */}
         <div className="text-center mb-24 md:mb-32">
-          <span className="text-primary font-bold tracking-wider uppercase text-sm mb-2 block">
+          <span className="text-primary-light font-bold tracking-wider uppercase text-sm mb-2 block">
             Customers&apos; Choice
           </span>
           <h2 className="text-4xl md:text-6xl font-modern font-black text-text-main mb-2 uppercase tracking-tighter">

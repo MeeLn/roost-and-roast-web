@@ -197,7 +197,9 @@ export default function CateringOptions() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-60" />
                   <div className="absolute top-6 left-6 bg-white/95 backdrop-blur-md px-4 py-2 rounded-full flex items-center gap-2 shadow-lg">
-                    <span className="text-primary">{currentMenu.icon}</span>
+                    <span className="text-primary-light">
+                      {currentMenu.icon}
+                    </span>
                     <span className="font-modern font-bold text-xs uppercase tracking-widest text-text-main">
                       {currentMenu.subtitle}
                     </span>
@@ -212,7 +214,7 @@ export default function CateringOptions() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.2 }}
                 >
-                  <div className="flex items-center gap-2 mb-4 text-primary font-bold">
+                  <div className="flex items-center gap-2 mb-4 text-primary-light font-bold">
                     <Users size={20} />
                     <span className="text-sm font-modern uppercase tracking-wider">
                       {currentMenu.serves}
@@ -223,7 +225,7 @@ export default function CateringOptions() {
                     {currentMenu.title}
                   </h3>
 
-                  <p className="text-lg text-text-muted leading-relaxed mb-8 border-l-4 border-primary pl-6">
+                  <p className="text-lg text-text-muted leading-relaxed mb-8 border-l-4 border-primary-light pl-6">
                     {currentMenu.description}
                   </p>
 
@@ -234,7 +236,7 @@ export default function CateringOptions() {
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-3 gap-x-4">
                       {currentMenu.includes.map((item, i) => (
                         <div key={i} className="flex items-center gap-2">
-                          <div className="w-1.5 h-1.5 rounded-full bg-primary shrink-0" />
+                          <div className="w-1.5 h-1.5 rounded-full bg-primary-light shrink-0" />
                           <span className="text-sm font-medium text-text-main">
                             {item}
                           </span>

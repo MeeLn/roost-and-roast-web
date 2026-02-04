@@ -47,16 +47,16 @@ export default function IntroSection() {
 
         <p className="text-text-muted max-w-3xl mx-auto text-lg md:text-xl leading-relaxed font-modern font-medium italic">
           "Dive into a{" "}
-          <span className="font-artistic text-primary text-2xl md:text-3xl normal-case not-italic">
+          <span className="font-artistic text-primary-light text-2xl md:text-3xl normal-case not-italic">
             World
           </span>{" "}
           where tradition meets modern flair, and every meal is a{" "}
-          <span className="font-artistic text-primary text-2xl md:text-3xl normal-case not-italic">
+          <span className="font-artistic text-primary-light text-2xl md:text-3xl normal-case not-italic">
             celebration
           </span>{" "}
           of flavour. At Roost & Roast, we&apos;re not just serving food;
           we&apos;re crafting{" "}
-          <span className="font-artistic text-primary text-2xl md:text-3xl normal-case not-italic">
+          <span className="font-artistic text-primary-light text-2xl md:text-3xl normal-case not-italic">
             Experiences
           </span>
           ."

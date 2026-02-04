@@ -106,7 +106,7 @@ const MenuCard = ({ item }: { item: (typeof menus)[0] }) => {
             <h3 className="font-modern text-xl font-black text-secondary uppercase tracking-tight leading-tight">
               {item.title}
             </h3>
-            <p className="font-serif italic text-sm text-text-muted leading-relaxed line-clamp-2">
+            <p className="italic text-sm text-text-muted leading-relaxed line-clamp-2">
               {item.description}
             </p>
           </div>
