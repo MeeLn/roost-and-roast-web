@@ -199,14 +199,14 @@ export default function Footer() {
               <a
                 href="https://www.facebook.com/people/Roost-and-Roast/61586264004334/"
                 target="_blank"
-                className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-primary hover:text-white transition-colors"
+                className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-blue-600/80 hover:text-white transition-colors"
               >
                 <Facebook size={20} />
               </a>
               <a
                 href="https://www.instagram.com/roost_roast/"
                 target="_blank"
-                className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-primary hover:text-white transition-colors"
+                className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-red-600/80 hover:text-white transition-colors"
               >
                 <Instagram size={20} />
               </a>
