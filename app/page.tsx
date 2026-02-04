@@ -8,6 +8,7 @@ import ContactSection from "@/components/contact/ContactSection";
 import Footer from "@/components/layout/Footer";
 import CTASection from "@/components/home/CTASection";
 import GridMenuSection from "@/components/home/GridMenuSection";
+import MarqueeSection from "@/components/home/MarqueeSection";
 
 export default function Home() {
   return (
@@ -17,6 +18,7 @@ export default function Home() {
       <IntroSection />
       <FeaturedMenu />
       <GridMenuSection />
+      <MarqueeSection />
       <AboutStory />
       <Testimonials />
       <CTASection />
