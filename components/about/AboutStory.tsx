@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 export default function Story() {
   return (
     <section
-      className="py-10 md:py-32 bg-surface-hover relative overflow-hidden"
+      className="py-20 md:py-32 bg-surface-hover relative overflow-hidden"
       id="story"
     >
       {/* Tessellation pattern overlay */}
@@ -47,7 +47,7 @@ export default function Story() {
         </motion.div>
 
         <motion.div
-          className="flex-1 relative w-full h-[400px] lg:h-[500px] rounded-xl overflow-hidden shadow-2xl shadow-black/20"
+          className="relative w-full h-[250px] md:h-[400px] lg:flex-1 lg:h-[500px] rounded-xl overflow-hidden shadow-2xl shadow-black/20"
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
@@ -66,7 +66,7 @@ export default function Story() {
                 width={150}
                 height={150}
                 alt="Badge"
-                className="opacity-90 drop-shadow-xl"
+                className="opacity-90 drop-shadow-xl w-[75px] h-[75px] md:w-[150px] md:h-[150px]"
               />
             </div>
           </div>

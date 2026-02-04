@@ -40,13 +40,12 @@
   }
 
   .animate-infinite-scroll {
-    animation: scroll 30s linear infinite;
+    animation: scroll var(--scroll-speed, 30s) linear infinite;
   }
 }
 
 html {
   scroll-behavior: smooth;
-  /* Firefox Fallback */
   scrollbar-width: thin;
   scrollbar-color: var(--color-primary) var(--color-background);
 }

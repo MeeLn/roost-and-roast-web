@@ -64,9 +64,9 @@ export default function IntroSection() {
       </div>
 
       {/* Infinite Food Scroller */}
-      <div className="relative py-12 border-y border-dashed border-primary/20">
-        <div className="flex animate-infinite-scroll whitespace-nowrap ">
-          {scrollerIcons.map((item, index) => (
+      <div className="relative py-12 border-y border-dashed border-primary/20 overflow-hidden">
+        <div className="flex animate-infinite-scroll whitespace-nowrap">
+          {[...scrollerIcons, ...scrollerIcons].map((item, index) => (
             <div
               key={index}
               className="flex items-center justify-center mx-12 text-6xl opacity-40 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-300"
