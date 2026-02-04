@@ -1,13 +1,93 @@
 "use client";
 
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { motion } from "framer-motion";
-import { MapPin, Phone, Mail, Instagram, Facebook } from "lucide-react";
+import { motion, Variants } from "framer-motion"; // Import Variants type
+import { MapPin, Phone, Mail, Instagram, Facebook, Flame } from "lucide-react";
+import { RollingText } from "@/components/animate-ui/primitives/texts/rolling";
+import {
+  TypingText,
+  TypingTextCursor,
+} from "@/components/animate-ui/primitives/texts/typing";
 
 export default function Footer() {
-  // Text to rotate. Repeated twice to fill the circle nicely.
   const ROTATING_TEXT = "ROOST AND ROAST • ROOST AND ROAST • ";
+
+  // --- CONFIGURATION ---
+  const TYPING_TEXT = "Flamed Kissed Chicken";
+  const CHAR_DURATION = 80;
+  const HOLD_DELAY = 2000;
+
+  // --- STATE ---
+  const [isFlameVisible, setIsFlameVisible] = useState(false);
+  const [rollingKey, setRollingKey] = useState(0);
+
+  // --- 1. SYNC FLAMES WITH TYPING ---
+  useEffect(() => {
+    // Calculate timings based on text length
+    const textLength = TYPING_TEXT.length;
+    const typingDuration = textLength * CHAR_DURATION;
+    const eraseDuration = textLength * CHAR_DURATION;
+    const cycleTotal = typingDuration + HOLD_DELAY + eraseDuration + 500;
+
+    // Function to run a single cycle of flame visibility
+    const runCycle = () => {
+      setIsFlameVisible(false);
+
+      setTimeout(() => {
+        setIsFlameVisible(true);
+      }, typingDuration);
+
+      setTimeout(() => {
+        setIsFlameVisible(true);
+      }, typingDuration + HOLD_DELAY);
+
+      setTimeout(
+        () => {
+          setIsFlameVisible(false);
+        },
+        typingDuration + HOLD_DELAY + eraseDuration,
+      );
+    };
+
+    runCycle();
+
+    const interval = setInterval(runCycle, cycleTotal);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  // --- 2. INFINITE ROLLING TEXT LOOP ---
+  useEffect(() => {
+    const rollInterval = setInterval(() => {
+      setRollingKey((prev) => prev + 1);
+    }, 5000);
+
+    return () => clearInterval(rollInterval);
+  }, []);
+
+  const flameContainerVariants: Variants = {
+    hidden: { opacity: 0, scale: 0 },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      transition: { duration: 0.3 },
+    },
+  };
+
+  const flameFlickerVariants: Variants = {
+    animate: {
+      scale: [1, 1.2, 1],
+      opacity: [0.8, 1, 0.8],
+      filter: ["brightness(1)", "brightness(1.3)", "brightness(1)"],
+      transition: {
+        duration: 0.5,
+        repeat: Infinity,
+        ease: "easeInOut" as const,
+      },
+    },
+  };
 
   return (
     <footer className="bg-zinc-900 text-gray-300 pt-20 pb-10" id="contact">
@@ -15,45 +95,101 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-13 gap-12 mb-16">
           {/* Brand Column */}
           <div className="md:col-span-4 flex flex-col gap-6">
-            <div className="relative w-40 h-40 flex items-center justify-center">
-              {/* 1. Rotating Text Ring */}
-              <motion.div
-                className="absolute inset-0 w-full h-full z-0"
-                animate={{ rotate: 360 }}
-                transition={{
-                  repeat: Infinity,
-                  duration: 15,
-                  ease: "linear",
-                }}
-              >
-                <svg
-                  viewBox="0 0 100 100"
-                  width="100%"
-                  height="100%"
-                  className="fill-white font-artistic font-semibold tracking-widest uppercase"
+            <div className="flex items-center gap-6">
+              {/* Logo */}
+              <div className="relative w-32 h-32 md:w-40 md:h-40 flex items-center justify-center shrink-0">
+                <motion.div
+                  className="absolute inset-0 w-full h-full z-0"
+                  animate={{ rotate: 360 }}
+                  transition={{
+                    repeat: Infinity,
+                    duration: 15,
+                    ease: "linear",
+                  }}
                 >
-                  <defs>
-                    <path
-                      id="circlePath"
-                      d="M 50, 50 m -37, 0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0"
-                    />
-                  </defs>
-                  <text fontSize="11" fill="#ff4335ff">
-                    <textPath xlinkHref="#circlePath">{ROTATING_TEXT}</textPath>
-                  </text>
-                </svg>
-              </motion.div>
+                  <svg
+                    viewBox="0 0 100 100"
+                    width="100%"
+                    height="100%"
+                    className="fill-white font-artistic font-semibold tracking-widest uppercase"
+                  >
+                    <defs>
+                      <path
+                        id="circlePath"
+                        d="M 50, 50 m -37, 0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0"
+                      />
+                    </defs>
+                    <text fontSize="11" fill="#ff4335ff">
+                      <textPath xlinkHref="#circlePath">
+                        {ROTATING_TEXT}
+                      </textPath>
+                    </text>
+                  </svg>
+                </motion.div>
 
-              {/* 2. Static Center Image */}
-              <div className="relative w-24 h-24 rounded-full overflow-hidden border-1 border-primary/80 shadow-lg shadow-black/50 z-10 bg-zinc-800">
-                <Image
-                  src="/logos/logo-rounded.png"
-                  alt="Roost and Roast Logo"
-                  fill
-                  className="object-cover"
+                <div className="relative w-20 h-20 md:w-24 md:h-24 rounded-full overflow-hidden border-1 border-primary/80 shadow-lg shadow-black/50 z-10 bg-zinc-800">
+                  <Image
+                    src="/logos/logo-rounded.png"
+                    alt="Roost and Roast Logo"
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+              </div>
+
+              {/* Text Beside Logo */}
+              <div className="flex flex-col items-center justify-center pt-2">
+                {/* Rolling Text with Key for Infinite Loop */}
+                <RollingText
+                  key={rollingKey}
+                  text="Charcoal Chicken"
+                  className="font-modern text-xl md:text-2xl font-black uppercase text-white tracking-tighter"
+                  transition={{ duration: 0.5, delay: 0.05, ease: "easeOut" }}
                 />
+
+                {/* Centered Typing Row with Synced Flames */}
+                <div className="flex items-center justify-center gap-2 mt-1 h-8">
+                  {/* Left Flame */}
+                  <motion.div
+                    variants={flameContainerVariants}
+                    initial="hidden"
+                    animate={isFlameVisible ? "visible" : "hidden"}
+                  >
+                    <motion.div
+                      variants={flameFlickerVariants}
+                      animate="animate"
+                    >
+                      <Flame size={12} className="text-primary fill-primary" />
+                    </motion.div>
+                  </motion.div>
+
+                  <TypingText
+                    text={TYPING_TEXT}
+                    className="font-artistic text-primary text-xl md:text-2xl whitespace-nowrap"
+                    duration={CHAR_DURATION}
+                    holdDelay={HOLD_DELAY}
+                    loop={true}
+                  >
+                    <TypingTextCursor className="bg-primary h-5 ml-0.5" />
+                  </TypingText>
+
+                  {/* Right Flame */}
+                  <motion.div
+                    variants={flameContainerVariants}
+                    initial="hidden"
+                    animate={isFlameVisible ? "visible" : "hidden"}
+                  >
+                    <motion.div
+                      variants={flameFlickerVariants}
+                      animate="animate"
+                    >
+                      <Flame size={12} className="text-primary fill-primary" />
+                    </motion.div>
+                  </motion.div>
+                </div>
               </div>
             </div>
+
             <p className="leading-relaxed text-gray-400 max-w-sm">
               Experience the authentic taste of charcoal-roasted perfection.
               Fresh ingredients, traditional recipes, and a passion for flavor
