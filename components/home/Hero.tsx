@@ -56,7 +56,7 @@ const HERO_CONTENT = [
   },
 ];
 
-const AUTOPLAY_DELAY = 6000;
+const AUTOPLAY_DELAY = 10000;
 
 const IMAGE_POSITIONS = [
   // Top Left (Huge)
@@ -160,25 +160,56 @@ export default function Hero() {
   };
 
   // --- MASCOT ANIMATIONS ---
-  const fireAnimation: Variants = {
+  const chickenSequence: Variants = {
+    initial: {
+      x: -100,
+      opacity: 0,
+      rotate: -10,
+    },
     animate: {
-      opacity: [0.6, 1, 0.7, 0.9, 0.6],
-      scale: [1, 1.1, 0.95, 1.05, 1],
-      x: [-1, 1, -2, 0, 1],
+      x: 0,
+      opacity: 1,
+      rotate: 0,
       transition: {
-        duration: 2.5,
+        duration: 0.8,
+        type: "spring",
+        bounce: 0.4,
+      },
+    },
+  };
+
+  const fireSequence: Variants = {
+    initial: {
+      opacity: 0,
+      scale: 0,
+      y: 20,
+    },
+    animate: {
+      opacity: [0, 1, 0.8, 1, 0.7, 1],
+      scale: [0.5, 1.1, 0.95, 1.05, 0.98, 1.1],
+      x: [0, 2, -2, 1, -1, 0],
+      transition: {
+        delay: 0.6,
+        duration: 3,
+        times: [0, 0.2, 0.4, 0.6, 0.8, 1],
         repeat: Infinity,
+        repeatType: "mirror",
         ease: "easeInOut",
       },
     },
   };
 
-  const chickenEntrance: Variants = {
-    initial: { x: -100, opacity: 0 },
+  const glowSequence: Variants = {
+    initial: { opacity: 0, scale: 0 },
     animate: {
-      x: 0,
-      opacity: 1,
-      transition: { duration: 1, ease: "easeOut" },
+      opacity: [0, 0.6, 0.4, 0.7],
+      scale: [0.8, 1.2, 1, 1.1],
+      transition: {
+        delay: 0.7, // Syncs with fire
+        duration: 2,
+        repeat: Infinity,
+        repeatType: "reverse",
+      },
     },
   };
 
@@ -324,34 +355,45 @@ export default function Hero() {
       </div>
 
       {/* --- BOTTOM LEFT MASCOT ANIMATION --- */}
-      <div className="absolute bottom-0 left-4 md:left-10 z-30 w-32 h-32 md:w-48 md:h-48 pointer-events-none">
-        {/* Fire Layer */}
+      <div className="absolute bottom-0 left-4 md:left-10 z-30 w-32 h-32 md:w-48 md:h-48 pointer-events-none select-none">
+        {/* Fire Layer (Background) */}
         <motion.div
-          className="absolute bottom-9 left-1 w-24 h-24 md:bottom-18 md:-left-2 md:w-64 md:h-64 z-10"
-          variants={fireAnimation}
+          className="absolute bottom-14 left-1 w-24 h-24 md:bottom-26 md:-left-2 md:w-64 md:h-64 z-10"
+          variants={fireSequence}
+          initial="initial"
           animate="animate"
         >
-          <div className="absolute inset-0 bg-orange-500/30 blur-2xl rounded-full scale-110" />
+          {/* Animated Glow Blob */}
+          <motion.div
+            variants={glowSequence}
+            className="absolute inset-0 bg-orange-500/40 blur-3xl rounded-full"
+          />
+
           <Image
             src="/home/fire.svg"
             alt="Animated Fire"
             width={150}
             height={150}
-            className="w-full h-full object-contain"
+            className="w-full h-full object-contain drop-shadow-[0_0_15px_rgba(255,100,0,0.5)]"
           />
         </motion.div>
 
-        {/* Chicken Layer */}
+        {/* Chicken Layer (Foreground) */}
         <motion.div
           className="absolute bottom-8 left-2 w-28 h-28 md:bottom-16 md:left-3 md:w-68 md:h-68 z-20 origin-bottom"
-          variants={chickenEntrance}
+          variants={chickenSequence}
           initial="initial"
           animate="animate"
-          whileHover={{ scale: 1.05 }}
+          whileHover={{ scale: 1.05, rotate: 2, transition: { duration: 0.2 } }}
         >
           <motion.div
-            animate={{ y: [0, -4, 0] }}
-            transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+            animate={{ y: [0, -6, 0] }}
+            transition={{
+              delay: 0.8,
+              duration: 3,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
             className="w-full h-full"
           >
             <Image
@@ -359,7 +401,7 @@ export default function Hero() {
               alt="Mascot Chicken"
               width={160}
               height={160}
-              className="w-full h-full object-contain"
+              className="w-full h-full object-contain drop-shadow-xl"
             />
           </motion.div>
         </motion.div>
