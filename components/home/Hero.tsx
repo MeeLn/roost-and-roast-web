@@ -146,6 +146,7 @@ export default function Hero() {
             key={currentSlide.id}
             className="mb-6 flex flex-col items-center"
           >
+            {/* BADGE */}
             <motion.span
               variants={fadeUp}
               initial="initial"
@@ -156,17 +157,20 @@ export default function Hero() {
               {currentSlide.badge}
             </motion.span>
 
+            {/* HEADLINE GROUP */}
             <div className="relative w-full">
+              {/* Giant Background Text */}
               <motion.span
                 initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
+                animate={{ opacity: 0.2, scale: 1 }}
                 exit={{ opacity: 0, scale: 1.1 }}
                 transition={{ duration: 1 }}
-                className="block text-6xl md:text-8xl lg:text-[11rem] font-modern font-black text-stone-900/5 uppercase leading-[0.8] tracking-tighter absolute -top-6 md:-top-10 left-1/2 translate-y-10 -translate-x-1/2 w-full select-none pointer-events-none"
+                className="block text-6xl md:text-8xl lg:text-[11rem] font-modern font-black text-black uppercase leading-[0.8] tracking-tighter blur-[2px] absolute -top-10 left-1/2 translate-y-10 -translate-x-1/2 w-full select-none pointer-events-none"
               >
                 {currentSlide.bgText}
               </motion.span>
 
+              {/* Main Headline */}
               <h1 className="relative z-10">
                 <motion.span
                   variants={fadeUp}
@@ -174,25 +178,27 @@ export default function Hero() {
                   animate="animate"
                   exit="exit"
                   transition={{ delay: 0.1 }}
-                  className="block text-4xl md:text-6xl lg:text-7xl font-modern font-black text-stone-900 uppercase leading-none tracking-tighter drop-shadow-sm"
+                  className="block text-4xl md:text-6xl lg:text-7xl font-modern font-black text-stone-900 uppercase leading-none tracking-tighter"
                 >
                   {currentSlide.headlineLine1} <br />{" "}
                   {currentSlide.headlineLine2}
                 </motion.span>
 
+                {/* Artistic Highlight */}
                 <motion.span
                   variants={scaleIn}
                   initial="initial"
                   animate="animate"
                   exit="exit"
                   transition={{ delay: 0.2 }}
-                  className="block font-artistic text-primary text-6xl md:text-8xl lg:text-[10rem] normal-case leading-none -mt-3 md:-mt-8 relative z-20 drop-shadow-lg"
+                  className="block font-artistic text-primary text-7xl md:text-9xl lg:text-[11rem] normal-case leading-none -mt-4 md:-mt-8 relative z-20 drop-shadow-2xl"
                 >
                   {currentSlide.highlightText}
                 </motion.span>
               </h1>
             </div>
 
+            {/* DESCRIPTION */}
             <motion.p
               variants={fadeUp}
               initial="initial"
