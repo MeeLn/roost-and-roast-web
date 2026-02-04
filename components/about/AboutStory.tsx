@@ -62,7 +62,7 @@ export default function Story() {
             />
             <div className="absolute inset-0 flex items-center justify-center bg-black/20">
               <Image
-                src="/logos/logo-rounded.png"
+                src="/logos/logo-rounded.svg"
                 width={150}
                 height={150}
                 alt="Badge"

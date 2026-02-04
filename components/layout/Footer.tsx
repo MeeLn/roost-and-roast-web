@@ -129,7 +129,7 @@ export default function Footer() {
 
                 <div className="relative w-20 h-20 md:w-24 md:h-24 rounded-full overflow-hidden border-1 border-primary/80 shadow-lg shadow-black/50 z-10 bg-zinc-800">
                   <Image
-                    src="/logos/logo-rounded.png"
+                    src="/logos/logo-rounded.svg"
                     alt="Roost and Roast Logo"
                     fill
                     className="object-cover"
