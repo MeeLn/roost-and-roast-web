@@ -268,9 +268,9 @@ export default function Footer() {
               <div className="flex items-start gap-4">
                 <MapPin size={20} className="text-primary shrink-0 mt-1" />
                 <span>
-                  123 Roast Street, Foodville
-                  <br />
-                  NSW 2000, Australia
+                  West Gosford Shopping village,
+                  <br /> 23/299 Brisbane Water Drive
+                  <br /> West Gosford NSW, 2250
                 </span>
               </div>
               <div className="flex items-center gap-4">
@@ -299,22 +299,14 @@ export default function Footer() {
             </h3>
             <div className="flex flex-col gap-2 text-sm">
               <div className="flex justify-between border-b border-white/10 pb-2">
-                <span>Mon - Fri</span>
-                <span className="text-white font-medium">
-                  11:00 AM - 9:00 PM
-                </span>
+                <span>Mon - Sun</span>
+                <span>9am – 8pm</span>
               </div>
-              <div className="flex justify-between border-b border-white/10 pb-2">
-                <span>Saturday</span>
-                <span className="text-white font-medium">
-                  10:00 AM - 10:00 PM
-                </span>
+              <div className="flex justify-between">
+                <span>Trading Seven days</span>
               </div>
-              <div className="flex justify-between pb-2">
-                <span>Sunday</span>
-                <span className="text-white font-medium">
-                  10:00 AM - 9:00 PM
-                </span>
+              <div className="flex justify-between">
+                <span>Holidays hours may differ</span>
               </div>
             </div>
           </div>
