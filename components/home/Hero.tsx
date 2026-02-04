@@ -220,7 +220,7 @@ export default function Hero() {
         >
           <Link
             href="/menu"
-            className="bg-primary text-white px-10 py-4 text-lg font-modern font-black rounded-3xl uppercase tracking-widest transition-all hover:bg-primary-dark hover:-translate-y-1 hover:shadow-xl hover:shadow-primary/20"
+            className="bg-primary text-white px-10 py-4 text-lg font-modern font-black rounded-3xl uppercase tracking-widest transition-all hover:bg-primary-light hover:-translate-y-1 hover:shadow-xl hover:shadow-primary/20"
           >
             View Menu
           </Link>
