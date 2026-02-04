@@ -265,22 +265,56 @@ export default function Footer() {
               </span>
             </h3>
             <div className="flex flex-col gap-4">
-              <div className="flex items-start gap-4">
-                <MapPin size={20} className="text-primary shrink-0 mt-1" />
-                <span>
-                  West Gosford Shopping village,
-                  <br /> 23/299 Brisbane Water Drive
-                  <br /> West Gosford NSW, 2250
-                </span>
+              <div className="w-fit group">
+                <a
+                  href="https://www.google.com/maps/search/?api=1&query=West+Gosford+Shopping+Village"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <div className="flex items-start gap-4">
+                    <MapPin
+                      size={20}
+                      className="shrink-0 mt-1 group-hover:text-primary transition-colors"
+                    />
+                    <span className="group-hover:text-primary transition-colors font-modern">
+                      West Gosford Shopping village,
+                      <br /> 23/299 Brisbane Water Drive
+                      <br /> West Gosford NSW, 2250
+                    </span>
+                  </div>
+                  <div className="relative w-full h-20 mt-3 ml-1 rounded-lg overflow-hidden shadow-sm">
+                    <Image
+                      src="/img/location.png"
+                      alt="Location View"
+                      fill
+                      className="object-cover grayscale group-hover:grayscale-0 transition-all duration-500"
+                    />
+                    <div className="absolute inset-0 bg-primary/5 group-hover:bg-transparent transition-colors" />
+                  </div>
+                </a>
               </div>
-              <div className="flex items-center gap-4">
-                <Phone size={20} className="text-primary shrink-0" />
-                <span>(02) 9999 9999</span>
-              </div>
-              <div className="flex items-center gap-4">
-                <Mail size={20} className="text-primary shrink-0" />
-                <span>hello@roostandroast.com</span>
-              </div>
+              <a href="tel:+610243427887">
+                <div className="flex items-center gap-4 group">
+                  <Phone
+                    size={20}
+                    className="shrink-0 group-hover:text-primary transition-colors"
+                  />
+                  <span className="group-hover:text-primary transition-colors">
+                    +61 02 43427887
+                  </span>
+                </div>
+              </a>
+              <a href="mailto:info@roostnroast.com.au">
+                <div className="flex items-center gap-4 group">
+                  <Mail
+                    size={20}
+                    className="shrink-0 group-hover:text-primary transition-colors"
+                  />
+                  <span className="group-hover:text-primary transition-colors">
+                    info@roostnroast.com.au
+                  </span>
+                </div>
+              </a>
             </div>
           </div>
 
