@@ -7,6 +7,7 @@ import AboutStory from "@/components/about/AboutStory";
 import ContactSection from "@/components/contact/ContactSection";
 import Footer from "@/components/layout/Footer";
 import CTASection from "@/components/home/CTASection";
+import GridMenuSection from "@/components/home/GridMenuSection";
 
 export default function Home() {
   return (
@@ -15,6 +16,7 @@ export default function Home() {
       <Hero />
       <IntroSection />
       <FeaturedMenu />
+      <GridMenuSection />
       <AboutStory />
       <Testimonials />
       <CTASection />
