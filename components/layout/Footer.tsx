@@ -346,10 +346,29 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="text-center pt-8 border-t border-white/10 text-sm text-gray-500">
-          <p>
-            © {new Date().getFullYear()} Roost and Roast. All rights reserved.
-          </p>
+        <div className="pt-8 border-t border-white/10 text-sm text-gray-500">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+            {/* Left Side: Copyright */}
+            <p className="text-center md:text-left order-2 md:order-1">
+              © {new Date().getFullYear()} Roost and Roast. All rights reserved.
+            </p>
+
+            {/* Right Side: Policies */}
+            <div className="flex items-center gap-6 order-1 md:order-2">
+              <Link
+                href="/privacy-policy"
+                className="hover:text-white transition-colors duration-200"
+              >
+                Privacy Policy
+              </Link>
+              <Link
+                href="/terms-of-services"
+                className="hover:text-white transition-colors duration-200"
+              >
+                Terms of Services
+              </Link>
+            </div>
+          </div>
         </div>
       </div>
     </footer>
