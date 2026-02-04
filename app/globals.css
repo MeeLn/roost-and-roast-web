@@ -46,6 +46,9 @@
 
 html {
   scroll-behavior: smooth;
+  /* Firefox Fallback */
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-primary) var(--color-background);
 }
 
 body {
@@ -59,4 +62,26 @@ h4,
 h5,
 h6 {
   @apply font-serif font-semibold text-text-main;
+}
+
+/* --- FIRE SCROLLBAR (Chrome, Edge, Safari) --- */
+::-webkit-scrollbar {
+  width: 14px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-background);
+}
+
+::-webkit-scrollbar-thumb {
+  /* Yellow -> Orange -> Your Primary Red */
+  background: linear-gradient(to bottom, #facc15, #f97316, #db3a01);
+  border-radius: 10px;
+  /* This border matches the background to make the scrollbar look like a floating pill */
+  border: 3px solid var(--color-background);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  /* Slightly more intense fire on hover */
+  background: linear-gradient(to bottom, #eab308, #ea580c, #b91c1c);
 }

@@ -11,7 +11,7 @@ export default function Story() {
     >
       {/* Tessellation pattern overlay */}
       <div
-        className="absolute top-0 right-0 w-1/2 h-full z-0 opacity-10 pointer-events-none"
+        className="absolute top-0 right-0 w-full h-full z-0 opacity-10 pointer-events-none"
         style={{
           backgroundImage:
             "radial-gradient(var(--color-text-muted) 1px, transparent 1px)",
