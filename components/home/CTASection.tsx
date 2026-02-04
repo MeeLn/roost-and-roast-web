@@ -5,22 +5,33 @@ import { ArrowRight, Phone } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 
-// --- ANIMATION VARIANTS ---
+// --- FIXED ANIMATION VARIANTS ---
 const floatingImage: Variants = {
-  initial: { y: 20, rotate: 0 },
+  // Ensure the element starts exactly where the animation begins to prevent jumps
+  initial: (custom) => ({
+    y: 0,
+    rotate: custom.rotation,
+  }),
   animate: (custom) => ({
-    y: [0, -15, 0],
-    rotate: [custom.rotation, custom.rotation + 5, custom.rotation],
+    y: [0, -20, 0], // Smooth sine wave (Up and Down)
+    rotate: [
+      custom.rotation,
+      custom.rotation + 3,
+      custom.rotation - 3,
+      custom.rotation,
+    ], // Very subtle wobble
     transition: {
       y: {
-        duration: 4 + Math.random() * 2,
+        duration: 6, // Slower = Smoother
         repeat: Infinity,
         ease: "easeInOut",
+        delay: custom.delay, // Deterministic delay
       },
       rotate: {
-        duration: 5 + Math.random() * 2,
+        duration: 7.5, // Different duration to create organic "floating" feel
         repeat: Infinity,
         ease: "easeInOut",
+        delay: custom.delay,
       },
     },
   }),
@@ -48,7 +59,7 @@ export default function CTASection() {
       <div className="absolute inset-0 w-full h-full z-10 pointer-events-none overflow-hidden">
         {/* 1. Square Image (Top Left) */}
         <motion.div
-          custom={{ rotation: -10 }}
+          custom={{ rotation: -10, delay: 0 }}
           variants={floatingImage}
           initial="initial"
           animate="animate"
@@ -97,7 +108,7 @@ export default function CTASection() {
 
         {/* 4. Circle 1 (Top Right / Mid) */}
         <motion.div
-          custom={{ rotation: 15 }}
+          custom={{ rotation: 15, delay: 1.5 }} // Added delay offset
           variants={floatingImage}
           initial="initial"
           animate="animate"
@@ -114,7 +125,7 @@ export default function CTASection() {
 
         {/* 5. Circle 2 (Bottom Left / Mid) */}
         <motion.div
-          custom={{ rotation: -5 }}
+          custom={{ rotation: -5, delay: 0.5 }} // Added delay offset
           variants={floatingImage}
           initial="initial"
           animate="animate"
