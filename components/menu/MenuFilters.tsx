@@ -40,9 +40,6 @@ const MenuCard = ({ item }: { item: (typeof menus)[0] }) => {
         setIsMobileActive(entry.isIntersecting);
       },
       {
-        // This defines the "center" zone.
-        // -40% from top and -40% from bottom means the element
-        // is considered "intersecting" only when it is in the middle 20% of the screen.
         rootMargin: "-40% 0px -40% 0px",
         threshold: 0,
       },
@@ -57,7 +54,6 @@ const MenuCard = ({ item }: { item: (typeof menus)[0] }) => {
     };
   }, []);
 
-  // Helper string to combine hover (desktop) and active (mobile) states
   const activeClass = (base: string, active: string) =>
     `${base} ${isMobileActive ? active : ""}`;
 
@@ -72,14 +68,12 @@ const MenuCard = ({ item }: { item: (typeof menus)[0] }) => {
       transition={{ duration: 0.2 }}
       className="relative flex flex-col group mx-2 md:mx-0 mt-8 md:mt-0"
     >
-      {/* IMAGE SECTION */}
       <div
         className={activeClass(
           "absolute -top-40 left-1/2 -translate-x-1/2 w-54 h-54 z-20 transition-transform duration-500 ease-out group-hover:-translate-y-6",
           "-translate-y-6",
         )}
       >
-        {/* THE DASHED RING */}
         <motion.div
           animate={{ rotate: 360 }}
           transition={{
@@ -93,7 +87,6 @@ const MenuCard = ({ item }: { item: (typeof menus)[0] }) => {
           )}
         />
 
-        {/* The Image Circle */}
         <div className="relative w-full h-full rounded-full border border-gray-100/5 shadow-lg overflow-hidden bg-background z-10">
           <Image
             src={PLACEHOLDER_IMAGE}
@@ -107,7 +100,6 @@ const MenuCard = ({ item }: { item: (typeof menus)[0] }) => {
         </div>
       </div>
 
-      {/* ACTUAL CARD CONTENT WRAPPER */}
       <div className="relative z-10 bg-background rounded-3xl border border-border shadow-sm hover:shadow-xl hover:border-primary/50 transition-all overflow-hidden flex flex-col flex-grow pt-20">
         <div className="px-6 pb-4 flex flex-col items-center flex-grow text-center gap-2">
           <div className="flex flex-col items-center gap-1">
@@ -120,9 +112,7 @@ const MenuCard = ({ item }: { item: (typeof menus)[0] }) => {
           </div>
         </div>
 
-        {/* Flush Bottom Price/Variant Section */}
         <div className="mt-auto w-full relative">
-          {/* Red Overlay */}
           <div
             className={activeClass(
               "absolute inset-0 bg-primary origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500 ease-out z-0",
@@ -190,6 +180,9 @@ export default function MenuFilters() {
   const [searchTerm, setSearchTerm] = useState("");
   const [isSticky, setIsSticky] = useState(false);
 
+  // Track if it's the initial render so we don't scroll on page load
+  const isFirstRender = useRef(true);
+
   const sectionRef = useRef<HTMLElement>(null);
   const initialTopRef = useRef<number>(0);
 
@@ -228,6 +221,26 @@ export default function MenuFilters() {
       window.removeEventListener("resize", handleResize);
     };
   }, [isSticky]);
+
+  // --- NEW SCROLL EFFECT ---
+  useEffect(() => {
+    if (isFirstRender.current) {
+      isFirstRender.current = false;
+      return;
+    }
+
+    if (sectionRef.current) {
+      const headerOffset = window.innerWidth < 768 ? 100 : 120;
+
+      const elementPosition = sectionRef.current.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.scrollY - headerOffset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth",
+      });
+    }
+  }, [activeCategory, searchTerm]);
 
   const menuGroups = useMemo(() => {
     const filteredItems = menus.filter((item) => {

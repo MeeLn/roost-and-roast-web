@@ -1,7 +1,7 @@
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import MenuHero from "@/components/menu/MenuHero";
-import MenuFilters from "@/components/ui/MenuFilters";
+import MenuFilters from "@/components/menu/MenuFilters";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
