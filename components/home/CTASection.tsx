@@ -40,18 +40,18 @@ const floatingImage: Variants = {
 export default function CTASection() {
   return (
     <section className="relative py-32 md:py-40 overflow-hidden bg-stone-100 isolate flex items-center justify-center">
-      {/* --- ROUGHER PAPER TEXTURE BACKGROUND --- */}
-      <div className="absolute inset-0 w-full h-full z-0 opacity-70 pointer-events-none mix-blend-multiply">
+      {/* --- IMPROVED PROCEDURAL PAPER SVG --- */}
+      <div className="absolute inset-0 w-full h-full z-0 opacity-40 pointer-events-none mix-blend-multiply">
         <svg className="w-full h-full">
-          <filter id="ctaNoiseFilter">
+          <filter id="roughPaper">
             <feTurbulence
               type="fractalNoise"
-              baseFrequency="0.95"
-              numOctaves="1"
+              baseFrequency="0.5"
+              numOctaves="3"
               stitchTiles="stitch"
             />
           </filter>
-          <rect width="100%" height="100%" filter="url(#ctaNoiseFilter)" />
+          <rect width="100%" height="100%" filter="url(#roughPaper)" />
         </svg>
       </div>
 

@@ -184,19 +184,16 @@ export default function Hero() {
 
   return (
     <section className="relative h-screen w-full flex items-center justify-center overflow-hidden bg-stone-100">
-      {/* --- ROUGHER PAPER TEXTURE BACKGROUND --- */}
-      <div className="absolute inset-0 w-full h-full z-0 opacity-60 pointer-events-none mix-blend-multiply">
-        <svg className="w-full h-full">
-          <filter id="noiseFilter">
-            <feTurbulence
-              type="fractalNoise"
-              baseFrequency="0.85"
-              numOctaves="4"
-              stitchTiles="stitch"
-            />
-          </filter>
-          <rect width="100%" height="100%" filter="url(#noiseFilter)" />
-        </svg>
+      {/* --- REALISTIC RECYCLED PAPER BACKGROUND --- */}
+      <div className="absolute inset-0 w-full h-full z-0 pointer-events-none mix-blend-multiply opacity-80">
+        <div
+          className="w-full h-full"
+          style={{
+            backgroundImage: `url("/home/paper-texture.png")`,
+            backgroundRepeat: "repeat",
+            backgroundSize: "500px auto",
+          }}
+        />
       </div>
 
       {/* --- FLOATING CORNER IMAGES (DOUBLED SIZE) --- */}
