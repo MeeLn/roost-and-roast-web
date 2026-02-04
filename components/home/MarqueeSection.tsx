@@ -12,7 +12,7 @@ export default function MarqueeSection() {
     <div className="w-full overflow-hidden py-8 my-4">
       <section className="bg-primary border-y-4 border-black/10 overflow-hidden py-4 relative z-10 rotate-1 scale-[1.02]">
         <div
-          className="flex whitespace-nowrap w-fit animate-[scroll_20s_linear_infinite]"
+          className="flex whitespace-nowrap w-fit animate-[scroll_30s_linear_infinite]"
           style={{
             animationName: "scroll-left",
           }}
