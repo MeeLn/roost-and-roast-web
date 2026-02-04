@@ -96,7 +96,7 @@ export default function Testimonials() {
           <span className="text-primary font-bold tracking-wider uppercase text-sm mb-2 block">
             Testimonials
           </span>
-          <h2 className="text-4xl md:text-5xl font-serif font-bold text-text-main mb-6">
+          <h2 className="text-4xl md:text-5xl font-modern font-bold text-text-main mb-6">
             What They Say
           </h2>
         </div>

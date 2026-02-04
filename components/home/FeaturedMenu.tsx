@@ -1,96 +1,180 @@
 "use client";
 
-import { useRef, useEffect, useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
 import { menus } from "@/lib/data/menus";
-import { ShoppingBag, ChevronLeft, ChevronRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 const PLACEHOLDER_IMAGE =
   "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=2080&auto=format&fit=crop";
 
-export default function FeaturedMenu() {
-  const popularItems = menus.filter((item) => item.isPopular);
-  const containerRef = useRef<HTMLDivElement>(null);
-  const carouselWrapperRef = useRef<HTMLDivElement>(null);
+// --- REUSABLE MENU CARD COMPONENT ---
+const MenuCard = ({ item }: { item: (typeof menus)[0] }) => {
+  const cardRef = useRef<HTMLDivElement>(null);
+  const [isMobileActive, setIsMobileActive] = useState(false);
 
-  // Layout State
-  const [itemWidth, setItemWidth] = useState(300); // Default fallback
-  const [visibleItems, setVisibleItems] = useState(3);
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [isMobile, setIsMobile] = useState(false); // Fix: Track mobile state
-
-  const GAP = 32; // Fixed gap in pixels (gap-8)
-
-  // 1. Exact Size Calculation Logic
   useEffect(() => {
-    const updateDimensions = () => {
-      if (!carouselWrapperRef.current) return;
+    if (window.innerWidth >= 768) return;
 
-      const containerWidth = carouselWrapperRef.current.offsetWidth;
-      // Safety check for window existence (though useEffect only runs on client)
-      const windowWidth =
-        typeof window !== "undefined" ? window.innerWidth : 1024;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsMobileActive(entry.isIntersecting);
+      },
+      {
+        rootMargin: "-40% 0px -40% 0px",
+        threshold: 0,
+      },
+    );
 
-      let newVisibleItems = 3;
-      let calculatedWidth = 0;
-
-      // Update mobile state safely
-      setIsMobile(windowWidth < 768);
-
-      if (windowWidth < 768) {
-        // Mobile: Show 1 item, but make it 85% width to show a peek of the next one
-        newVisibleItems = 1;
-        calculatedWidth = containerWidth * 0.85;
-      } else if (windowWidth < 1024) {
-        // Tablet: Show 2 items
-        newVisibleItems = 2;
-        // Formula: (Container - (Gap * (Items - 1))) / Items
-        calculatedWidth = (containerWidth - GAP) / 2;
-      } else {
-        // Desktop: Show 3 items
-        newVisibleItems = 3;
-        calculatedWidth = (containerWidth - GAP * 2) / 3;
-      }
-
-      setVisibleItems(newVisibleItems);
-      setItemWidth(calculatedWidth);
-    };
-
-    // Observer handles resize more accurately than window.resize
-    const observer = new ResizeObserver(() => {
-      updateDimensions();
-    });
-
-    if (carouselWrapperRef.current) {
-      observer.observe(carouselWrapperRef.current);
+    if (cardRef.current) {
+      observer.observe(cardRef.current);
     }
 
-    // Initial calculation
-    updateDimensions();
-
-    return () => observer.disconnect();
+    return () => {
+      if (cardRef.current) observer.unobserve(cardRef.current);
+    };
   }, []);
 
-  // 2. Logic boundaries
-  const maxIndex = Math.max(0, popularItems.length - visibleItems);
-
-  // Fix: Use state variable instead of direct window access
-  const effectiveMaxIndex = isMobile ? popularItems.length - 1 : maxIndex;
-
-  const scrollTo = (index: number) => {
-    const target = Math.max(0, Math.min(index, effectiveMaxIndex));
-    setCurrentIndex(target);
-  };
-
-  const slideLeft = () => scrollTo(currentIndex - 1);
-  const slideRight = () => scrollTo(currentIndex + 1);
+  const activeClass = (base: string, active: string) =>
+    `${base} ${isMobileActive ? active : ""}`;
 
   return (
-    <section className="py-24 bg-surface" id="menu">
+    <motion.div
+      layout
+      ref={cardRef}
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-50px" }}
+      transition={{ duration: 0.5 }}
+      className="relative flex flex-col group mx-2 md:mx-0"
+    >
+      {/* Floating Image Section */}
+      <div
+        className={activeClass(
+          "absolute -top-40 left-1/2 -translate-x-1/2 w-54 h-54 z-20 transition-transform duration-500 ease-out group-hover:-translate-y-6",
+          "-translate-y-6",
+        )}
+      >
+        {/* Spinning Dashed Border */}
+        <motion.div
+          animate={{ rotate: 360 }}
+          transition={{
+            duration: 8,
+            repeat: Infinity,
+            ease: "linear",
+          }}
+          className={activeClass(
+            "absolute -inset-2 rounded-full border-2 border-dashed border-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-0",
+            "opacity-100",
+          )}
+        />
+
+        {/* Image Container */}
+        <div className="relative w-full h-full rounded-full border border-gray-100/5 shadow-lg overflow-hidden bg-background z-10">
+          <Image
+            src={
+              item.image && item.image.startsWith("http")
+                ? item.image
+                : PLACEHOLDER_IMAGE
+            }
+            alt={item.title}
+            fill
+            className={activeClass(
+              "object-cover transition-transform duration-500 group-hover:scale-110",
+              "scale-110",
+            )}
+          />
+        </div>
+      </div>
+
+      {/* Content Card */}
+      <div className="relative z-10 bg-background rounded-3xl border border-border shadow-sm hover:shadow-xl hover:border-primary/50 transition-all overflow-hidden flex flex-col flex-grow pt-20">
+        <div className="px-6 pb-4 flex flex-col items-center flex-grow text-center gap-2">
+          <div className="flex flex-col items-center gap-1">
+            <h3 className="font-modern text-xl font-black text-secondary uppercase tracking-tight leading-tight">
+              {item.title}
+            </h3>
+            <p className="font-serif italic text-sm text-text-muted leading-relaxed line-clamp-2">
+              {item.description}
+            </p>
+          </div>
+        </div>
+
+        {/* Bottom Pricing/Order Section */}
+        <div className="mt-auto w-full relative">
+          <div
+            className={activeClass(
+              "absolute inset-0 bg-primary origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500 ease-out z-0",
+              "scale-x-100",
+            )}
+          />
+
+          <div className="relative z-10 py-3 px-4 flex flex-col items-center justify-center min-h-[70px]">
+            {item.variants ? (
+              <div className="flex flex-wrap justify-center gap-2 w-full">
+                {item.variants.map((variant) => (
+                  <div
+                    key={variant.label}
+                    className="flex flex-col items-center justify-center px-6 py-1 rounded-lg min-w-[60px] transition-all duration-300"
+                  >
+                    <span
+                      className={activeClass(
+                        "font-artistic text-lg text-primary -rotate-3 group-hover:text-white transition-colors duration-300",
+                        "text-white",
+                      )}
+                    >
+                      {variant.label}
+                    </span>
+                    <span
+                      className={activeClass(
+                        "font-modern text-sm font-bold text-primary group-hover:text-white transition-colors duration-300",
+                        "text-white",
+                      )}
+                    >
+                      ${variant.price.toFixed(0)}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            ) : (
+              <div className="flex items-baseline gap-2">
+                <span
+                  className={activeClass(
+                    "font-artistic text-2xl text-primary -rotate-6 lowercase mb-0 transition-colors duration-500 group-hover:text-white",
+                    "text-white",
+                  )}
+                >
+                  only
+                </span>
+                <span
+                  className={activeClass(
+                    "font-modern text-2xl font-bold text-primary transition-colors duration-500 group-hover:text-white",
+                    "text-white",
+                  )}
+                >
+                  ${item.price?.toFixed(2) || "12.00"}
+                </span>
+              </div>
+            )}
+          </div>
+        </div>
+      </div>
+    </motion.div>
+  );
+};
+
+// --- MAIN FEATURED SECTION ---
+export default function FeaturedMenu() {
+  // Logic: Get popular items, then slice strictly to the first 3
+  const featuredItems = menus.filter((item) => item.isPopular).slice(0, 3);
+
+  return (
+    <section className="py-24 bg-surface" id="featured-menu">
       <div className="container mx-auto px-4 md:px-8">
         {/* Header */}
-        <div className="text-center mb-12">
+        <div className="text-center mb-24 md:mb-32">
           <span className="text-primary font-bold tracking-wider uppercase text-sm mb-2 block">
             Customers&apos; Choice
           </span>
@@ -106,179 +190,26 @@ export default function FeaturedMenu() {
           </p>
         </div>
 
-        {/* Carousel Outer Wrapper */}
-        <div className="relative group/carousel max-w-[1400px] mx-auto">
-          {/* DESKTOP NAV ARROWS */}
-          <div className="hidden md:block absolute top-1/2 -left-6 lg:-left-18 -translate-y-1/2 z-30">
-            <button
-              onClick={slideLeft}
-              disabled={currentIndex === 0}
-              className={`p-4 rounded-full bg-white shadow-xl border border-border transition-all duration-300 group
-                ${
-                  currentIndex === 0
-                    ? "opacity-40 cursor-not-allowed bg-gray-50 text-gray-400"
-                    : "hover:bg-primary hover:text-white hover:scale-110 active:scale-95"
-                }`}
-            >
-              <ChevronLeft size={24} />
-            </button>
-          </div>
+        {/* Grid Layout - Fixed 3 items */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-56 md:gap-y-60 pt-30">
+          {featuredItems.map((item) => (
+            <MenuCard key={item.title} item={item} />
+          ))}
+        </div>
 
-          <div className="hidden md:block absolute top-1/2 -right-6 lg:-right-18 -translate-y-1/2 z-30">
-            <button
-              onClick={slideRight}
-              disabled={currentIndex >= effectiveMaxIndex}
-              className={`p-4 rounded-full bg-white shadow-xl border border-border transition-all duration-300 group
-                ${
-                  currentIndex >= effectiveMaxIndex
-                    ? "opacity-40 cursor-not-allowed bg-gray-50 text-gray-400"
-                    : "hover:bg-primary hover:text-white hover:scale-110 active:scale-95"
-                }`}
-            >
-              <ChevronRight size={24} />
-            </button>
-          </div>
+        {/* View Menu Button (Redirects to /menu) */}
+        <div className="mt-10 md:mt-16 text-center">
+          <Link
+            href="/menu"
+            className="group relative inline-flex items-center gap-3 px-8 py-4 bg-white border border-primary/20 rounded-3xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
+          >
+            <span className="absolute inset-0 bg-primary transform scale-x-0 origin-left group-hover:scale-x-100 transition-transform duration-300 ease-out" />
 
-          {/* Viewport (The Window) */}
-          {/* We ref this to calculate widths */}
-          <div ref={carouselWrapperRef} className="overflow-hidden py-4">
-            <motion.div
-              ref={containerRef}
-              className="flex"
-              // Ensure the gap in CSS matches our JS constant
-              style={{ gap: `${GAP}px` }}
-              animate={{
-                // THE CORE FIX: Move by exactly (ItemWidth + Gap) * Index
-                x: -(currentIndex * (itemWidth + GAP)),
-              }}
-              transition={{
-                type: "spring",
-                stiffness: 300,
-                damping: 30,
-              }}
-              drag="x"
-              dragConstraints={{
-                left: -(effectiveMaxIndex * (itemWidth + GAP)),
-                right: 0,
-              }}
-              dragElastic={0.1}
-              onDragEnd={(e, { offset, velocity }) => {
-                const swipeThreshold = 50;
-                const dragDistance = -offset.x;
-
-                // Logic to snap to next/prev based on swipe direction
-                if (dragDistance > swipeThreshold || velocity.x < -500) {
-                  scrollTo(currentIndex + 1);
-                } else if (dragDistance < -swipeThreshold || velocity.x > 500) {
-                  scrollTo(currentIndex - 1);
-                } else {
-                  scrollTo(currentIndex);
-                }
-              }}
-            >
-              {popularItems.map((item, index) => (
-                <motion.div
-                  key={index}
-                  className="relative flex-shrink-0 bg-white rounded-3xl p-4 shadow-sm hover:shadow-xl transition-all duration-300 border border-border/50 flex flex-col snap-start select-none"
-                  // 3. Apply the calculated width directly via inline styles
-                  style={{ width: itemWidth }}
-                >
-                  <div className="relative w-full aspect-square md:h-[320px] rounded-2xl overflow-hidden mb-6 bg-gray-100">
-                    <Image
-                      src={
-                        item.image && item.image.startsWith("http")
-                          ? item.image
-                          : PLACEHOLDER_IMAGE
-                      }
-                      alt={item.title}
-                      fill
-                      className="object-cover transition-transform duration-500 group-hover:scale-105"
-                      draggable={false}
-                    />
-                    <div className="absolute top-4 right-4 bg-white/95 backdrop-blur-md px-4 py-1.5 rounded-full shadow-md">
-                      <span className="font-bold text-primary">
-                        ${item.price?.toFixed(2) || "12.00"}
-                      </span>
-                    </div>
-                  </div>
-
-                  <div className="px-2 flex flex-col flex-grow">
-                    <div className="flex justify-between items-start mb-3">
-                      <h3 className="font-serif text-2xl font-bold text-text-main line-clamp-1">
-                        {item.title}
-                      </h3>
-                    </div>
-
-                    <p className="text-text-muted leading-relaxed mb-6 line-clamp-2">
-                      {item.description}
-                    </p>
-
-                    <div className="mt-auto pt-6 border-t border-dashed border-border flex items-center justify-between">
-                      {item.variants ? (
-                        <span className="text-xs font-semibold text-text-muted bg-gray-100 px-3 py-1 rounded-full">
-                          {item.variants.length} Options
-                        </span>
-                      ) : (
-                        <span className="text-xs font-semibold text-text-muted">
-                          Standard Portion
-                        </span>
-                      )}
-
-                      <button className="flex items-center gap-2 text-sm font-semibold text-text-main group-hover:text-primary transition-colors">
-                        Order Now
-                        <ShoppingBag size={18} />
-                      </button>
-                    </div>
-                  </div>
-                </motion.div>
-              ))}
-            </motion.div>
-          </div>
-
-          {/* MOBILE CONTROLS */}
-          <div className="mt-6 flex md:hidden items-center justify-between px-2">
-            <button
-              onClick={slideLeft}
-              disabled={currentIndex === 0}
-              className={`p-3 rounded-full border border-border transition-all ${
-                currentIndex === 0
-                  ? "opacity-40 cursor-not-allowed bg-gray-50"
-                  : "bg-white active:scale-95 text-primary border-primary"
-              }`}
-            >
-              <ChevronLeft size={20} />
-            </button>
-
-            {/* Pagination Dots */}
-            <div className="flex gap-2">
-              {popularItems.map((_, idx) => (
-                <button
-                  key={idx}
-                  onClick={() => scrollTo(idx)}
-                  className={`h-2 rounded-full transition-all duration-300 ${
-                    idx === currentIndex ? "w-8 bg-primary" : "w-2 bg-gray-300"
-                  }`}
-                  // Optimization: Only show dots reasonably close to current index on mobile
-                  style={{
-                    display:
-                      Math.abs(currentIndex - idx) > 3 ? "none" : "block",
-                  }}
-                />
-              ))}
-            </div>
-
-            <button
-              onClick={slideRight}
-              disabled={currentIndex >= effectiveMaxIndex}
-              className={`p-3 rounded-full border border-border transition-all ${
-                currentIndex >= effectiveMaxIndex
-                  ? "opacity-40 cursor-not-allowed bg-gray-50"
-                  : "bg-white active:scale-95 text-primary border-primary"
-              }`}
-            >
-              <ChevronRight size={20} />
-            </button>
-          </div>
+            <span className="relative z-10 font-modern font-bold uppercase tracking-widest text-primary group-hover:text-white transition-colors duration-300">
+              View Full Menu
+            </span>
+            <ArrowRight className="relative z-10 w-5 h-5 text-primary group-hover:text-white transition-colors duration-300" />
+          </Link>
         </div>
       </div>
     </section>

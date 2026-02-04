@@ -180,12 +180,12 @@ export default function MenuFilters() {
   const [searchTerm, setSearchTerm] = useState("");
   const [isSticky, setIsSticky] = useState(false);
 
-  // Track if it's the initial render so we don't scroll on page load
-  const isFirstRender = useRef(true);
+  // REMOVED: isFirstRender ref (no longer needed)
 
   const sectionRef = useRef<HTMLElement>(null);
   const initialTopRef = useRef<number>(0);
 
+  // 1. Sticky Header Logic
   useEffect(() => {
     if (sectionRef.current) {
       initialTopRef.current = sectionRef.current.offsetTop;
@@ -222,16 +222,10 @@ export default function MenuFilters() {
     };
   }, [isSticky]);
 
-  // --- NEW SCROLL EFFECT ---
-  useEffect(() => {
-    if (isFirstRender.current) {
-      isFirstRender.current = false;
-      return;
-    }
-
+  // 2. HELPER: Scroll to section ONLY when called explicitly
+  const scrollToMenu = () => {
     if (sectionRef.current) {
       const headerOffset = window.innerWidth < 768 ? 100 : 120;
-
       const elementPosition = sectionRef.current.getBoundingClientRect().top;
       const offsetPosition = elementPosition + window.scrollY - headerOffset;
 
@@ -240,8 +234,25 @@ export default function MenuFilters() {
         behavior: "smooth",
       });
     }
-  }, [activeCategory, searchTerm]);
+  };
 
+  // 3. HANDLERS: Combine state update + scroll trigger
+  const handleCategoryChange = (cat: string) => {
+    setActiveCategory(cat);
+    // Only scroll if we are not already sticky (meaning we are high up on the page)
+    // Or just always scroll to ensure focus
+    scrollToMenu();
+  };
+
+  const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchTerm(e.target.value);
+    // Optional: Scroll when typing starts? Usually better to stay put or scroll only if far away.
+    if (window.scrollY < initialTopRef.current - 200) {
+      scrollToMenu();
+    }
+  };
+
+  // 4. Filtering Logic
   const menuGroups = useMemo(() => {
     const filteredItems = menus.filter((item) => {
       const matchesCategory =
@@ -296,7 +307,8 @@ export default function MenuFilters() {
             return (
               <button
                 key={cat}
-                onClick={() => setActiveCategory(cat)}
+                // UPDATED: Use the handler instead of direct setState
+                onClick={() => handleCategoryChange(cat)}
                 title={cat}
                 className={`relative transition-all z-0 border flex items-center justify-center group flex-shrink-0 ${
                   isSticky
@@ -362,7 +374,8 @@ export default function MenuFilters() {
             type="text"
             placeholder="Search..."
             value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
+            // UPDATED: Use the handler
+            onChange={handleSearchChange}
             className={`w-full py-3 rounded-[20px] border border-border focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all shadow-sm ${
               isSticky
                 ? "pl-10 pr-4 opacity-0 w-0 md:w-full md:opacity-100 pointer-events-none md:pointer-events-auto"
