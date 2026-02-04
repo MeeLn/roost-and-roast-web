@@ -236,8 +236,10 @@ export default function Hero() {
 
       {/* --- BOTTOM LEFT MASCOT ANIMATION --- */}
       <div className="absolute bottom-0 left-4 md:left-10 z-30 w-32 h-32 md:w-48 md:h-48 pointer-events-none">
+        {/* Fire Layer */}
         <motion.div
-          className="absolute bottom-16 -left-2 w-24 h-24 md:w-36 md:h-36 z-10"
+          // Adjusted bottom positions: bottom-6 for mobile, bottom-16 for desktop
+          className="absolute bottom-9 left-1 w-24 h-24 md:bottom-18 md:-left-2 md:w-36 md:h-36 z-10"
           variants={fireAnimation}
           animate="animate"
         >
@@ -253,14 +255,14 @@ export default function Hero() {
 
         {/* Chicken Layer */}
         <motion.div
-          className="absolute bottom-0 left-0 w-28 h-28 md:w-40 md:h-40 z-20 origin-bottom"
+          className="absolute bottom-8 left-2 w-28 h-28 md:bottom-16 md:left-0 md:w-40 md:h-40 z-20 origin-bottom"
           variants={chickenEntrance}
           initial="initial"
           animate="animate"
           whileHover={{ scale: 1.05 }}
         >
           <motion.div
-            animate={{ y: [-64, -60, -64] }}
+            animate={{ y: [0, -4, 0] }}
             transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
             className="w-full h-full"
           >
