@@ -14,7 +14,7 @@ import {
   ChevronRight,
   X,
   CalendarDays,
-  Check, // Added Check icon for the sent state
+  Check,
 } from "lucide-react";
 import toast, { Toaster } from "react-hot-toast";
 
@@ -38,7 +38,7 @@ export default function CateringProcess() {
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [isSent, setIsSent] = useState(false); // <--- NEW STATE
+  const [isSent, setIsSent] = useState(false);
   const [isGuestsOpen, setIsGuestsOpen] = useState(false);
   const [isCalendarOpen, setIsCalendarOpen] = useState(false);
   const [selectedMonth, setSelectedMonth] = useState(new Date().getMonth());
@@ -53,6 +53,13 @@ export default function CateringProcess() {
     "50-100 Guests (Large Event)",
     "100+ Guests (Grand Event)",
   ];
+
+  const isFormValid =
+    formData.name.trim() !== "" &&
+    formData.email.trim() !== "" &&
+    formData.phone.trim() !== "" &&
+    formData.date !== "" &&
+    formData.guests !== "";
 
   // Close dropdowns when clicking outside
   useEffect(() => {
@@ -109,6 +116,13 @@ export default function CateringProcess() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    // Prevent submission if form is invalid (extra safety)
+    if (!isFormValid) {
+      toast.error("Please fill in all required fields.");
+      return;
+    }
+
     setIsSubmitting(true);
     setIsSent(false);
 
@@ -118,6 +132,9 @@ export default function CateringProcess() {
       submitData.append("name", formData.name);
       submitData.append("email", formData.email);
       submitData.append("message", aggregatedMessage);
+
+      // Disable captcha to prevent redirect issues
+      submitData.append("_captcha", "false");
 
       const response = await fetch(
         "https://formsubmit.co/milan.201420@ncit.edu.np",
@@ -133,6 +150,7 @@ export default function CateringProcess() {
           duration: 5000,
           position: "bottom-right",
           style: { background: "#10b981", color: "#fff", fontWeight: "bold" },
+          icon: <Check />,
         });
         setFormData({
           name: "",
@@ -151,23 +169,23 @@ export default function CateringProcess() {
         throw new Error("Submission failed");
       }
     } catch (error) {
-      toast.error("Failed to send inquiry. Please try again.", {
+      toast.error("Failed to send inquiry. Please check your connection.", {
         duration: 5000,
         position: "bottom-right",
         style: { background: "#ef4444", color: "#fff", fontWeight: "bold" },
+        icon: <X />,
       });
     } finally {
       setIsSubmitting(false);
     }
   };
 
-  // --- ANIMATIONS (Optimized for smoothness) ---
   const slideInContainer: Variants = {
     hidden: {},
     visible: {
       transition: {
         staggerChildren: 0.1,
-        delayChildren: 0, // No delay prevents the "pause"
+        delayChildren: 0,
       },
     },
   };
@@ -182,8 +200,8 @@ export default function CateringProcess() {
       opacity: 1,
       transition: {
         type: "spring",
-        stiffness: 90, // Lower stiffness (was 480) for smoother momentum
-        damping: 14, // Lower damping to prevent stopping mid-air
+        stiffness: 90,
+        damping: 14,
         mass: 1,
       },
     },
@@ -545,14 +563,15 @@ export default function CateringProcess() {
                 <div className="col-span-1 md:col-span-2 flex justify-center mt-2">
                   <button
                     type="submit"
-                    disabled={isSubmitting || isSent}
+                    // Disabled if submitting, sent, or if form is incomplete
+                    disabled={isSubmitting || isSent || !isFormValid}
                     className={`w-full md:w-auto text-white py-4 px-10 text-base font-modern font-black rounded-2xl uppercase tracking-[0.2em] transition-all
                       ${
                         isSent
                           ? "bg-green-600 hover:bg-green-700 shadow-none scale-100"
                           : "bg-primary hover:bg-primary-light hover:-translate-y-1 hover:shadow-[0_10px_30px_rgba(239,68,68,0.3)] active:translate-y-0 active:shadow-md"
                       }
-                      disabled:opacity-70 disabled:translate-y-0 disabled:shadow-none disabled:cursor-not-allowed`}
+                      disabled:opacity-50 disabled:translate-y-0 disabled:shadow-none disabled:cursor-not-allowed`}
                   >
                     {isSubmitting ? (
                       "Sending..."
