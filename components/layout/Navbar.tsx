@@ -92,7 +92,7 @@ export default function Navbar() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: -20, scale: 0.95 }}
             transition={{ type: "tween", duration: 0.3 }}
-            className="absolute top-full left-0 mt-4 w-full bg-white/95 backdrop-blur-md rounded-3xl shadow-xl flex flex-col justify-center items-center gap-6 py-8 border border-white/20 origin-top"
+            className="absolute top-full left-0 mt-2 w-full bg-white/95 backdrop-blur-md rounded-3xl shadow-xl flex flex-col justify-center items-center gap-6 py-8 border border-white/20 origin-top"
           >
             {navItems.map((item, i) => {
               const isActive = pathname === item.path;

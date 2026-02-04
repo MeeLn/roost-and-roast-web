@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 export default function Story() {
   return (
     <section
-      className="py-32 bg-surface-hover relative overflow-hidden"
+      className="py-10 md:py-32 bg-surface-hover relative overflow-hidden"
       id="story"
     >
       {/* Tessellation pattern overlay */}
