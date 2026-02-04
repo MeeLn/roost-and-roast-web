@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 
 export default function CateringPage() {
   return (
-    <main className="min-h-screen pt-24 bg-[#FDF8F3]">
+    <main className="min-h-screen pt-24">
       <Navbar />
       <CateringHero />
       <CateringOptions />
