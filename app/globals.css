@@ -30,6 +30,10 @@
     font-family: var(--font-modern), sans-serif !important;
   }
 
+  .font-dancing-script {
+    font-family: var(--font-dancing-script), cursive !important;
+  }
+
   @keyframes scroll {
     0% {
       transform: translateX(-50%);

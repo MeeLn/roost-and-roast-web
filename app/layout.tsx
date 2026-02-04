@@ -1,8 +1,21 @@
 import type { Metadata } from "next";
-import { Inter, Playfair_Display, Caveat, Raleway } from "next/font/google";
+import {
+  Inter,
+  Playfair_Display,
+  Caveat,
+  Raleway,
+  Dancing_Script,
+} from "next/font/google";
 import "./globals.css";
 import clsx from "clsx";
 import ScrollToTop from "@/components/ui/ScrollToTop";
+
+const dancing_script = Dancing_Script({
+  subsets: ["latin"],
+  variable: "--font-dancing-script",
+  display: "swap",
+  weight: ["400", "500", "600", "700"],
+});
 
 const inter = Inter({
   subsets: ["latin"],
