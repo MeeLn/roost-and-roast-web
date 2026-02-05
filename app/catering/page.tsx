@@ -5,6 +5,7 @@ import CateringFeatures from "@/components/catering/CateringFeatures";
 import CateringProcess from "@/components/catering/CateringProcess";
 import { Metadata } from "next";
 import CateringOptions from "@/components/catering/CateringOptions";
+import CateringMenuFlip from "@/components/catering/CateringMenuFlip";
 
 export const metadata: Metadata = {
   title: "Our Catering | Roost and Roast",
@@ -18,6 +19,7 @@ export default function CateringPage() {
       <Navbar />
       <CateringHero />
       <CateringOptions />
+      <CateringMenuFlip />
       <CateringFeatures />
       <CateringProcess />
       <Footer />

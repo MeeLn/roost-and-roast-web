@@ -1,5 +1,7 @@
 export interface MenuItem {
-  image: string;
+  image?: string;
+  simage?: string;
+  rimage?: string;
   title: string;
   description: string;
   category: string;
@@ -388,7 +390,7 @@ export const menus: MenuItem[] = [
     isPopular: true,
   },
   {
-    image: "/assets/img/menu/menuThumb2_6.png",
+    simage: "/smenu/schnitzel-chips-salad.jpg",
     title: "Schnitzel & Chips",
     description: "Chicken Schnitzel & chips",
     price: 19.9,
@@ -790,7 +792,7 @@ export const menus: MenuItem[] = [
     ],
   },
   {
-    image: "",
+    image: "/menu/chicken-schnitzel-slaw.png",
     title: "Snitzel Slaw",
     description: "Crispy chicken schnitzel with fresh slaw.",
     category: "Salads",

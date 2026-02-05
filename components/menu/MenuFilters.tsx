@@ -6,8 +6,7 @@ import { Search } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { menus, CATEGORY } from "@/lib/data/menus";
 
-const PLACEHOLDER_IMAGE =
-  "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=2080&auto=format&fit=crop";
+const PLACEHOLDER_IMAGE = "/placeholder.png";
 
 const CATEGORY_EMOJIS: Record<string, string> = {
   All: "🍽️",
@@ -28,27 +27,62 @@ const CATEGORY_EMOJIS: Record<string, string> = {
   default: "🍴",
 };
 
+// Interface for shape configuration
+interface ShapeConfig {
+  src: string;
+  sizeClass: string;
+  roundedClass: string;
+  rxValue: string;
+}
+
 const MenuCard = ({ item }: { item: (typeof menus)[0] }) => {
   const cardRef = useRef<HTMLDivElement>(null);
   const [isMobileActive, setIsMobileActive] = useState(false);
 
+  // --- 1. Determine Shape, Size & Source Priority ---
+  const shapeConfig: ShapeConfig = useMemo(() => {
+    // 1. RECTANGLE (rimage)
+    if (item.rimage && item.rimage.trim() !== "") {
+      return {
+        src: item.rimage,
+        sizeClass: "w-64 h-44",
+        roundedClass: "rounded-[2rem]",
+        rxValue: "32",
+      };
+    }
+    // 2. SQUARE (simage)
+    if (item.simage && item.simage.trim() !== "") {
+      return {
+        src: item.simage,
+        sizeClass: "w-54 h-54",
+        roundedClass: "rounded-[2rem]",
+        rxValue: "32",
+      };
+    }
+    // 3. CIRCLE (default image)
+    return {
+      src: item.image || PLACEHOLDER_IMAGE,
+      sizeClass: "w-54 h-54",
+      roundedClass: "rounded-full",
+      rxValue: "50%",
+    };
+  }, [item]);
+
+  // --- 2. Image State Management ---
+  const [imgSrc, setImgSrc] = useState(shapeConfig.src);
+
+  useEffect(() => {
+    setImgSrc(shapeConfig.src);
+  }, [shapeConfig.src]);
+
+  // --- 3. Intersection Observer (Mobile) ---
   useEffect(() => {
     if (window.innerWidth >= 768) return;
-
     const observer = new IntersectionObserver(
-      ([entry]) => {
-        setIsMobileActive(entry.isIntersecting);
-      },
-      {
-        rootMargin: "-40% 0px -40% 0px",
-        threshold: 0,
-      },
+      ([entry]) => setIsMobileActive(entry.isIntersecting),
+      { rootMargin: "-40% 0px -40% 0px", threshold: 0 },
     );
-
-    if (cardRef.current) {
-      observer.observe(cardRef.current);
-    }
-
+    if (cardRef.current) observer.observe(cardRef.current);
     return () => {
       if (cardRef.current) observer.unobserve(cardRef.current);
     };
@@ -66,47 +100,68 @@ const MenuCard = ({ item }: { item: (typeof menus)[0] }) => {
       viewport={{ once: false, margin: "-50px" }}
       exit={{ opacity: 0, scale: 0.9 }}
       transition={{ duration: 0.2 }}
-      className="relative flex flex-col group mx-2 md:mx-0 mt-8 md:mt-0"
+      className="relative flex flex-col group mx-2 md:mx-0 mt-12 md:mt-0"
     >
+      {/* --- IMAGE CONTAINER --- */}
       <div
         className={activeClass(
-          "absolute -top-40 left-1/2 -translate-x-1/2 w-54 h-54 z-20 transition-transform duration-500 ease-out group-hover:-translate-y-6",
+          `absolute -top-40 left-1/2 -translate-x-1/2 z-20 transition-transform duration-500 ease-out group-hover:-translate-y-6 ${shapeConfig.sizeClass}`,
           "-translate-y-6",
         )}
       >
-        <motion.div
-          animate={{ rotate: 360 }}
-          transition={{
-            duration: 8,
-            repeat: Infinity,
-            ease: "linear",
-          }}
+        {/* --- SVG MARCHING ANTS BORDER --- */}
+        <svg
           className={activeClass(
-            "absolute -inset-2 rounded-full border-2 border-dashed border-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-0",
+            "absolute -inset-2 w-[calc(100%+1rem)] h-[calc(100%+1rem)] z-0 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300",
             "opacity-100",
           )}
-        />
+        >
+          <motion.rect
+            x="2"
+            y="2"
+            width="calc(100% - 4px)"
+            height="calc(100% - 4px)"
+            rx={shapeConfig.rxValue}
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeDasharray="6 6"
+            className="text-primary"
+            animate={{ strokeDashoffset: [0, -12] }}
+            transition={{
+              duration: 0.2,
+              repeat: Infinity,
+              ease: "linear",
+            }}
+          />
+        </svg>
 
-        <div className="relative w-full h-full rounded-full border border-gray-100/5 shadow-lg overflow-hidden bg-background z-10">
+        {/* --- ACTUAL IMAGE WRAPPER --- */}
+        <div
+          className={`relative w-full h-full border border-gray-100/20 shadow-lg overflow-hidden bg-gray-400/40 z-10 ${shapeConfig.roundedClass}`}
+        >
           <Image
-            src={PLACEHOLDER_IMAGE}
+            src={imgSrc}
             alt={item.title}
             fill
+            sizes="(max-width: 768px) 100vw, 300px"
+            onError={() => setImgSrc(PLACEHOLDER_IMAGE)}
             className={activeClass(
-              "object-cover transition-transform duration-500 group-hover:scale-110",
+              "object-cover transition-transform duration-500 scale-80 group-hover:scale-110",
               "scale-110",
             )}
           />
         </div>
       </div>
 
-      <div className="relative z-10 bg-background rounded-3xl border border-border shadow-sm hover:shadow-xl hover:border-primary/50 transition-all overflow-hidden flex flex-col flex-grow pt-20">
+      {/* --- CARD CONTENT --- */}
+      <div className="relative z-10 bg-background rounded-3xl border border-border shadow-sm hover:shadow-xl hover:border-primary/50 transition-all overflow-hidden flex flex-col flex-grow pt-24">
         <div className="px-6 pb-4 flex flex-col items-center flex-grow text-center gap-2">
           <div className="flex flex-col items-center gap-1">
             <h3 className="font-modern text-xl font-black text-secondary uppercase tracking-tight leading-tight">
               {item.title}
             </h3>
-            <p className="italic text-sm text-text-muted leading-relaxed line-clamp-2">
+            <p className="italic text-sm text-muted-foreground leading-relaxed line-clamp-2">
               {item.description}
             </p>
           </div>
