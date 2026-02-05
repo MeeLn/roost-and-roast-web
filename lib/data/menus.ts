@@ -55,7 +55,6 @@ export const menus: MenuItem[] = [
     description: "bbq chicken roll with gravy",
     price: 12.9,
     category: "Gourmet Rolls",
-    isPopular: true,
   },
   {
     image: "/assets/img/menu/menuThumb2_6.png",
@@ -63,7 +62,6 @@ export const menus: MenuItem[] = [
     description: "shredded bbq chicken with lettuce, mayo",
     price: 12.9,
     category: "Gourmet Rolls",
-    isPopular: true,
   },
   {
     image: "/top-down-transparent/schnitzel-roll.png",
@@ -118,7 +116,6 @@ export const menus: MenuItem[] = [
       "Marinated & grilled chicken breast, cheese, lettuce, Mayo, Sweet chilli Sauce",
     price: 13.9,
     category: "Gourmet Wraps",
-    isPopular: true,
   },
   {
     image: "/assets/img/menu/menuThumb2_6.png",
@@ -148,7 +145,6 @@ export const menus: MenuItem[] = [
     description: "Bacon, Egg, Potato Scallop, Lettuce, BBQ & Mayo",
     price: 13.9,
     category: "Gourmet Wraps",
-    isPopular: true,
   },
   {
     image: "/assets/img/menu/menuThumb2_6.png",
