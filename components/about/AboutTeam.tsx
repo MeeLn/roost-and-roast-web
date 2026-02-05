@@ -8,23 +8,14 @@ const team = [
   {
     name: "Chef Marcus",
     role: "Head Pitmaster",
-    image:
-      "https://images.unsplash.com/photo-1577219491135-ce391730fb2c?q=80&w=1954&auto=format&fit=crop",
+    image: "/about/team/owner-1.png",
     bio: "With over 15 years of experience in wood-fire cooking, Marcus brings the heat and the flavor to every bird.",
   },
   {
     name: "Sarah Jenkins",
     role: "Operations Manager",
-    image:
-      "https://images.unsplash.com/photo-1581056771107-24ca5f033842?q=80&w=2070&auto=format&fit=crop",
+    image: "/about/team/owner-2.png",
     bio: "Sarah ensures everything from sourcing to service runs like a well-oiled machine.",
-  },
-  {
-    name: "Leo Rossi",
-    role: "Executive Pastry Chef",
-    image:
-      "https://images.unsplash.com/photo-1600565193348-f74bd3c7ccdf?q=80&w=2070&auto=format&fit=crop",
-    bio: "The master behind our legendary desserts and gourmet side dishes.",
   },
 ];
 
@@ -177,7 +168,7 @@ export default function AboutTeam() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-56 pt-32">
+        <div className="grid grid-cols-1 md:grid-cols-2 max-w-5xl mx-auto gap-x-8 md:gap-x-24 gap-y-56 pt-32">
           {team.map((member, index) => (
             <TeamMemberCard key={member.name} member={member} index={index} />
           ))}
