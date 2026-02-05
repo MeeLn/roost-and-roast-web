@@ -18,17 +18,13 @@ export default function CateringMenuFlip() {
   const BACK_IMAGE = "/catering/roostnroast-catering-page-2.jpg";
 
   // --- MOTION STATE ---
-  // "x" tracks the drag position (0 = Closed/Front, -100% = Open/Back)
   const x = useMotionValue(0);
   const controls = useAnimation();
   const [isFlipped, setIsFlipped] = useState(false);
 
   // --- TRANSFORMS ---
-  // Map x-drag pixels (0 to -300) to Rotation Degrees (0 to -180)
-  // We use a spring for the rotation to make it feel slightly weighted but responsive
   const rotateY = useTransform(x, [0, -300], [0, -180]);
 
-  // Lighting: Darken the page as it passes 90 degrees (perpendicular)
   const shadowOpacity = useTransform(rotateY, [-20, -90, -160], [0, 0.4, 0]);
 
   // Z-Index: Ensure the correct side captures clicks/hovers
@@ -118,15 +114,13 @@ export default function CateringMenuFlip() {
             style={{
               rotateY,
               transformStyle: "preserve-3d",
-              transformOrigin: "center", // Center rotation works best for single-stack flip
+              transformOrigin: "center",
             }}
           >
-            {/* --- FRONT PAGE (0 to -90deg) --- */}
             <div
               className="absolute inset-0 w-full h-full backface-hidden rounded-2xl overflow-hidden bg-white border-[1px] border-stone-200"
               style={{ backfaceVisibility: "hidden" }}
             >
-              {/* Paper Texture */}
               <div className="absolute inset-0 z-10 opacity-20 pointer-events-none bg-[url('https://www.transparenttextures.com/patterns/cream-paper.png')] mix-blend-multiply" />
 
               {/* Dynamic Lighting Overlay (Shadow as page turns) */}
@@ -155,12 +149,11 @@ export default function CateringMenuFlip() {
               </div>
             </div>
 
-            {/* --- BACK PAGE (-90deg to -180deg) --- */}
             <div
               className="absolute inset-0 w-full h-full backface-hidden rounded-2xl overflow-hidden bg-white border-[1px] border-stone-200"
               style={{
                 backfaceVisibility: "hidden",
-                transform: "rotateY(180deg)", // Pre-rotate back face
+                transform: "rotateY(180deg)",
               }}
             >
               {/* Paper Texture */}
@@ -197,10 +190,10 @@ export default function CateringMenuFlip() {
           <motion.div
             className="absolute inset-0 z-50 touch-pan-x"
             drag="x"
-            dragConstraints={{ left: -300, right: 0 }} // Limits: 0 (Closed) to -300 (Open)
-            dragElastic={0.05} // Minimal elastic feel
-            style={{ x }} // Bind the motion value
-            animate={controls} // Allow programmatic control
+            dragConstraints={{ left: -300, right: 0 }}
+            dragElastic={0.05}
+            style={{ x }}
+            animate={controls}
             onDragEnd={handleDragEnd}
             whileTap={{ cursor: "grabbing" }}
           />

@@ -50,7 +50,7 @@ export const menus: MenuItem[] = [
     category: "Gourmet Rolls",
   },
   {
-    image: "/assets/img/menu/menuThumb2_6.png",
+    simage: "/smenu/BBQ-chicken-roll-with-gravy.png",
     title: "Chicken Roll with Gravy",
     description: "bbq chicken roll with gravy",
     price: 12.9,
@@ -376,6 +376,7 @@ export const menus: MenuItem[] = [
   },
   {
     image: "/top-down-transparent/quarter-chicken-chips.png",
+    // rimage: "/rmenu/quarter-chicken-dinner-pack.png",
     title: "¼ Chicken & chips",
     description: "¼ chicken & Chips",
     price: 15.9,
@@ -390,7 +391,7 @@ export const menus: MenuItem[] = [
     isPopular: true,
   },
   {
-    simage: "/smenu/schnitzel-chips-salad.jpg",
+    simage: "/smenu/schnitzel-chips-salad.png",
     title: "Schnitzel & Chips",
     description: "Chicken Schnitzel & chips",
     price: 19.9,
@@ -548,7 +549,7 @@ export const menus: MenuItem[] = [
     ],
   },
   {
-    image: "",
+    image: "/menu/steamed-vegetables-with-mornay-sauce.png",
     title: "Steamed Vegetables with Mornay Sauce",
     description: "Fresh steamed vegetables topped with creamy mornay sauce.",
     category: "Hot Foods",
@@ -572,7 +573,7 @@ export const menus: MenuItem[] = [
     ],
   },
   {
-    image: "",
+    image: "/menu/creamy-chicken-mushroon-bacon-pasta.png",
     title: "Creamy Chicken Pasta with Bacon & Mushroom",
     description: "Creamy pasta with chicken, bacon, and mushrooms.",
     category: "Hot Foods",
@@ -648,7 +649,7 @@ export const menus: MenuItem[] = [
     ],
   },
   {
-    image: "",
+    simage: "/smenu/lemongrass-chicken-salad.png",
     title: "Lemongrass Chicken Salad",
     description: "Lemongrass-marinated chicken with fresh herbs.",
     category: "Salads",
@@ -780,7 +781,7 @@ export const menus: MenuItem[] = [
     ],
   },
   {
-    image: "",
+    simage: "/smenu/mango-chicken-salad.png",
     title: "Mango Chicken Salad",
     description: "Grilled chicken with fresh mango slices.",
     category: "Salads",

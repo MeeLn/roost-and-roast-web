@@ -45,7 +45,7 @@ const MenuCard = ({ item }: { item: (typeof menus)[0] }) => {
     if (item.rimage && item.rimage.trim() !== "") {
       return {
         src: item.rimage,
-        sizeClass: "w-64 h-44",
+        sizeClass: "w-78 h-48",
         roundedClass: "rounded-[2rem]",
         rxValue: "32",
       };
