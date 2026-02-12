@@ -130,20 +130,23 @@ export default function CateringProcess() {
 
     try {
       const aggregatedMessage = `CATERING REQUEST | Phone: ${formData.phone} | Date: ${formData.date} | Guests: ${formData.guests} | Message: ${formData.message}`;
-      const submitData = new FormData();
-      submitData.append("name", formData.name);
-      submitData.append("email", formData.email);
-      submitData.append("message", aggregatedMessage);
-
-      // Disable captcha to prevent redirect issues
-      submitData.append("_captcha", "false");
+      const submitData = {
+        name: formData.name,
+        email: formData.email,
+        message: aggregatedMessage,
+        // Disable captcha to prevent redirect issues
+        _captcha: "false",
+      };
 
       const response = await fetch(
-        "https://formsubmit.co/milan.201420@ncit.edu.np",
+        "https://us-central1-contact-from-470814.cloudfunctions.net/contactForm",
         {
           method: "POST",
-          body: submitData,
-          headers: { Accept: "application/json" },
+          body: JSON.stringify(submitData),
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
         },
       );
 

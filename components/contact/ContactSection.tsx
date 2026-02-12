@@ -49,22 +49,23 @@ export default function ContactSection() {
       // Construct the aggregated message
       const aggregatedMessage = `Phone: ${formData.phone} | Message: ${formData.message}`;
 
-      // Create FormData
-      const submitData = new FormData();
-      submitData.append("name", formData.name);
-      submitData.append("email", formData.email);
-      submitData.append("message", aggregatedMessage);
-
-      // IMPORTANT: Disable captcha to prevent AJAX redirects which cause failures
-      submitData.append("_captcha", "false");
-      submitData.append("_subject", "Order Request");
+      // Create JSON payload
+      const submitData = {
+        name: formData.name,
+        email: formData.email,
+        message: aggregatedMessage,
+        // IMPORTANT: Disable captcha to prevent AJAX redirects which cause failures
+        _captcha: "false",
+        _subject: "Order Request",
+      };
 
       const response = await fetch(
-        "https://formsubmit.co/milan.201420@ncit.edu.np",
+        "https://us-central1-contact-from-470814.cloudfunctions.net/contactForm",
         {
           method: "POST",
-          body: submitData,
+          body: JSON.stringify(submitData),
           headers: {
+            "Content-Type": "application/json",
             Accept: "application/json",
           },
         },

@@ -196,7 +196,7 @@ export const menus: MenuItem[] = [
     title: "Beef Dinner Pack",
     description: "220gms Roast Beef, 2 choices of vegetables, Peas & Gravy",
     price: 20.9,
-    category: "BakedDinner Packs",
+    category: "Baked Dinner Packs",
   },
   {
     image: "/assets/img/menu/menuThumb2_6.png",
@@ -291,14 +291,14 @@ export const menus: MenuItem[] = [
     category: "Snacks & Sauces",
   },
   {
-    image: "/assets/img/menu/menuThumb2_6.png",
+    image: "/menu/sauces-1.png",
     title: "Sauces (Peri Peri / Garlic Sauce / Chilli Mayo)",
     description: "",
     price: 2.5,
     category: "Snacks & Sauces",
   },
   {
-    image: "/assets/img/menu/menuThumb2_6.png",
+    image: "/menu/sauces.png",
     title:
       "Other Sauces (Garlic Mayo / Sour Cream / Sweet Chilli / Tomato / BBQ)",
     description: "",
