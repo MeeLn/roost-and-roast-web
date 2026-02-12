@@ -112,7 +112,7 @@ export default function ContactLocation() {
           >
             <div className="relative h-[400px] md:h-[500px] w-full rounded-2xl overflow-hidden shadow-2xl">
               <Image
-                src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?q=80&w=1974&auto=format&fit=crop"
+                src="/contact/roasted-chicken-slider.jpeg"
                 alt="Restaurant Exterior"
                 fill
                 className="object-cover"
