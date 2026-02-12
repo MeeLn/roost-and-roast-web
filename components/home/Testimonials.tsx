@@ -6,25 +6,25 @@ import Image from "next/image";
 
 const testimonials = [
   {
-    name: "Anjali Shrestha",
+    name: "Emily Thompson",
     role: "Regular Customer",
-    image: "/testimonials/anjali.png",
+    image: "/testimonials/testimonial-2.jpeg",
     content:
       "The charcoal chicken here is absolutely unmatched. The smoky flavor coupled with their secret sauce is a game changer. Highly recommend!",
     rating: 5,
   },
   {
-    name: "Bikram Gurung",
+    name: "Liam O'Connor",
     role: "Local Guide",
-    image: "/testimonials/bikram.png",
+    image: "/testimonials/testimonial-1.jpeg",
     content:
       "Best roast dinner I've had in years. The portions are generous and the meat is tender and juicy. A true gem in the neighborhood.",
     rating: 5,
   },
   {
-    name: "Nisha Karki",
+    name: "Jack Mitchell",
     role: "Regular Customer",
-    image: "/testimonials/nisha.png",
+    image: "/testimonials/testimonial-3.jpeg",
     content:
       "I order from here at least once a week. Consistently delicious and the staff are always friendly. The family platter is a lifesaver!",
     rating: 5,
