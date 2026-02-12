@@ -55,7 +55,7 @@ export default function Story() {
         >
           <div className="w-full h-full relative">
             <Image
-              src="https://images.unsplash.com/photo-1598103442097-8b74394b95c6?q=80&w=2072&auto=format&fit=crop"
+              src="/about/about.jpeg"
               alt="Our Kitchen"
               fill
               className="object-cover"
