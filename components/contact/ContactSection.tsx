@@ -23,81 +23,16 @@ export default function ContactSection() {
     name: "",
     email: "",
     phone: "",
-    date: "",
-    guests: "Standard Table (3-4 People)",
     message: "",
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [isGuestsOpen, setIsGuestsOpen] = useState(false);
-  const [isCalendarOpen, setIsCalendarOpen] = useState(false);
-  const [selectedMonth, setSelectedMonth] = useState(new Date().getMonth());
-  const [selectedYear, setSelectedYear] = useState(new Date().getFullYear());
-
-  const guestsRef = useRef<HTMLDivElement>(null);
-  const calendarRef = useRef<HTMLDivElement>(null);
-
-  const guestOptions = [
-    "Small Table (1-2 People)",
-    "Standard Table (3-4 People)",
-    "Family Table (5-6 People)",
-    "Large Party (7+ People)",
-  ];
 
   // Check if all required fields are filled (Message is optional)
   const isFormValid =
     formData.name.trim() !== "" &&
     formData.email.trim() !== "" &&
-    formData.phone.trim() !== "" &&
-    formData.date !== "" &&
-    formData.guests !== "";
-
-  // Close dropdowns when clicking outside
-  useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (
-        guestsRef.current &&
-        !guestsRef.current.contains(event.target as Node)
-      ) {
-        setIsGuestsOpen(false);
-      }
-      if (
-        calendarRef.current &&
-        !calendarRef.current.contains(event.target as Node)
-      ) {
-        setIsCalendarOpen(false);
-      }
-    };
-
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
-  }, []);
-
-  // Generate calendar days
-  const getDaysInMonth = (month: number, year: number) => {
-    return new Date(year, month + 1, 0).getDate();
-  };
-
-  const getFirstDayOfMonth = (month: number, year: number) => {
-    return new Date(year, month, 1).getDay();
-  };
-
-  const handleDateSelect = (day: number) => {
-    const date = new Date(selectedYear, selectedMonth, day);
-    const formattedDate = date.toISOString().split("T")[0];
-    setFormData((prev) => ({ ...prev, date: formattedDate }));
-    setIsCalendarOpen(false);
-  };
-
-  const formatDisplayDate = (dateString: string) => {
-    if (!dateString) return "";
-    const date = new Date(dateString);
-    return date.toLocaleDateString("en-US", {
-      month: "short",
-      day: "numeric",
-      year: "numeric",
-    });
-  };
+    formData.phone.trim() !== "";
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -112,7 +47,7 @@ export default function ContactSection() {
 
     try {
       // Construct the aggregated message
-      const aggregatedMessage = `Phone: ${formData.phone} | Date: ${formData.date} | Guests: ${formData.guests} | Message: ${formData.message}`;
+      const aggregatedMessage = `Phone: ${formData.phone} | Message: ${formData.message}`;
 
       // Create FormData
       const submitData = new FormData();
@@ -122,7 +57,7 @@ export default function ContactSection() {
 
       // IMPORTANT: Disable captcha to prevent AJAX redirects which cause failures
       submitData.append("_captcha", "false");
-      submitData.append("_subject", "New Table Reservation Request");
+      submitData.append("_subject", "Order Request");
 
       const response = await fetch(
         "https://formsubmit.co/milan.201420@ncit.edu.np",
@@ -142,7 +77,7 @@ export default function ContactSection() {
 
       // If we get here, it was successful
       toast.success(
-        "Reservation request sent successfully! We'll contact you shortly.",
+        "Order request sent successfully! We'll contact you shortly.",
         {
           duration: 5000,
           position: "bottom-right",
@@ -160,14 +95,12 @@ export default function ContactSection() {
         name: "",
         email: "",
         phone: "",
-        date: "",
-        guests: "Standard Table (3-4 People)",
         message: "",
       });
     } catch (error) {
       console.error("Form submission error:", error);
 
-      toast.error("Failed to send reservation. Please check your connection.", {
+      toast.error("Failed to send order. Please check your connection.", {
         duration: 5000,
         position: "bottom-right",
         style: {
@@ -203,8 +136,8 @@ export default function ContactSection() {
           className="max-w-4xl mx-auto"
         >
           <h2 className="text-4xl md:text-6xl font-modern font-black text-stone-900 mb-12 uppercase tracking-tighter">
-            Reserve a Table or Order <br />
-            <span className="font-artistic text-primary normal-case text-5xl md:text-8xl inline-block rotate-[-2deg] mt-2">
+            Order
+            <span className="font-artistic text-primary normal-case text-5xl md:text-7xl inline-block rotate-[-2deg] ml-2 mt-2">
               Online
             </span>
           </h2>
@@ -279,214 +212,7 @@ export default function ContactSection() {
                   />
                 </div>
               </div>
-
-              <div className="text-left group">
-                <label className="block text-xs font-modern font-black text-stone-500 uppercase tracking-[0.2em] mb-2 group-focus-within:text-primary transition-colors">
-                  Preferred Date
-                </label>
-                <div className="relative" ref={calendarRef}>
-                  <Calendar
-                    className="absolute left-4 top-1/2 -translate-y-1/2 text-stone-400 group-focus-within:text-primary transition-colors pointer-events-none z-10"
-                    size={18}
-                  />
-                  <button
-                    type="button"
-                    onClick={() => setIsCalendarOpen(!isCalendarOpen)}
-                    disabled={isSubmitting}
-                    className="w-full p-4.5 pl-12 pr-4 bg-stone-50 border-[0.5px] border-stone-200 rounded-2xl text-stone-900 text-left transition-all focus:outline-none focus:border-primary/40 focus:bg-white focus:ring-4 focus:ring-primary/5 hover:border-primary/20 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
-                  >
-                    {formData.date
-                      ? formatDisplayDate(formData.date)
-                      : "Select a date"}
-                  </button>
-
-                  {isCalendarOpen && (
-                    <div className="absolute top-full left-0 mt-2 w-full bg-white border-[0.5px] border-stone-200 rounded-2xl shadow-[0_10px_40px_rgba(0,0,0,0.15)] p-3 z-50">
-                      {/* Month/Year Navigation */}
-                      <div className="flex items-center justify-between mb-3">
-                        <button
-                          type="button"
-                          onClick={() => {
-                            if (selectedMonth === 0) {
-                              setSelectedMonth(11);
-                              setSelectedYear(selectedYear - 1);
-                            } else {
-                              setSelectedMonth(selectedMonth - 1);
-                            }
-                          }}
-                          className="p-2 hover:bg-stone-50 rounded-lg transition-colors"
-                        >
-                          <ChevronLeft size={18} className="text-stone-400" />
-                        </button>
-                        <div className="font-modern font-black text-sm uppercase tracking-wider text-stone-700">
-                          {new Date(
-                            selectedYear,
-                            selectedMonth,
-                          ).toLocaleDateString("en-US", {
-                            month: "long",
-                            year: "numeric",
-                          })}
-                        </div>
-                        <button
-                          type="button"
-                          onClick={() => {
-                            if (selectedMonth === 11) {
-                              setSelectedMonth(0);
-                              setSelectedYear(selectedYear + 1);
-                            } else {
-                              setSelectedMonth(selectedMonth + 1);
-                            }
-                          }}
-                          className="p-2 hover:bg-stone-50 rounded-lg transition-colors"
-                        >
-                          <ChevronRight size={18} className="text-stone-400" />
-                        </button>
-                      </div>
-
-                      {/* Day Labels */}
-                      <div className="grid grid-cols-7 gap-0.5 mb-1">
-                        {["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"].map(
-                          (day) => (
-                            <div
-                              key={day}
-                              className="text-center text-[10px] font-bold text-stone-400 py-0.5"
-                            >
-                              {day}
-                            </div>
-                          ),
-                        )}
-                      </div>
-
-                      {/* Calendar Days */}
-                      <div className="grid grid-cols-7 gap-0.5">
-                        {Array.from({
-                          length: getFirstDayOfMonth(
-                            selectedMonth,
-                            selectedYear,
-                          ),
-                        }).map((_, i) => (
-                          <div key={`empty-${i}`} />
-                        ))}
-                        {Array.from({
-                          length: getDaysInMonth(selectedMonth, selectedYear),
-                        }).map((_, i) => {
-                          const day = i + 1;
-                          const dateStr = new Date(
-                            selectedYear,
-                            selectedMonth,
-                            day,
-                          )
-                            .toISOString()
-                            .split("T")[0];
-                          const isSelected = formData.date === dateStr;
-                          const today = new Date();
-                          const isToday =
-                            today.getDate() === day &&
-                            today.getMonth() === selectedMonth &&
-                            today.getFullYear() === selectedYear;
-
-                          return (
-                            <button
-                              key={day}
-                              type="button"
-                              onClick={() => handleDateSelect(day)}
-                              className={`aspect-square flex items-center justify-center text-xs rounded-md transition-all ${
-                                isSelected
-                                  ? "bg-primary text-white font-bold shadow-md"
-                                  : isToday
-                                    ? "bg-primary/10 text-primary font-semibold"
-                                    : "hover:bg-stone-50 text-stone-900"
-                              }`}
-                            >
-                              {day}
-                            </button>
-                          );
-                        })}
-                      </div>
-
-                      {/* Action Buttons */}
-                      <div className="flex gap-2 mt-3 pt-3 border-t border-stone-200">
-                        <button
-                          type="button"
-                          onClick={() => {
-                            const today = new Date();
-                            setSelectedMonth(today.getMonth());
-                            setSelectedYear(today.getFullYear());
-                            handleDateSelect(today.getDate());
-                          }}
-                          className="flex-1 flex items-center justify-center gap-1.5 px-3 py-1.5 bg-primary/10 text-primary rounded-lg hover:bg-primary/20 transition-all font-medium text-xs"
-                        >
-                          <CalendarDays size={14} />
-                          Today
-                        </button>
-                        <button
-                          type="button"
-                          onClick={() => {
-                            setFormData((prev) => ({ ...prev, date: "" }));
-                            setIsCalendarOpen(false);
-                          }}
-                          className="flex-1 flex items-center justify-center gap-1.5 px-3 py-1.5 bg-stone-50 text-stone-500 rounded-lg hover:bg-stone-100 hover:text-stone-700 transition-all font-medium text-xs"
-                        >
-                          <X size={14} />
-                          Clear
-                        </button>
-                      </div>
-                    </div>
-                  )}
-                </div>
-              </div>
-
-              <div className="text-left group">
-                <label className="block text-xs font-modern font-black text-stone-500 uppercase tracking-[0.2em] mb-2 group-focus-within:text-primary transition-colors">
-                  Number of Guests
-                </label>
-                <div className="relative" ref={guestsRef}>
-                  <Users
-                    className="absolute left-4 top-1/2 -translate-y-1/2 text-stone-400 group-focus-within:text-primary transition-colors pointer-events-none z-10"
-                    size={18}
-                  />
-                  <button
-                    type="button"
-                    onClick={() => setIsGuestsOpen(!isGuestsOpen)}
-                    disabled={isSubmitting}
-                    className="w-full p-4.5 pl-12 pr-10 bg-stone-50 border-[0.5px] border-stone-200 rounded-2xl text-stone-900 text-left transition-all focus:outline-none focus:border-primary/40 focus:bg-white focus:ring-4 focus:ring-primary/5 hover:border-primary/20 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
-                  >
-                    {formData.guests}
-                  </button>
-                  <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-stone-400 group-focus-within:text-primary transition-all z-10">
-                    <ChevronDown
-                      size={18}
-                      className={`transition-transform duration-300 ${isGuestsOpen ? "rotate-180" : ""}`}
-                    />
-                  </div>
-
-                  {isGuestsOpen && (
-                    <div className="absolute top-full left-0 mt-2 w-full bg-white border-[0.5px] border-stone-200 rounded-2xl shadow-[0_10px_40px_rgba(0,0,0,0.15)] overflow-hidden z-50">
-                      {guestOptions.map((option, index) => (
-                        <button
-                          key={option}
-                          type="button"
-                          onClick={() => {
-                            setFormData((prev) => ({
-                              ...prev,
-                              guests: option,
-                            }));
-                            setIsGuestsOpen(false);
-                          }}
-                          className={`w-full px-4 py-3 text-left transition-all hover:bg-primary/5 hover:text-primary ${
-                            formData.guests === option
-                              ? "bg-primary/10 text-primary font-semibold"
-                              : "text-stone-900"
-                          } ${index !== 0 ? "border-t border-stone-100" : ""}`}
-                        >
-                          {option}
-                        </button>
-                      ))}
-                    </div>
-                  )}
-                </div>
-              </div>
-
+              {/* Message */}
               <div className="text-left col-span-1 md:col-span-2 group">
                 <label className="block text-xs font-modern font-black text-stone-500 uppercase tracking-[0.2em] mb-2 group-focus-within:text-primary transition-colors">
                   Message / Special Requests
@@ -502,7 +228,7 @@ export default function ContactSection() {
                     onChange={handleChange}
                     disabled={isSubmitting}
                     className="w-full p-4.5 pl-12 bg-stone-50 border-[0.5px] border-stone-200 rounded-2xl text-stone-900 transition-all focus:outline-none focus:border-primary/40 focus:bg-white focus:ring-4 focus:ring-primary/5 min-h-[260px] resize-y hover:border-primary/20 disabled:opacity-50 disabled:cursor-not-allowed"
-                    placeholder="Let us know about dietary requirements, special occasions, or table preferences..."
+                    placeholder="Let us know about any dietary requirements, or preferences..."
                   />
                 </div>
               </div>
@@ -512,7 +238,7 @@ export default function ContactSection() {
                   disabled={isSubmitting || !isFormValid}
                   className="bg-primary text-white py-4 px-12 text-base font-modern font-black rounded-2xl uppercase tracking-[0.2em] transition-all hover:bg-primary-light hover:-translate-y-1.5 hover:shadow-[0_10px_30px_rgba(239,68,68,0.3)] active:translate-y-0 active:shadow-md disabled:opacity-50 disabled:translate-y-0 disabled:shadow-none disabled:cursor-not-allowed"
                 >
-                  {isSubmitting ? "Sending..." : "Secure Your Table"}
+                  {isSubmitting ? "Sending..." : "Submit"}
                 </button>
               </div>
             </form>

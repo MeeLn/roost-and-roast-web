@@ -6,57 +6,27 @@ import Image from "next/image";
 
 const testimonials = [
   {
-    name: "Sarah Jenkins",
-    role: "Food Blogger",
-    image:
-      "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=200&auto=format&fit=crop",
+    name: "Anjali Shrestha",
+    role: "Regular Customer",
+    image: "/testimonials/anjali.png",
     content:
       "The charcoal chicken here is absolutely unmatched. The smoky flavor coupled with their secret sauce is a game changer. Highly recommend!",
     rating: 5,
   },
   {
-    name: "Michael Chen",
+    name: "Bikram Gurung",
     role: "Local Guide",
-    image:
-      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=200&auto=format&fit=crop",
+    image: "/testimonials/bikram.png",
     content:
       "Best roast dinner I've had in years. The portions are generous and the meat is tender and juicy. A true gem in the neighborhood.",
     rating: 5,
   },
   {
-    name: "Emma Wilson",
+    name: "Nisha Karki",
     role: "Regular Customer",
-    image:
-      "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=200&auto=format&fit=crop",
+    image: "/testimonials/nisha.png",
     content:
       "I order from here at least once a week. Consistently delicious and the staff are always friendly. The family platter is a lifesaver!",
-    rating: 5,
-  },
-  {
-    name: "David Kornfield",
-    role: "Chef",
-    image:
-      "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=200&auto=format&fit=crop",
-    content:
-      "As a chef, I appreciate the attention to detail. The skin is perfectly crispy and the marinade is deep and complex. 10/10.",
-    rating: 5,
-  },
-  {
-    name: "Lisa Wong",
-    role: "Foodie",
-    image:
-      "https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=200&auto=format&fit=crop",
-    content:
-      "Honestly the best chips and gravy I've ever had. And the roast pork crackling? To die for. You have to try it.",
-    rating: 5,
-  },
-  {
-    name: "James Anderson",
-    role: "Gym Owner",
-    image:
-      "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=200&auto=format&fit=crop",
-    content:
-      "Perfect post-workout meal. High quality protein, fresh salads, and none of that greasy feeling you get elsewhere.",
     rating: 5,
   },
 ];
@@ -149,10 +119,10 @@ export default function Testimonials() {
                   />
                 </div>
                 <div>
-                  <h4 className="font-bold text-text-main text-sm">
+                  <h4 className="font-bold text-text-main uppercase text-md">
                     {testimonial.name}
                   </h4>
-                  <span className="text-xs text-text-muted uppercase tracking-wide">
+                  <span className="text-xs text-text-muted tracking-wide">
                     {testimonial.role}
                   </span>
                 </div>

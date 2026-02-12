@@ -89,15 +89,17 @@ export default function CateringProcess() {
     new Date(year, month, 1).getDay();
 
   const handleDateSelect = (day: number) => {
-    const date = new Date(selectedYear, selectedMonth, day);
-    const formattedDate = date.toISOString().split("T")[0];
+    // Construct date string explicitly in local time (YYYY-MM-DD)
+    const formattedDate = `${selectedYear}-${String(selectedMonth + 1).padStart(2, "0")}-${String(day).padStart(2, "0")}`;
     setFormData((prev) => ({ ...prev, date: formattedDate }));
     setIsCalendarOpen(false);
   };
 
   const formatDisplayDate = (dateString: string) => {
     if (!dateString) return "";
-    const date = new Date(dateString);
+    // Parse the date string manually to avoid timezone issues with `new Date("YYYY-MM-DD")` (which is UTC)
+    const [year, month, day] = dateString.split("-").map(Number);
+    const date = new Date(year, month - 1, day);
     return date.toLocaleDateString("en-US", {
       month: "short",
       day: "numeric",
@@ -421,13 +423,7 @@ export default function CateringProcess() {
                             length: getDaysInMonth(selectedMonth, selectedYear),
                           }).map((_, i) => {
                             const day = i + 1;
-                            const dateStr = new Date(
-                              selectedYear,
-                              selectedMonth,
-                              day,
-                            )
-                              .toISOString()
-                              .split("T")[0];
+                            const dateStr = `${selectedYear}-${String(selectedMonth + 1).padStart(2, "0")}-${String(day).padStart(2, "0")}`;
                             const isSelected = formData.date === dateStr;
                             const isToday =
                               new Date().toDateString() ===
