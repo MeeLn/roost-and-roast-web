@@ -313,7 +313,7 @@ export default function Footer() {
         {/* --- Copyright Bar --- */}
         <div className="pt-8 border-t border-stone-200 text-sm text-stone-500">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-            <p className="text-center md:text-left order-2 md:order-1 font-serif">
+            <p className="text-center md:text-left order-2 md:order-1 font-modern">
               © {new Date().getFullYear()} Roost and Roast. All rights reserved.
             </p>
 
