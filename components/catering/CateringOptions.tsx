@@ -30,7 +30,7 @@ const menuOptions = [
       "Hokkien Noodles",
     ],
     image:
-      "https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=2069&auto=format&fit=crop",
+      "/catering/catering-1.avif",
     icon: <Flame />,
   },
   {
@@ -47,7 +47,7 @@ const menuOptions = [
       "Rocket & Pumpkin",
     ],
     image:
-      "https://images.unsplash.com/photo-1551248429-40975aa4de74?q=80&w=1990&auto=format&fit=crop",
+      "/catering/catering-2.avif",
     icon: <Leaf />,
   },
   {
@@ -64,7 +64,7 @@ const menuOptions = [
       "Fresh Roll Platters",
     ],
     image:
-      "https://images.unsplash.com/photo-1565557623262-b51c2513a641?q=80&w=2071&auto=format&fit=crop",
+      "/catering/catering-3.avif",
     icon: <PartyPopper />,
   },
 ];
