@@ -36,7 +36,7 @@ export default function GridMenuSection() {
               {/* Background Image */}
               <div className="absolute inset-0 w-full h-full">
                 <Image
-                  src="https://images.unsplash.com/photo-1552566626-52f8b828add9?q=80&w=2070&auto=format&fit=crop"
+                  src="/home/grid/grid-1.avif"
                   alt="Restaurant Interior"
                   fill
                   className="object-cover transition-transform duration-700 group-hover:scale-105"
@@ -88,7 +88,7 @@ export default function GridMenuSection() {
             <Link href="/catering" className="block w-full h-full relative">
               <div className="absolute inset-0 w-full h-full">
                 <Image
-                  src="https://images.unsplash.com/photo-1555244162-803834f70033?q=80&w=2070&auto=format&fit=crop"
+                  src="/home/grid/grid-2.avif"
                   alt="Catering Feast"
                   fill
                   className="object-cover transition-transform duration-700 group-hover:scale-110"
@@ -120,7 +120,7 @@ export default function GridMenuSection() {
             <Link href="/about" className="block w-full h-full relative">
               <div className="absolute inset-0 w-full h-full">
                 <Image
-                  src="https://images.unsplash.com/photo-1607623814075-e51df1bdc82f?q=80&w=2070&auto=format&fit=crop"
+                  src="/home/grid/grid-3.avif"
                   alt="Our Team"
                   fill
                   className="object-cover transition-transform duration-700 group-hover:scale-110"
