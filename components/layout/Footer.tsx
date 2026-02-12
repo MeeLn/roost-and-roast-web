@@ -212,7 +212,7 @@ export default function Footer() {
                       ? "/"
                       : item === "Our Catering"
                         ? "/catering"
-                        : `/${item.toLowerCase().replace(" ", "-").replace("us", "").trim()}`;
+                        : `/${item.toLowerCase().replace(" ", "").replace("us", "").trim()}`;
                   return (
                     <Link
                       key={idx}
