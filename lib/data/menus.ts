@@ -110,7 +110,7 @@ export const menus: MenuItem[] = [
   // GOURMET WRAPS
   // =====================
   {
-    image: "/menu/gourmetwraps/wrap-1.png",
+    image: "/menu/gourmetwraps/roost-n-roast.png",
     title: "Roost & Roast Wrap",
     description:
       "Marinated & grilled chicken breast, cheese, lettuce, Mayo, Sweet chilli Sauce",
@@ -118,7 +118,7 @@ export const menus: MenuItem[] = [
     category: "Gourmet Wraps",
   },
   {
-    image: "/menu/gourmetwraps/wrap-2.png",
+    image: "/menu/gourmetwraps/portugese.png",
     title: "Portuguese Wrap",
     description:
       "Marinated & Grilled chicken breast, cheese, lettuce, Mayo, Peri-Peri Sauce",
@@ -126,21 +126,21 @@ export const menus: MenuItem[] = [
     category: "Gourmet Wraps",
   },
   {
-    image: "/menu/gourmetwraps/wrap-3.png",
+    image: "/menu/gourmetwraps/chicken.png",
     title: "BLAT Chicken Wrap",
     description: "Bacon, Lettuce, Avocado, Tomato, Chicken Breast, Mayo",
     price: 13.9,
     category: "Gourmet Wraps",
   },
   {
-    image: "/menu/gourmetwraps/wrap-4.png",
+    image: "/menu/gourmetwraps/chicken-schnitzel.png",
     title: "Schnitzel Wrap",
     description: "Chicken Schnitzel, lettuce, Cheese, Mayo",
     price: 13.9,
     category: "Gourmet Wraps",
   },
   {
-    image: "/menu/gourmetwraps/wrap-5.png",
+    image: "/menu/gourmetwraps/veges.png",
     title: "Breakie Wrap",
     description: "Bacon, Egg, Potato Scallop, Lettuce, BBQ & Mayo",
     price: 13.9,
