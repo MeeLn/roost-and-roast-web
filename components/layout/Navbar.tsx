@@ -105,7 +105,7 @@ export default function Navbar() {
                 >
                   <Link
                     href={item.path}
-                    className={`text-xl font-bold font-serif hover:text-primary focus:text-primary focus:outline-none transition-colors ${
+                    className={`text-xl font-bold font-modern hover:text-primary focus:text-primary focus:outline-none transition-colors ${
                       isActive ? "text-primary" : "text-text-main"
                     }`}
                     onClick={() => setMobileMenuOpen(false)}
