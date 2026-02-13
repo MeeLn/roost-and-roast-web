@@ -110,7 +110,7 @@ export const menus: MenuItem[] = [
   // GOURMET WRAPS
   // =====================
   {
-    image: "/assets/img/menu/menuThumb2_6.png",
+    image: "/menu/gourmetwraps/wrap-1.png",
     title: "Roost & Roast Wrap",
     description:
       "Marinated & grilled chicken breast, cheese, lettuce, Mayo, Sweet chilli Sauce",
@@ -118,7 +118,7 @@ export const menus: MenuItem[] = [
     category: "Gourmet Wraps",
   },
   {
-    image: "/assets/img/menu/menuThumb2_6.png",
+    image: "/menu/gourmetwraps/wrap-2.png",
     title: "Portuguese Wrap",
     description:
       "Marinated & Grilled chicken breast, cheese, lettuce, Mayo, Peri-Peri Sauce",
@@ -126,28 +126,28 @@ export const menus: MenuItem[] = [
     category: "Gourmet Wraps",
   },
   {
-    image: "/assets/img/menu/menuThumb2_6.png",
+    image: "/menu/gourmetwraps/wrap-3.png",
     title: "BLAT Chicken Wrap",
     description: "Bacon, Lettuce, Avocado, Tomato, Chicken Breast, Mayo",
     price: 13.9,
     category: "Gourmet Wraps",
   },
   {
-    image: "/assets/img/menu/menuThumb2_6.png",
+    image: "/menu/gourmetwraps/wrap-4.png",
     title: "Schnitzel Wrap",
     description: "Chicken Schnitzel, lettuce, Cheese, Mayo",
     price: 13.9,
     category: "Gourmet Wraps",
   },
   {
-    image: "/assets/img/menu/menuThumb2_6.png",
+    image: "/menu/gourmetwraps/wrap-5.png",
     title: "Breakie Wrap",
     description: "Bacon, Egg, Potato Scallop, Lettuce, BBQ & Mayo",
     price: 13.9,
     category: "Gourmet Wraps",
   },
   {
-    image: "/assets/img/menu/menuThumb2_6.png",
+    image: "/menu/gourmetwraps/wrap-6.png",
     title: "Falafel Wrap",
     description: "Falafel, Tabouli, Hummus",
     price: 13.9,
@@ -165,7 +165,7 @@ export const menus: MenuItem[] = [
     category: "Pita Pockets",
   },
   {
-    image: "/assets/img/menu/menuThumb2_6.png",
+    image: "/menu/pitapockets/periperi-pocket.png",
     title: "Portuguese Pocket",
     description:
       "Marinated & Grilled Breast, Cheese, Lettuce, Aioli, Peri-Peri Sauce",
@@ -173,7 +173,7 @@ export const menus: MenuItem[] = [
     category: "Pita Pockets",
   },
   {
-    image: "/assets/img/menu/menuThumb2_6.png",
+    image: "/menu/pitapockets/falafel-pocket.png",
     title: "Falafel Pocket",
     description: "Falafel, Tabouli, Garlic sauce",
     price: 13.9,
@@ -291,14 +291,14 @@ export const menus: MenuItem[] = [
     category: "Snacks & Sauces",
   },
   {
-    image: "/menu/sauces-1.png",
+    image: "/menu/snacks&sauces/sauces-1.png",
     title: "Sauces (Peri Peri / Garlic Sauce / Chilli Mayo)",
     description: "",
     price: 2.5,
     category: "Snacks & Sauces",
   },
   {
-    image: "/menu/sauces.png",
+    image: "/menu/snacks&sauces/sauces.png",
     title:
       "Other Sauces (Garlic Mayo / Sour Cream / Sweet Chilli / Tomato / BBQ)",
     description: "",
