@@ -24,6 +24,7 @@ const CATEGORY_EMOJIS: Record<string, string> = {
   "Sweet Potato": "🍠",
   "Hot Foods": "🥘",
   Salads: "🥗",
+  Desserts: "🍰",
   default: "🍴",
 };
 

@@ -28,6 +28,7 @@ export const CATEGORY: string[] = [
   "Sweet Potato",
   "Hot Foods",
   "Salads",
+  "Desserts",
 ];
 
 // --- REUSABLE COMPONENT FOR RENDERING A MENU SECTION ---
@@ -811,5 +812,40 @@ export const menus: MenuItem[] = [
       { label: "Large", price: 14.9 },
       { label: "Family", price: 20.0 },
     ],
+  },
+  //==================
+  // DESERTS
+  //==================
+  {
+    image: "/menu/desserts/rice-pudding.png",
+    title: "Rice Pudding",
+    description:
+      "Classic, creamy, and comforting slow-cooked rice blended with rich milk, a hint of vanilla, and a gentle sprinkle of cinnamon.",
+    price: 6.5,
+    category: "Desserts",
+  },
+  {
+    image: "/menu/desserts/sago-pudding.png",
+    title: "Sago Pudding",
+    description:
+      "A delightful and refreshing treat made with delicate sago pearls, rich coconut milk, and sweetened with a touch of palm sugar syrup.",
+    price: 7.0,
+    category: "Desserts",
+  },
+  {
+    image: "/menu/desserts/banoffee-pie.png",
+    title: "Banoffee Pie",
+    description:
+      "A heavenly dessert featuring a buttery biscuit base, sticky caramel toffee, fresh sliced bananas, and a generous mound of whipped cream.",
+    price: 8.5,
+    category: "Desserts",
+  },
+  {
+    image: "/menu/desserts/chocolate-mousse.png",
+    title: "Chocolate Mousse",
+    description:
+      "Decadent, airy, and rich dark chocolate mousse finished with a light dusting of cocoa powder and fresh seasonal berries.",
+    price: 7.5,
+    category: "Desserts",
   },
 ];
