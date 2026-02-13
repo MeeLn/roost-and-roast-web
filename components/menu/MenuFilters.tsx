@@ -145,6 +145,8 @@ const MenuCard = ({ item }: { item: (typeof menus)[0] }) => {
             alt={item.title}
             fill
             sizes="(max-width: 768px) 100vw, 300px"
+            placeholder="blur"
+            blurDataURL={PLACEHOLDER_IMAGE}
             onError={() => setImgSrc(PLACEHOLDER_IMAGE)}
             className={activeClass(
               "object-cover transition-transform duration-500 scale-80 group-hover:scale-110",
