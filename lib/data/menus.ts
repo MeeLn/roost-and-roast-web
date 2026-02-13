@@ -848,4 +848,12 @@ export const menus: MenuItem[] = [
     price: 7.5,
     category: "Desserts",
   },
+  {
+    image: "/menu/desserts/apple-custard.png",
+    title: "Apple Custard",
+    description:
+      "Warm, spiced baked apples blanketed in a rich, silky vanilla custard and topped with a light dusting of cinnamon.",
+    price: 7.0,
+    category: "Desserts",
+  },
 ];
