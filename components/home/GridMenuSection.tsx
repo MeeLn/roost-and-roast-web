@@ -36,7 +36,7 @@ export default function GridMenuSection() {
               {/* Background Image */}
               <div className="absolute inset-0 w-full h-full">
                 <Image
-                  src="/home/grid/grid-1.avif"
+                  src="/home/grid/grid-1.png"
                   alt="Restaurant Interior"
                   fill
                   className="object-cover transition-transform duration-700 group-hover:scale-105"
@@ -88,7 +88,7 @@ export default function GridMenuSection() {
             <Link href="/catering" className="block w-full h-full relative">
               <div className="absolute inset-0 w-full h-full">
                 <Image
-                  src="/home/grid/grid-2.avif"
+                  src="/home/grid/grid-2.jpeg"
                   alt="Catering Feast"
                   fill
                   className="object-cover transition-transform duration-700 group-hover:scale-110"
@@ -120,7 +120,7 @@ export default function GridMenuSection() {
             <Link href="/about" className="block w-full h-full relative">
               <div className="absolute inset-0 w-full h-full">
                 <Image
-                  src="/home/grid/grid-3.avif"
+                  src="/home/grid/grid-3.jpg"
                   alt="Our Team"
                   fill
                   className="object-cover transition-transform duration-700 group-hover:scale-110"
