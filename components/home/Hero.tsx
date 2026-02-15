@@ -36,7 +36,7 @@ const HERO_CONTENT = [
     headlineLine2: "PURE",
     highlightText: "Garden Greens",
     description:
-      "Hand-picked daily. A vibrant mix of organic greens, crisp veggies, and house-made dressings for a guilt-free crunch.",
+      "Sourced from local supplies & producers. A vibrant mix of organic greens, crisp veggies, and house-made dressings for a guilt-free crunch.",
   },
   {
     id: 3,

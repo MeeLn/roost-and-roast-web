@@ -40,7 +40,7 @@ export default function IntroSection() {
           </span>{" "}
           INTO THE HEART OF{" "}
           <span className="font-artistic text-primary normal-case text-4xl md:text-6xl inline-block rotate-1">
-            Charcoal
+            Charcoal Chicken
           </span>{" "}
           CUISINE!
         </h3>
