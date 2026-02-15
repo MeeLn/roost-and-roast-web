@@ -20,7 +20,7 @@ export default function Home() {
       <GridMenuSection />
       <MarqueeSection />
       <AboutStory />
-      <Testimonials />
+      {/* <Testimonials /> */}
       <CTASection />
       <ContactSection />
       <Footer />
