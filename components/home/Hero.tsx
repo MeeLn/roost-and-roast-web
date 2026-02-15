@@ -14,13 +14,13 @@ const HERO_CONTENT = [
       "/home/hero/meat-3.png",
       "/home/hero/meat-4.png",
     ],
-    badge: "The Charcoal Specialists",
+    badge: "Flamed Kissed Chicken",
     bgText: "CHARCOAL",
     headlineLine1: "CRAFTING THE",
     headlineLine2: "PERFECT",
     highlightText: "Roost & Roast",
     description:
-      "Where traditional oak fire meets modern culinary flair. Experience the smokiest, juiciest roast in town.",
+      "where traditional charcoal meets modern culinary flair. Experience the smokiest, juiciest roast in town*",
   },
   {
     id: 2,
