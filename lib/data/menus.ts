@@ -51,7 +51,7 @@ export const menus: MenuItem[] = [
     category: "Gourmet Rolls",
   },
   {
-    simage: "/smenu/BBQ-chicken-roll-with-gravy.png",
+    simage: "/assets/img/menu/menuThumb2_6.png",
     title: "Chicken Roll with Gravy",
     description: "bbq chicken roll with gravy",
     price: 12.9,
