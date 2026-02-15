@@ -20,7 +20,7 @@ const HERO_CONTENT = [
     headlineLine2: "PERFECT",
     highlightText: "Roost & Roast",
     description:
-      "where traditional charcoal meets modern culinary flair. Experience the smokiest, juiciest roast in town*",
+      "Where traditional charcoal meets modern culinary flair. Experience the smokiest, juiciest roast in town.",
   },
   {
     id: 2,
