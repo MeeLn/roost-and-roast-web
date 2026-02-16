@@ -386,7 +386,7 @@ export const menus: MenuItem[] = [
     category: "Family Deals",
   },
   {
-    image: "/assets/img/menu/menuThumb2_6.png",
+    image: "/menu/familydeals/chicken&salad-deal.png",
     title: "Chicken & Salad Deal",
     description:
       "1* XL Charcoal Chicken, 1* Large Salad, 1* Large Drink (1.25L) or Small Gravy",
@@ -418,7 +418,7 @@ export const menus: MenuItem[] = [
     category: "Family Deals",
   },
   {
-    image: "/assets/img/menu/menuThumb2_6.png",
+    image: "/menu/familydeals/roost&roast-deal.png",
     title: "Roost & Roast Deal",
     description:
       "1/2 Kg Pork, 1* XL Charcoal Chicken, 1* Large Chips, 1* Regular Veggie, 1* Regular Salad, 1* Large Gravy",
@@ -473,7 +473,7 @@ export const menus: MenuItem[] = [
   // SWEET POTATO
   // =====================
   {
-    image: "/assets/img/menu/menuThumb2_6.png",
+    image: "/menu/sweetpotato/sweet-potato.png",
     title: "Sweet Potato",
     description: "Chilli sauce available for $1.5 ea.",
     variants: [
@@ -573,7 +573,7 @@ export const menus: MenuItem[] = [
     ],
   },
   {
-    image: "",
+    image: "/menu/hotfoods/stir-fried-hokkien-noodle.png",
     title: "Stir Fried Hokkien Noodle",
     description: "Stir-fried hokkien noodles with vegetables and sauce.",
     category: "Hot Foods",
