@@ -43,7 +43,7 @@ export const menus: MenuItem[] = [
   // GOURMET ROLLS
   // =====================
   {
-    image: "/assets/img/menu/menuThumb2_6.png",
+    image: "/menu/gourmetrolls/periperi-chicken-roll.png",
     title: "Peri Peri Chicken Roll",
     description:
       "marinated grilled chicken breast, lettuce, mayo, peri peri sauce, cheese",
@@ -86,7 +86,7 @@ export const menus: MenuItem[] = [
     category: "Gourmet Rolls",
   },
   {
-    image: "/top-down-transparent/bacon-and-egg-roll.png",
+    image: "/menu/gourmetrolls/bacon-and-egg-roll.png",
     title: "Bacon & Egg Roll",
     description: "bacon, egg, cheese, bbq sauce or tomato sauce",
     price: 10.0,
@@ -112,7 +112,7 @@ export const menus: MenuItem[] = [
     category: "Gourmet Wraps",
   },
   {
-    image: "/menu/gourmetwraps/portugese.png",
+    image: "/menu/gourmetwraps/portugese-warp.png",
     title: "Portuguese Wrap",
     description:
       "Marinated & Grilled chicken breast, cheese, lettuce, Mayo, Peri-Peri Sauce",
@@ -159,7 +159,7 @@ export const menus: MenuItem[] = [
     category: "Pita Pockets",
   },
   {
-    image: "/menu/pitapockets/periperi-pocket.png",
+    image: "/menu/pitapockets/portuguese-pocket.png",
     title: "Portuguese Pocket",
     description:
       "Marinated & Grilled Breast, Cheese, Lettuce, Aioli, Peri-Peri Sauce",
@@ -211,7 +211,7 @@ export const menus: MenuItem[] = [
   // ROASTS
   // =====================
   {
-    image: "/top-down-transparent/pork-with-crackle.png",
+    image: "/menu/roasts/pork-with-crackle.png",
     title: "Pork with Crackle",
     description: "Price per kg",
     price: 45,
@@ -271,7 +271,7 @@ export const menus: MenuItem[] = [
     category: "Snacks & Sauces",
   },
   {
-    image: "/menu/snacks&sauces/sauces-1.png",
+    image: "/menu/snacks&sauces/sauces.png",
     title: "Sauces",
     description:
       "Peri Peri | Garlic Sauce | Chilli Mayo | Garlic Mayo | Sour Cream",
@@ -279,7 +279,7 @@ export const menus: MenuItem[] = [
     category: "Snacks & Sauces",
   },
   {
-    image: "/menu/snacks&sauces/sauces.png",
+    image: "/menu/snacks&sauces/other-sauces.png",
     title: "Other Sauces",
     description: "Sweet Chilli | Tomato Sauce | BBQ Sauce",
     price: 1.5,
