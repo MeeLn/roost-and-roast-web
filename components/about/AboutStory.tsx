@@ -55,7 +55,7 @@ export default function Story() {
         >
           <div className="w-full h-full relative">
             <Image
-              src="/about/about.jpeg"
+              src="/about/about.png"
               alt="Our Kitchen"
               fill
               className="object-cover"
