@@ -185,7 +185,7 @@ const TeamCard = () => {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: false, margin: "-50px" }}
       transition={{ duration: 0.5 }}
-      className="relative flex flex-col group max-w-5xl mx-auto mb-56 pt-20"
+      className="relative flex flex-col group max-w-5xl mx-auto pt-20"
     >
       {/* --- 1. FLOATING IMAGE SECTION --- */}
       <div
@@ -311,7 +311,7 @@ export default function AboutTeam() {
         </div>
 
         {/* Team Card (Whole Team) */}
-        <div className="pt-48 mb-20">
+        <div className="pt-48">
           <TeamCard />
         </div>
 
