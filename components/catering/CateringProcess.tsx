@@ -579,7 +579,7 @@ export default function CateringProcess() {
                         <Check size={20} strokeWidth={3} /> Inquiry Sent!
                       </span>
                     ) : (
-                      "Book an Event"
+                      "Inquiry"
                     )}
                   </button>
                 </div>

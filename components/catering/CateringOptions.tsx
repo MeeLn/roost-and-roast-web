@@ -29,8 +29,7 @@ const menuOptions = [
       "Creamy Potato Bake",
       "Hokkien Noodles",
     ],
-    image:
-      "/catering/catering-1.avif",
+    image: "/catering/catering-1.avif",
     icon: <Flame />,
   },
   {
@@ -46,8 +45,7 @@ const menuOptions = [
       "Pesto Pasta",
       "Rocket & Pumpkin",
     ],
-    image:
-      "/catering/catering-2.avif",
+    image: "/catering/catering-2.avif",
     icon: <Leaf />,
   },
   {
@@ -63,8 +61,7 @@ const menuOptions = [
       "Chicken Wraps",
       "Fresh Roll Platters",
     ],
-    image:
-      "/catering/catering-3.avif",
+    image: "/catering/catering-3.avif",
     icon: <PartyPopper />,
   },
 ];

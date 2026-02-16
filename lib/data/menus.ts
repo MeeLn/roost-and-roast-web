@@ -745,7 +745,7 @@ export const menus: MenuItem[] = [
     ],
   },
   {
-    image: "/menu/chicken-schnitzel-slaw.png",
+    image: "/menu/salads/chicken-scnitzel-slaw.png",
     title: "Snitzel Slaw",
     description: "Crispy chicken schnitzel with fresh slaw.",
     category: "Salads",

@@ -14,8 +14,8 @@ import Image from "next/image";
 
 export default function CateringMenuFlip() {
   // --- IMAGES ---
-  const FRONT_IMAGE = "/catering/roostnroast-catering-page-1.jpg";
-  const BACK_IMAGE = "/catering/roostnroast-catering-page-2.jpg";
+  const FRONT_IMAGE = "/catering/roostnroast-catering-page-1.png";
+  const BACK_IMAGE = "/catering/roostnroast-catering-page-2.png";
 
   // --- MOTION STATE ---
   const x = useMotionValue(0);
