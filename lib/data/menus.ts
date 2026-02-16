@@ -51,7 +51,7 @@ export const menus: MenuItem[] = [
     category: "Gourmet Rolls",
   },
   {
-    simage: "/assets/img/menu/menuThumb2_6.png",
+    image: "/assets/img/menu/menuThumb2_6.png",
     title: "Chicken Roll with Gravy",
     description: "bbq chicken roll with gravy",
     price: 12.9,
@@ -141,7 +141,7 @@ export const menus: MenuItem[] = [
     category: "Gourmet Wraps",
   },
   {
-    image: "/menu/gourmetwraps/wrap-6.png",
+    image: "/menu/gourmetwraps/falafel-wraps.png",
     title: "Falafel Wrap",
     description: "Falafel, Tabouli, Hummus",
     price: 13.9,
@@ -250,7 +250,7 @@ export const menus: MenuItem[] = [
     category: "Snacks & Sauces",
   },
   {
-    image: "/top-down-transparent/spring-roll.png",
+    image: "/menu/snacks&sauces/springroll.png",
     title: "Spring Roll",
     description: "",
     price: 3.9,
@@ -286,7 +286,7 @@ export const menus: MenuItem[] = [
     category: "Snacks & Sauces",
   },
   {
-    image: "/assets/img/menu/menuThumb2_6.png",
+    image: "/menu/snacks&sauces/chicken-salt.png",
     title: "Chicken Salt or Peri Peri Salt",
     description: "",
     price: 2.5,
@@ -300,7 +300,7 @@ export const menus: MenuItem[] = [
     category: "Snacks & Sauces",
   },
   {
-    image: "/assets/img/menu/menuThumb2_6.png",
+    image: "/menu/snacks&sauces/bottled-salad-dressing.png",
     title: "Bottled Salad Dressing",
     description: "",
     price: 7.0,
