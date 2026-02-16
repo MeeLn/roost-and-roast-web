@@ -229,7 +229,7 @@ const TeamCard = () => {
           }`}
         >
           <Image
-            src="/about/team-pic.jpeg"
+            src="/about/team-picture.png"
             alt="Roost and Roast Team"
             fill
             className={`object-cover transition-transform duration-700 ${

@@ -1,6 +1,6 @@
 export default function AboutCommitment() {
   return (
-    <div className="bg-surface py-24">
+    <div className="bg-gray-50/50 py-24">
       <div className="container mx-auto px-4 text-center max-w-4xl">
         <h3 className="text-3xl md:text-4xl font-modern font-black mb-8 uppercase tracking-tight">
           A Commitment to{" "}
