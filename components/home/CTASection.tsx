@@ -224,10 +224,10 @@ export default function CTASection() {
 
           {/* Secondary Button */}
           <Link
-            href="/contact"
+            href="/catering#catering"
             className="group flex items-center gap-2 bg-white/90 backdrop-blur-sm border border-stone-300 text-stone-800 px-10 py-4 text-lg font-modern font-black rounded-3xl uppercase tracking-widest transition-all hover:bg-stone-900 hover:text-white hover:-translate-y-1 hover:shadow-lg hover:border-stone-900"
           >
-            Book a Table
+            Order Catering
             <Phone className="w-5 h-5 text-stone-800 group-hover:text-white group-hover:rotate-12 transition-transform" />
           </Link>
         </motion.div>

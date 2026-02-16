@@ -226,7 +226,7 @@ export default function CateringProcess() {
   };
 
   return (
-    <div className="py-20 md:py-24 bg-background">
+    <div id="catering" className="py-20 md:py-28 bg-background">
       <Toaster />
       <div className="container mx-auto px-4 max-w-[1540px]">
         {/* Grid Layout: Left (Form) - Right (Process) */}
