@@ -51,14 +51,14 @@ export const menus: MenuItem[] = [
     category: "Gourmet Rolls",
   },
   {
-    image: "/assets/img/menu/menuThumb2_6.png",
+    image: "/menu/gourmetrolls/chicken-roll-with-gravy.png",
     title: "Chicken Roll with Gravy",
     description: "bbq chicken roll with gravy",
     price: 12.9,
     category: "Gourmet Rolls",
   },
   {
-    image: "/assets/img/menu/menuThumb2_6.png",
+    image: "/menu/gourmetrolls/bbq-chicken-roll.png",
     title: "BBQ Chicken Roll",
     description: "shredded bbq chicken with lettuce, mayo",
     price: 12.9,
@@ -152,7 +152,7 @@ export const menus: MenuItem[] = [
   // PITA POCKETS
   // =====================
   {
-    image: "/assets/img/menu/menuThumb2_6.png",
+    image: "/menu/pitapockets/roost&roast-pocket.png",
     title: "Roost & Roast Pocket",
     description: "Marinated & Grilled Breast, Tabouli, Garlic Sauce",
     price: 13.9,
