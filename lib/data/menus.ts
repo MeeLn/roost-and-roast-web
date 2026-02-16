@@ -764,7 +764,7 @@ export const menus: MenuItem[] = [
     title: "Rice Pudding",
     description:
       "Classic, creamy, and comforting slow-cooked rice blended with rich milk, a hint of vanilla, and a gentle sprinkle of cinnamon.",
-    price: 6.5,
+    price: 5.5,
     category: "Desserts",
   },
   {
@@ -772,7 +772,15 @@ export const menus: MenuItem[] = [
     title: "Sago Pudding",
     description:
       "A delightful and refreshing treat made with delicate sago pearls, rich coconut milk, and sweetened with a touch of palm sugar syrup.",
-    price: 7.0,
+    price: 5.5,
+    category: "Desserts",
+  },
+  {
+    image: "/menu/desserts/apple-custard.png",
+    title: "Apple Pudding",
+    description:
+      "Warm, spiced baked apples blanketed in a rich, silky vanilla custard and topped with a light dusting of cinnamon.",
+    price: 5.5,
     category: "Desserts",
   },
   {
@@ -780,7 +788,7 @@ export const menus: MenuItem[] = [
     title: "Banoffee Pie",
     description:
       "A heavenly dessert featuring a buttery biscuit base, sticky caramel toffee, fresh sliced bananas, and a generous mound of whipped cream.",
-    price: 8.5,
+    price: 7.9,
     category: "Desserts",
   },
   {
@@ -788,15 +796,7 @@ export const menus: MenuItem[] = [
     title: "Chocolate Mousse",
     description:
       "Decadent, airy, and rich dark chocolate mousse finished with a light dusting of cocoa powder and fresh seasonal berries.",
-    price: 7.5,
-    category: "Desserts",
-  },
-  {
-    image: "/menu/desserts/apple-custard.png",
-    title: "Apple Custard",
-    description:
-      "Warm, spiced baked apples blanketed in a rich, silky vanilla custard and topped with a light dusting of cinnamon.",
-    price: 7.0,
+    price: 7.9,
     category: "Desserts",
   },
 ];
