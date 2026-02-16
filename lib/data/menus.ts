@@ -625,21 +625,9 @@ export const menus: MenuItem[] = [
     ],
   },
   {
-    simage: "/smenu/lemongrass-chicken-salad.png",
+    image: "/menu/salads/lemon-grass-chicken-salad.png",
     title: "Lemongrass Chicken Salad",
     description: "Lemongrass-marinated chicken with fresh herbs.",
-    category: "Salads",
-    variants: [
-      { label: "Small", price: 7.9 },
-      { label: "Regular", price: 12.9 },
-      { label: "Large", price: 14.9 },
-      { label: "Family", price: 20.0 },
-    ],
-  },
-  {
-    image: "",
-    title: "Chicken Avocado",
-    description: "Grilled chicken with avocado and greens.",
     category: "Salads",
     variants: [
       { label: "Small", price: 7.9 },
@@ -685,7 +673,7 @@ export const menus: MenuItem[] = [
     ],
   },
   {
-    image: "",
+    image: "/menu/salads/potato-salad.png",
     title: "Potato Salad",
     description: "Creamy potato salad with herbs.",
     category: "Salads",
@@ -700,18 +688,6 @@ export const menus: MenuItem[] = [
     image: "/menu/salads/fruit-salad.png",
     title: "Fruit Salad",
     description: "Seasonal fresh fruit mix.",
-    category: "Salads",
-    variants: [
-      { label: "Small", price: 7.9 },
-      { label: "Regular", price: 12.9 },
-      { label: "Large", price: 14.9 },
-      { label: "Family", price: 20.0 },
-    ],
-  },
-  {
-    image: "",
-    title: "Avocado Bean Salad",
-    description: "Mixed beans with avocado and herbs.",
     category: "Salads",
     variants: [
       { label: "Small", price: 7.9 },
@@ -757,7 +733,7 @@ export const menus: MenuItem[] = [
     ],
   },
   {
-    simage: "/smenu/mango-chicken-salad.png",
+    image: "/menu/salads/mango-chicken-salad.png",
     title: "Mango Chicken Salad",
     description: "Grilled chicken with fresh mango slices.",
     category: "Salads",
@@ -772,18 +748,6 @@ export const menus: MenuItem[] = [
     image: "/menu/chicken-schnitzel-slaw.png",
     title: "Snitzel Slaw",
     description: "Crispy chicken schnitzel with fresh slaw.",
-    category: "Salads",
-    variants: [
-      { label: "Small", price: 7.9 },
-      { label: "Regular", price: 12.9 },
-      { label: "Large", price: 14.9 },
-      { label: "Family", price: 20.0 },
-    ],
-  },
-  {
-    image: "",
-    title: "Vegetarian Cous Cous",
-    description: "Cous cous with vegetables and herbs.",
     category: "Salads",
     variants: [
       { label: "Small", price: 7.9 },
