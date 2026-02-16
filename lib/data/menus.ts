@@ -86,13 +86,6 @@ export const menus: MenuItem[] = [
     category: "Gourmet Rolls",
   },
   {
-    image: "/assets/img/menu/menuThumb2_6.png",
-    title: "Lamb Roll with Gravy",
-    description: "charcoal roasted lamb with rocket & mint jelly",
-    price: 14.5,
-    category: "Gourmet Rolls",
-  },
-  {
     image: "/top-down-transparent/bacon-and-egg-roll.png",
     title: "Bacon & Egg Roll",
     description: "bacon, egg, cheese, bbq sauce or tomato sauce",
@@ -130,7 +123,7 @@ export const menus: MenuItem[] = [
     image: "/menu/gourmetwraps/chicken.png",
     title: "BLAT Chicken Wrap",
     description: "Bacon, Lettuce, Avocado, Tomato, Chicken Breast, Mayo",
-    price: 13.9,
+    price: 15.9,
     category: "Gourmet Wraps",
   },
   {
@@ -160,7 +153,7 @@ export const menus: MenuItem[] = [
   // =====================
   {
     image: "/assets/img/menu/menuThumb2_6.png",
-    title: "GGC Pocket",
+    title: "Roost & Roast Pocket",
     description: "Marinated & Grilled Breast, Tabouli, Garlic Sauce",
     price: 13.9,
     category: "Pita Pockets",
@@ -200,13 +193,6 @@ export const menus: MenuItem[] = [
     category: "Baked Dinner Packs",
   },
   {
-    image: "/assets/img/menu/menuThumb2_6.png",
-    title: "Lamb Dinner Pack",
-    description: "220gms Roast Lamb, 2 choices of Vegetables, Peas & Gravy",
-    price: 20.9,
-    category: "Baked Dinner Packs",
-  },
-  {
     image: "/top-down-transparent/half-chicken-dinner-pack.png",
     title: "½ Chicken Dinner Pack",
     description: "½ Charcoal Chicken, 2 choices of vegetables, Peas & Gravy",
@@ -226,7 +212,7 @@ export const menus: MenuItem[] = [
   // =====================
   {
     image: "/top-down-transparent/pork-with-crackle.png",
-    title: "Pork with Crackling",
+    title: "Pork with Crackle",
     description: "Price per kg",
     price: 45,
     category: "Roasts",
@@ -234,13 +220,6 @@ export const menus: MenuItem[] = [
   {
     image: "/top-down-transparent/beef-roast.png",
     title: "Roast Beef",
-    description: "Price per kg",
-    price: 50,
-    category: "Roasts",
-  },
-  {
-    image: "/assets/img/menu/menuThumb2_6.png",
-    title: "Roast Lamb",
     description: "Price per kg",
     price: 50,
     category: "Roasts",
@@ -293,16 +272,16 @@ export const menus: MenuItem[] = [
   },
   {
     image: "/menu/snacks&sauces/sauces-1.png",
-    title: "Sauces (Peri Peri / Garlic Sauce / Chilli Mayo)",
-    description: "",
+    title: "Sauces",
+    description:
+      "Peri Peri | Garlic Sauce | Chilli Mayo | Garlic Mayo | Sour Cream",
     price: 2.5,
     category: "Snacks & Sauces",
   },
   {
     image: "/menu/snacks&sauces/sauces.png",
-    title:
-      "Other Sauces (Garlic Mayo / Sour Cream / Sweet Chilli / Tomato / BBQ)",
-    description: "",
+    title: "Other Sauces",
+    description: "Sweet Chilli | Tomato Sauce | BBQ Sauce",
     price: 1.5,
     category: "Snacks & Sauces",
   },
@@ -350,7 +329,7 @@ export const menus: MenuItem[] = [
     image: "/top-down-transparent/quarter-chicken.png",
     title: "Quarter Chicken",
     description: "Charcoal Chicken",
-    price: 8.0,
+    price: 7.9,
     category: "Tasty Charcoal Chicken",
   },
 
@@ -390,7 +369,7 @@ export const menus: MenuItem[] = [
   {
     simage: "/smenu/schnitzel-chips-salad.png",
     title: "Schnitzel & Chips",
-    description: "Chicken Schnitzel & chips",
+    description: "Chicken Schnitzel & chips & 1 choice of Salad",
     price: 19.9,
     category: "Chicken Chips & Salad Packs",
   },
