@@ -306,6 +306,25 @@ export default function Footer() {
               <div className="text-xs text-stone-400 italic mt-1">
                 *Holiday hours may differ
               </div>
+
+              <div className="flex items-center justify-center gap-6 mt-6 pt-4 border-t border-stone-200 border-dashed">
+                <div className="relative h-12 w-28 grayscale-0 md:grayscale hover:grayscale-0 transition-all duration-300">
+                  <Image
+                    src="/logos/doordash-logo.svg"
+                    alt="Order on DoorDash"
+                    fill
+                    className="object-contain"
+                  />
+                </div>
+                <div className="relative h-12 w-28 grayscale-0 md:grayscale hover:grayscale-0 transition-all duration-300">
+                  <Image
+                    src="/logos/ubereats-logo.svg"
+                    alt="Order on Uber Eats"
+                    fill
+                    className="object-contain"
+                  />
+                </div>
+              </div>
             </div>
           </div>
         </div>
