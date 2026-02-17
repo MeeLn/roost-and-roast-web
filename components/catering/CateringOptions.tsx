@@ -29,7 +29,7 @@ const menuOptions = [
       "Creamy Potato Bake",
       "Hokkien Noodles",
     ],
-    image: "/catering/catering-1.avif",
+    image: "/catering/catering-1.png",
     icon: <Flame />,
   },
   {
@@ -45,7 +45,7 @@ const menuOptions = [
       "Pesto Pasta",
       "Rocket & Pumpkin",
     ],
-    image: "/catering/catering-2.avif",
+    image: "/catering/catering-2.jpg",
     icon: <Leaf />,
   },
   {
@@ -183,7 +183,7 @@ export default function CateringOptions() {
             >
               {/* Image */}
               <div className="lg:col-span-7 relative group order-1 lg:order-1">
-                <div className="relative rounded-2xl overflow-hidden aspect-[4/3] shadow-2xl shadow-black/10 border-4 border-white">
+                <div className="relative rounded-2xl overflow-hidden aspect-[4/3] shadow-2xl shadow-black/10 border-2 border-slate-50">
                   <motion.img
                     initial={{ scale: 1.2 }}
                     animate={{ scale: 1 }}
