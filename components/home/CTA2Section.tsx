@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { motion, Variants } from "framer-motion";
+import Link from "next/link";
 
 // --- MASCOT ANIMATIONS ---
 const chickenSequence: Variants = {
@@ -164,14 +165,16 @@ export default function CTA2Section() {
             <h2 className="text-[3rem] md:text-6xl lg:text-[5rem] font-artistic font-black uppercase tracking-tight leading-[0.9] text-gray-900 drop-shadow-sm">
               FLAME-KISSED
             </h2>
-            <h3 className="text-3xl md:text-5xl lg:text-[4rem] font-modern font-black uppercase tracking-tight leading-[0.9] text-gray-900 mt-2">
-              PERFECTION
+            <h3 className="ml-2 text-3xl md:text-5xl lg:text-[4rem] font-modern font-black uppercase tracking-tight leading-[0.9] text-gray-900 mt-2">
+              CHICKEN
             </h3>
 
-            <div className="mt-6">
-              <button className="px-8 py-3 border-2 border-black text-black rounded-lg font-bold uppercase tracking-wider text-sm md:text-base hover:bg-black hover:text-[#f26522] transition-all duration-300">
-                VIEW FULL MENU
-              </button>
+            <div className="ml-3 mt-6">
+              <Link href="/catering#catering">
+                <button className="px-8 py-3 border-2 border-black text-black rounded-lg font-bold uppercase tracking-wider text-sm md:text-base hover:border-white hover:bg-white hover:text-black transition-all duration-300">
+                  Catering Orders
+                </button>
+              </Link>
             </div>
           </div>
         </div>
