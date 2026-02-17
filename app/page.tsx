@@ -10,6 +10,7 @@ import CTASection from "@/components/home/CTASection";
 import GridMenuSection from "@/components/home/GridMenuSection";
 import MarqueeSection from "@/components/home/MarqueeSection";
 import CateringForm from "@/components/catering/CateringForm";
+import CTA2Section from "@/components/home/CTA2Section";
 
 export default function Home() {
   return (
@@ -23,8 +24,9 @@ export default function Home() {
       <AboutStory />
       {/* <Testimonials /> */}
       <CTASection />
-      <div className="flex flex-col items-center justify-center container max-w-7xl mx-auto py-20">
-        <div className="w-2/3">
+      <CTA2Section />
+      <div className="flex flex-col items-center justify-center container max-w-7xl mx-auto px-2 md:px-0 py-20">
+        <div className="w-full md:w-2/3">
           <div className="text-center mb-8">
             <h3 className="text-3xl md:text-5xl font-modern font-black text-secondary uppercase tracking-tighter">
               Catering{" "}
