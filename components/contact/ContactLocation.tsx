@@ -45,32 +45,36 @@ export default function ContactLocation() {
                     </p>
                   </div>
                 </div>
-                <div className="flex items-center gap-6 group">
-                  <div className="flex-shrink-0 w-12 h-12 flex items-center justify-center bg-white rounded-xl text-primary shadow-sm border border-primary/10 transition-transform group-hover:scale-110">
-                    <Phone size={24} />
+                <a href="tel:+610243427887">
+                  <div className="flex items-center gap-6 group">
+                    <div className="flex-shrink-0 w-12 h-12 flex items-center justify-center bg-white rounded-xl text-primary shadow-sm border border-primary/10 transition-transform group-hover:scale-110">
+                      <Phone size={24} />
+                    </div>
+                    <div className="space-y-0.5">
+                      <h4 className="font-modern font-bold text-secondary uppercase tracking-wide text-xs">
+                        Call Us
+                      </h4>
+                      <p className="text-text-main text-sm font-medium">
+                        +61 02 43427887
+                      </p>
+                    </div>
                   </div>
-                  <div className="space-y-0.5">
-                    <h4 className="font-modern font-bold text-secondary uppercase tracking-wide text-xs">
-                      Call Us
-                    </h4>
-                    <p className="text-text-main text-sm font-medium">
-                      +61 02 43427887
-                    </p>
+                </a>
+                <a href="mailto:catering@roostnroast.com.au">
+                  <div className="flex items-center gap-6 group">
+                    <div className="flex-shrink-0 w-12 h-12 flex items-center justify-center bg-white rounded-xl text-primary shadow-sm border border-primary/10 transition-transform group-hover:scale-110">
+                      <Mail size={24} />
+                    </div>
+                    <div className="space-y-0.5">
+                      <h4 className="font-modern font-bold text-secondary uppercase tracking-wide text-xs">
+                        Email
+                      </h4>
+                      <p className="text-text-main text-sm font-medium">
+                        catering@roostnroast.com.au
+                      </p>
+                    </div>
                   </div>
-                </div>
-                <div className="flex items-center gap-6 group">
-                  <div className="flex-shrink-0 w-12 h-12 flex items-center justify-center bg-white rounded-xl text-primary shadow-sm border border-primary/10 transition-transform group-hover:scale-110">
-                    <Mail size={24} />
-                  </div>
-                  <div className="space-y-0.5">
-                    <h4 className="font-modern font-bold text-secondary uppercase tracking-wide text-xs">
-                      Email
-                    </h4>
-                    <p className="text-text-main text-sm font-medium">
-                      info@roostnroast.com.au
-                    </p>
-                  </div>
-                </div>
+                </a>
                 <div className="flex items-center gap-6 group">
                   <div className="flex-shrink-0 w-12 h-12 flex items-center justify-center bg-white rounded-xl text-secondary shadow-sm border border-secondary/10 transition-transform group-hover:scale-110">
                     <Clock size={24} />
