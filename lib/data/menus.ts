@@ -72,7 +72,7 @@ export const menus: MenuItem[] = [
     category: "Gourmet Rolls",
   },
   {
-    image: "/top-down-transparent/roost-n-roost-chicken-roll.png",
+    image: "/menu/gourmetrolls/roost-n-roost-chicken-roll.png",
     title: "Roost & Roast Chicken Roll",
     description: "charcoal chicken, tabouli, garlic mayo",
     price: 13.9,
