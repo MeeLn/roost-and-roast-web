@@ -262,7 +262,7 @@ const TeamCard = () => {
                 : "text-secondary group-hover:text-white"
             }`}
           >
-            OUR ENTIRE TEAM
+            OUR TEAM
           </h3>
 
           <p

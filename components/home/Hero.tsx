@@ -135,8 +135,8 @@ export default function Hero() {
     animate: (custom) => ({
       opacity: 1,
       scale: 1,
-      y: [0, -10, 0],
-      rotate: [custom.rotation, custom.rotation + 5, custom.rotation],
+      // y: [0, -10, 0],
+      // rotate: [custom.rotation, custom.rotation + 5, custom.rotation],
       transition: {
         y: {
           duration: 4 + Math.random() * 2,

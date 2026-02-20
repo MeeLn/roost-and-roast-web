@@ -5,30 +5,28 @@ import { ArrowRight, Phone } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 
-// --- FIXED ANIMATION VARIANTS ---
 const floatingImage: Variants = {
-  // Ensure the element starts exactly where the animation begins to prevent jumps
   initial: (custom) => ({
     y: 0,
     rotate: custom.rotation,
   }),
   animate: (custom) => ({
-    y: [0, -20, 0], // Smooth sine wave (Up and Down)
-    rotate: [
-      custom.rotation,
-      custom.rotation + 3,
-      custom.rotation - 3,
-      custom.rotation,
-    ], // Very subtle wobble
+    // y: [0, -20, 0],
+    // rotate: [
+    //   custom.rotation,
+    //   custom.rotation + 3,
+    //   custom.rotation - 3,
+    //   custom.rotation,
+    // ],
     transition: {
       y: {
-        duration: 6, // Slower = Smoother
+        duration: 6,
         repeat: Infinity,
         ease: "easeInOut",
-        delay: custom.delay, // Deterministic delay
+        delay: custom.delay,
       },
       rotate: {
-        duration: 7.5, // Different duration to create organic "floating" feel
+        duration: 7.5,
         repeat: Infinity,
         ease: "easeInOut",
         delay: custom.delay,

@@ -61,7 +61,7 @@ const menuOptions = [
       "Chicken Wraps",
       "Fresh Roll Platters",
     ],
-    image: "/catering/catering-3.avif",
+    image: "/catering/catering-3.png",
     icon: <PartyPopper />,
   },
 ];
