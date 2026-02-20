@@ -250,7 +250,7 @@ export const menus: MenuItem[] = [
     category: "Snacks & Sauces",
   },
   {
-    image: "/menu/snacks&sauces/springroll.png",
+    simage: "/smenu/springroll.jpg",
     title: "Spring Roll",
     description: "",
     price: 3.9,
@@ -589,7 +589,7 @@ export const menus: MenuItem[] = [
   // SALADS
   // =====================
   {
-    image: "/menu/salads/chicken-cesar.png",
+    simage: "/smenu/salads/chicken-caesar.jpg",
     title: "Chicken Caesar",
     description: "Classic Caesar salad with grilled chicken.",
     category: "Salads",
@@ -601,7 +601,7 @@ export const menus: MenuItem[] = [
     ],
   },
   {
-    image: "/menu/salads/avocado.png",
+    simage: "/smenu/salads/rocket-avocado.jpg",
     title: "Rocket Avocado",
     description: "Fresh rocket leaves with creamy avocado.",
     category: "Salads",
@@ -613,7 +613,7 @@ export const menus: MenuItem[] = [
     ],
   },
   {
-    image: "/menu/salads/fresh-garden-salad.png",
+    simage: "/smenu/salads/fresh-garden-salad.jpg",
     title: "Fresh Garden Salad",
     description: "Seasonal fresh vegetables with light dressing.",
     category: "Salads",
@@ -625,7 +625,7 @@ export const menus: MenuItem[] = [
     ],
   },
   {
-    image: "/menu/salads/lemon-grass-chicken-salad.png",
+    simage: "/smenu/salads/lemon-grass-chicken-salad.jpg",
     title: "Lemongrass Chicken Salad",
     description: "Lemongrass-marinated chicken with fresh herbs.",
     category: "Salads",
@@ -637,7 +637,7 @@ export const menus: MenuItem[] = [
     ],
   },
   {
-    image: "/menu/salads/chicken-pesto-pasta.png",
+    simage: "/smenu/salads/chicken-pesto-pasta.jpg",
     title: "Chicken Pesto Pasta",
     description: "Pasta salad with chicken and basil pesto.",
     category: "Salads",
@@ -649,7 +649,7 @@ export const menus: MenuItem[] = [
     ],
   },
   {
-    image: "/menu/salads/coleslaw.png",
+    simage: "/smenu/salads/coleslaw.jpg",
     title: "Coleslaw",
     description: "Creamy coleslaw with fresh cabbage.",
     category: "Salads",
@@ -673,7 +673,7 @@ export const menus: MenuItem[] = [
     ],
   },
   {
-    image: "/menu/salads/potato-salad.png",
+    simage: "/smenu/salads/potato-salad.jpg",
     title: "Potato Salad",
     description: "Creamy potato salad with herbs.",
     category: "Salads",
@@ -685,7 +685,7 @@ export const menus: MenuItem[] = [
     ],
   },
   {
-    image: "/menu/salads/fruit-salad.png",
+    simage: "/smenu/salads/fruit-salad.jpg",
     title: "Fruit Salad",
     description: "Seasonal fresh fruit mix.",
     category: "Salads",
@@ -697,7 +697,7 @@ export const menus: MenuItem[] = [
     ],
   },
   {
-    image: "/menu/salads/seafood-salad.png",
+    simage: "/smenu/salads/seafood-salad.jpg",
     title: "Seafood Salad",
     description: "Mixed seafood with crisp salad greens.",
     category: "Salads",
@@ -745,7 +745,7 @@ export const menus: MenuItem[] = [
     ],
   },
   {
-    image: "/menu/salads/chicken-scnitzel-slaw.png",
+    simage: "/smenu/salads/snitzel-slaw.jpg",
     title: "Snitzel Slaw",
     description: "Crispy chicken schnitzel with fresh slaw.",
     category: "Salads",
