@@ -95,6 +95,82 @@ const MenuCard = ({ item }: { item: (typeof menus)[0] }) => {
 
   const activeClass = (base: string, active: string) =>
     `${base} ${isMobileActive ? active : ""}`;
+  const logoThemeVariant =
+    item.category === "Salads" && item.simage === "/smenu/sample/1.png"
+      ? item.title === "Sample"
+        ? "sample-1"
+        : item.title === "Sample 2"
+          ? "sample-2"
+          : item.title === "Sample 3"
+            ? "sample-3"
+            : item.title === "Sample 4"
+              ? "sample-4"
+              : item.title === "Sample 5"
+                ? "sample-5"
+                : item.title === "Sample 6"
+                  ? "sample-6"
+              : null
+      : null;
+  const isLogoThemeCard = logoThemeVariant !== null;
+
+  const logoCardBaseClass =
+    "flex flex-col flex-grow rounded-3xl border transition-all duration-500 overflow-hidden py-6 px-6 shadow-2xl hover:shadow-2xl hover:border-white/90";
+  const logoCardClassMap = {
+    "sample-1": `${logoCardBaseClass} border-[#FBCB15]/80`,
+    "sample-2": `${logoCardBaseClass} border-[#ED1C24]/80`,
+    "sample-3": `${logoCardBaseClass} border-white/70`,
+    "sample-4": `${logoCardBaseClass} border-white/40`,
+    "sample-5": `${logoCardBaseClass} border-[#FBCB15]/80`,
+    "sample-6": `${logoCardBaseClass} border-[#ED1C24]/80`,
+  } as const;
+
+  const cardClassName = logoThemeVariant
+    ? activeClass(logoCardClassMap[logoThemeVariant], "border-white/90 shadow-2xl")
+    : activeClass(
+        `flex flex-col flex-grow rounded-3xl border transition-all duration-500 overflow-hidden py-6 px-6 hover:border-primary/50 hover:shadow-xl ${
+          item.bgColor === "none"
+            ? "bg-white/15 backdrop-blur-xl border-white/40 shadow-2xl z-10 hover:shadow-2xl" // GLASS
+            : !item.bgColor
+              ? "bg-background border-border shadow-sm" // NORMAL
+              : "border-transparent shadow-sm" // CUSTOM
+        }`,
+        item.bgColor === "none"
+          ? "border-primary/50 shadow-2xl"
+          : "border-primary/50 shadow-xl",
+      );
+
+  const logoCardStyleMap = {
+    "sample-1": {
+      background:
+        "linear-gradient(155deg, #181111 0%, #181111 42%, #D02027 42%, #ED1C24 74%, #FBCB15 100%)",
+    },
+    "sample-2": {
+      background:
+        "linear-gradient(180deg, #181111 0%, #181111 28%, #ED1C24 28%, #ED1C24 68%, #FBCB15 68%, #FBCB15 100%)",
+    },
+    "sample-3": {
+      background:
+        "linear-gradient(135deg, #FBCB15 0%, #FBCB15 24%, #ffffff 24%, #ffffff 42%, #ED1C24 42%, #D02027 72%, #181111 100%)",
+    },
+    "sample-4": {
+      background:
+        "linear-gradient(180deg, #181111 0%, #181111 100%)",
+    },
+    "sample-5": {
+      background:
+        "linear-gradient(140deg, #FBCB15 0%, #FBCB15 32%, #ED1C24 32%, #D02027 70%, #181111 100%)",
+    },
+    "sample-6": {
+      background:
+        "linear-gradient(180deg, #181111 0%, #181111 48%, #ED1C24 48%, #ED1C24 100%)",
+    },
+  } as const;
+
+  const cardStyle = logoThemeVariant
+    ? logoCardStyleMap[logoThemeVariant]
+    : item.bgColor && item.bgColor !== "none"
+      ? { backgroundColor: item.bgColor }
+      : {};
 
   return (
     <motion.div
@@ -105,27 +181,25 @@ const MenuCard = ({ item }: { item: (typeof menus)[0] }) => {
       viewport={{ once: true, margin: "-50px" }}
       className="relative flex flex-col group mx-4 md:mx-0 h-full md:max-w-[400px] mx-auto w-full md:w-full"
     >
-      <div
-        className={activeClass(
-          `flex flex-col flex-grow rounded-3xl border transition-all duration-500 overflow-hidden py-6 px-6 hover:border-primary/50 hover:shadow-xl ${
-            item.bgColor === "none"
-              ? "bg-white/15 backdrop-blur-xl border-white/40 shadow-2xl z-10 hover:shadow-2xl" // GLASS
-              : !item.bgColor
-                ? "bg-background border-border shadow-sm" // NORMAL
-                : "border-transparent shadow-sm" // CUSTOM
-          }`,
-          item.bgColor === "none"
-            ? "border-primary/50 shadow-2xl"
-            : "border-primary/50 shadow-xl",
-        )}
-        style={
-          item.bgColor && item.bgColor !== "none"
-            ? { backgroundColor: item.bgColor }
-            : {}
-        }
-      >
+      <div className={cardClassName} style={cardStyle}>
         {/* IMAGE SECTION */}
-        <div className="relative aspect-square w-full mx-auto mb-4 overflow-hidden rounded-2xl bg-transparent">
+        <div
+          className={`relative aspect-square w-full mx-auto mb-4 overflow-hidden rounded-2xl ${
+            logoThemeVariant === "sample-1"
+              ? "bg-black/25 border border-white/30"
+              : logoThemeVariant === "sample-2"
+                ? "bg-white/10 border-2 border-[#FBCB15]/70 rounded-[1.25rem]"
+                : logoThemeVariant === "sample-3"
+                  ? "bg-black/20 border border-[#ED1C24]/60 rounded-[1.25rem]"
+                  : logoThemeVariant === "sample-4"
+                    ? "bg-white/5 border border-[#FBCB15]/50 rounded-[1rem]"
+                    : logoThemeVariant === "sample-5"
+                      ? "bg-transparent"
+                      : logoThemeVariant === "sample-6"
+                        ? "bg-transparent"
+                    : "bg-transparent"
+          }`}
+        >
           <Image
             src={imgSrc}
             alt={item.title}
@@ -139,21 +213,74 @@ const MenuCard = ({ item }: { item: (typeof menus)[0] }) => {
         </div>
 
         {/* CONTENT SECTION */}
-        <div className="px-6 py-4 flex flex-col items-center flex-grow text-center gap-1">
-          <h3 className="font-modern text-xl font-black text-secondary uppercase tracking-tight leading-tight">
+        <div
+          className={`px-6 py-4 flex flex-col flex-grow gap-1 ${
+            isLogoThemeCard
+              ? logoThemeVariant === "sample-2"
+                ? "items-center text-center"
+                : logoThemeVariant === "sample-6"
+                  ? "items-center text-center"
+                : "items-start text-left"
+              : "items-center text-center"
+          }`}
+        >
+          <h3
+            className={`font-modern text-xl font-black uppercase tracking-tight leading-tight ${
+              logoThemeVariant === "sample-4"
+                ? "text-white"
+                : isLogoThemeCard
+                  ? "text-white"
+                : "text-secondary"
+            }`}
+            style={logoThemeVariant === "sample-4" ? { color: "#ffffff" } : undefined}
+          >
             {item.title}
           </h3>
-          <p className="italic text-sm text-muted-foreground leading-relaxed line-clamp-2">
+          <p
+            className={`italic text-sm leading-relaxed line-clamp-2 ${
+              isLogoThemeCard ? "text-white/90" : "text-muted-foreground"
+            }`}
+          >
             {item.description}
           </p>
         </div>
 
         {/* PRICE SECTION */}
-        <div className="mt-auto relative w-[calc(100%+3rem)] -mx-6 -mb-6 overflow-hidden">
+        <div
+          className={`mt-auto relative w-[calc(100%+3rem)] -mx-6 -mb-6 overflow-hidden ${
+            logoThemeVariant === "sample-1"
+              ? "border-t border-[#FBCB15]/60 bg-black/45"
+              : logoThemeVariant === "sample-2"
+                ? "border-t border-white/50 bg-[#181111]/70"
+                : logoThemeVariant === "sample-3"
+                  ? "border-t border-[#ED1C24]/60 bg-black/55"
+                  : logoThemeVariant === "sample-4"
+                    ? "border-t border-[#FBCB15]/60 bg-[#181111]"
+                    : logoThemeVariant === "sample-5"
+                      ? "border-t border-black/35 bg-[#FBCB15]/30"
+                      : logoThemeVariant === "sample-6"
+                        ? "border-t border-white/60 bg-black/45"
+                    : ""
+          }`}
+        >
           {/* Loading Bar Animation */}
           <div
             className={activeClass(
-              "absolute inset-0 bg-primary origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500 ease-out z-0",
+              `absolute inset-0 origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500 ease-out z-0 ${
+                logoThemeVariant === "sample-1"
+                  ? "bg-gradient-to-r from-[#D02027] via-[#ED1C24] to-[#FBCB15]"
+                  : logoThemeVariant === "sample-2"
+                    ? "bg-gradient-to-r from-[#FBCB15] via-white to-[#ED1C24]"
+                    : logoThemeVariant === "sample-3"
+                      ? "bg-gradient-to-r from-[#181111] via-[#ED1C24] to-[#FBCB15]"
+                      : logoThemeVariant === "sample-4"
+                        ? "bg-gradient-to-r from-[#181111] via-[#ED1C24] to-[#FBCB15]"
+                        : logoThemeVariant === "sample-5"
+                          ? "bg-gradient-to-r from-[#FBCB15] via-[#ED1C24] to-[#181111]"
+                          : logoThemeVariant === "sample-6"
+                            ? "bg-gradient-to-r from-white via-[#ED1C24] to-[#181111]"
+                        : "bg-primary"
+              }`,
               "scale-x-100",
             )}
           />
@@ -164,11 +291,19 @@ const MenuCard = ({ item }: { item: (typeof menus)[0] }) => {
                 {item.variants.map((variant) => (
                   <div
                     key={variant.label}
-                    className="flex flex-col items-center justify-center px-4 py-1 rounded-lg min-w-[60px] transition-all duration-300 hover:bg-black/10 group/price"
+                    className={`flex flex-col items-center justify-center px-4 py-1 rounded-lg min-w-[60px] transition-all duration-300 group/price ${
+                      isLogoThemeCard
+                        ? "hover:bg-white/20"
+                        : "hover:bg-black/10"
+                    }`}
                   >
                     <span
                       className={activeClass(
-                        "font-artistic text-lg text-primary -rotate-3 transition-colors duration-300 group-hover:text-white",
+                        `font-artistic text-lg -rotate-3 transition-colors duration-300 ${
+                          isLogoThemeCard
+                            ? "text-[#FBCB15] group-hover:text-white"
+                            : "text-primary group-hover:text-white"
+                        }`,
                         "text-white",
                       )}
                     >
@@ -176,7 +311,11 @@ const MenuCard = ({ item }: { item: (typeof menus)[0] }) => {
                     </span>
                     <span
                       className={activeClass(
-                        "font-modern text-sm font-bold text-primary transition-colors duration-300 group-hover:text-white",
+                        `font-modern text-sm font-bold transition-colors duration-300 ${
+                          isLogoThemeCard
+                            ? "text-white group-hover:text-white"
+                            : "text-primary group-hover:text-white"
+                        }`,
                         "text-white",
                       )}
                     >
