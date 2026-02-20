@@ -100,51 +100,14 @@ const MenuCard = ({ item }: { item: (typeof menus)[0] }) => {
     <motion.div
       layout
       ref={cardRef}
-      initial={{ opacity: 0, scale: 0.9 }}
-      whileInView={{ opacity: 1, scale: 1 }}
-      viewport={{ once: false, margin: "-50px" }}
-      exit={{ opacity: 0, scale: 0.9 }}
-      transition={{ duration: 0.2 }}
-      className="relative flex flex-col group mx-2 md:mx-0 mt-12 md:mt-0"
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-50px" }}
+      className="relative flex flex-col group mx-2 md:mx-0 h-full max-w-[420px] mx-auto"
     >
-      {/* --- IMAGE CONTAINER --- */}
-      <div
-        className={activeClass(
-          `absolute -top-40 left-1/2 -translate-x-1/2 z-20 transition-transform duration-500 ease-out group-hover:-translate-y-6 ${shapeConfig.sizeClass}`,
-          "-translate-y-6",
-        )}
-      >
-        {/* --- SVG MARCHING ANTS BORDER --- */}
-        <svg
-          className={activeClass(
-            "absolute -inset-2 w-[calc(100%+1rem)] h-[calc(100%+1rem)] z-0 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300",
-            "opacity-100",
-          )}
-        >
-          <motion.rect
-            x="2"
-            y="2"
-            width="calc(100% - 4px)"
-            height="calc(100% - 4px)"
-            rx={shapeConfig.rxValue}
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeDasharray="6 6"
-            className="text-primary"
-            animate={{ strokeDashoffset: [0, -12] }}
-            transition={{
-              duration: 0.2,
-              repeat: Infinity,
-              ease: "linear",
-            }}
-          />
-        </svg>
-
-        {/* --- ACTUAL IMAGE WRAPPER --- */}
-        <div
-          className={`relative w-full h-full border border-gray-100/20 shadow-lg overflow-hidden bg-[url('/placeholder-1.png')] bg-cover bg-center z-10 ${shapeConfig.roundedClass}`}
-        >
+      <div className="flex flex-col flex-grow bg-surface rounded-[2.5rem] p-6 shadow-sm border border-border/50 hover:shadow-xl hover:border-primary/20 transition-all duration-500 relative group/card">
+        {/* IMAGE SECTION - SQUARE & CONTAINED */}
+        <div className="relative aspect-square w-full mb-6 overflow-hidden rounded-[2rem] bg-secondary/5 shadow-inner">
           <Image
             src={imgSrc}
             alt={item.title}
@@ -153,79 +116,46 @@ const MenuCard = ({ item }: { item: (typeof menus)[0] }) => {
             placeholder="blur"
             blurDataURL={PLACEHOLDER_IMAGE}
             onError={() => setImgSrc(PLACEHOLDER_IMAGE)}
-            className={activeClass(
-              `object-cover transition-transform duration-500 ${shapeConfig.scaleClass} group-hover:scale-110`,
-              "scale-110",
-            )}
+            className="object-contain transition-transform duration-700 group-hover:scale-110"
           />
         </div>
-      </div>
 
-      {/* --- CARD CONTENT --- */}
-      <div className="relative z-10 bg-background rounded-3xl border border-border shadow-sm hover:shadow-xl hover:border-primary/50 transition-all overflow-hidden flex flex-col flex-grow pt-24">
-        <div className="px-6 pb-4 flex flex-col items-center flex-grow text-center gap-2">
-          <div className="flex flex-col items-center gap-1">
-            <h3 className="font-modern text-xl font-black text-secondary uppercase tracking-tight leading-tight">
+        {/* CONTENT SECTION */}
+        <div className="flex flex-col flex-grow text-center">
+          <div className="mb-4">
+            <h3 className="font-modern text-xl font-black text-text-main mb-2 leading-tight uppercase tracking-tight">
               {item.title}
             </h3>
-            <p className="italic text-sm text-muted-foreground leading-relaxed line-clamp-2">
+            <p className="text-sm text-text-muted font-medium leading-relaxed line-clamp-3">
               {item.description}
             </p>
           </div>
-        </div>
 
-        <div className="mt-auto w-full relative">
-          <div
-            className={activeClass(
-              "absolute inset-0 bg-primary origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500 ease-out z-0",
-              "scale-x-100",
-            )}
-          />
-
-          <div className="relative z-10 py-3 px-4 flex flex-col items-center justify-center min-h-[70px]">
+          <div className="mt-auto pt-4 flex flex-col items-center">
             {item.variants ? (
-              <div className="flex flex-wrap justify-center gap-2 w-full">
+              <div className="flex flex-wrap gap-2 justify-center">
                 {item.variants.map((variant) => (
                   <div
                     key={variant.label}
-                    className="flex flex-col items-center justify-center px-6 py-1 rounded-lg min-w-[60px] transition-all duration-300"
+                    className="bg-primary/5 border border-primary/10 px-4 py-2 rounded-xl flex flex-col items-center min-w-[80px] transition-all duration-300 hover:bg-primary hover:border-primary group/price"
                   >
-                    <span
-                      className={activeClass(
-                        "font-artistic text-lg text-primary -rotate-3 group-hover:text-white transition-colors duration-300",
-                        "text-white",
-                      )}
-                    >
+                    <span className="text-[10px] uppercase font-bold text-text-muted/60 leading-tight transition-colors duration-300 group-hover/price:text-white/80">
                       {variant.label}
                     </span>
-                    <span
-                      className={activeClass(
-                        "font-modern text-sm font-bold text-primary group-hover:text-white transition-colors duration-300",
-                        "text-white",
-                      )}
-                    >
+                    <span className="font-modern text-lg font-bold text-primary transition-colors duration-300 group-hover/price:text-white">
                       ${variant.price.toFixed(0)}
                     </span>
                   </div>
                 ))}
               </div>
             ) : (
-              <div className="flex items-baseline gap-2">
-                <span
-                  className={activeClass(
-                    "font-artistic text-2xl text-primary -rotate-6 lowercase mb-0 transition-colors duration-500 group-hover:text-white",
-                    "text-white",
-                  )}
-                >
-                  only
+              /* Price Box for single price */
+              <div className="bg-primary/5 border border-primary/10 px-6 py-3 rounded-xl flex flex-col items-center min-w-[100px] transition-all duration-300 hover:bg-primary hover:border-primary group/price">
+                <span className="text-[10px] uppercase font-bold text-text-muted/60 leading-tight transition-colors duration-300 group-hover/price:text-white/80">
+                  Price Only
                 </span>
-                <span
-                  className={activeClass(
-                    "font-modern text-2xl font-bold text-primary transition-colors duration-500 group-hover:text-white",
-                    "text-white",
-                  )}
-                >
-                  ${item.price?.toFixed(2) || "12.00"}
+                <span className="font-modern text-xl font-bold text-primary transition-colors duration-300 group-hover/price:text-white">
+                  ${(item.price || 0).toFixed(2)}
                 </span>
               </div>
             )}

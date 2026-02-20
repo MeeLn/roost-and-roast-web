@@ -11,6 +11,7 @@ export interface MenuItem {
   }[];
   price?: number;
   isPopular?: boolean;
+  kj?: string;
 }
 
 export const CATEGORY: string[] = [
@@ -198,6 +199,7 @@ export const menus: MenuItem[] = [
     description: "½ Charcoal Chicken, 2 choices of vegetables, Peas & Gravy",
     price: 21.9,
     category: "Baked Dinner Packs",
+    kj: "6,920",
   },
   {
     image: "/top-down-transparent/quarter-chicken-dinner-pack.png",
@@ -317,6 +319,7 @@ export const menus: MenuItem[] = [
     price: 20.0,
     category: "Tasty Charcoal Chicken",
     isPopular: true,
+    kj: "7,820",
   },
   {
     image: "/top-down-transparent/half-chicken.png",
@@ -324,6 +327,7 @@ export const menus: MenuItem[] = [
     description: "Charcoal Chicken",
     price: 12.5,
     category: "Tasty Charcoal Chicken",
+    kj: "3,910",
   },
   {
     image: "/top-down-transparent/quarter-chicken.png",
@@ -331,6 +335,7 @@ export const menus: MenuItem[] = [
     description: "Charcoal Chicken",
     price: 7.9,
     category: "Tasty Charcoal Chicken",
+    kj: "1,950",
   },
 
   // =====================
@@ -365,6 +370,7 @@ export const menus: MenuItem[] = [
     price: 19.9,
     category: "Chicken Chips & Salad Packs",
     isPopular: true,
+    kj: "5,410",
   },
   {
     simage: "/smenu/schnitzel-chips-salad.png",
