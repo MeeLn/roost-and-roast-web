@@ -671,7 +671,7 @@ export const menus: MenuItem[] = [
       { label: "Large", price: 14.9 },
       { label: "Family", price: 20.0 },
     ],
-    bgColor: "#C7F9FF",
+    bgColor: "#FFB97C",
   },
   {
     simage: "/smenu/sample/7.png",
