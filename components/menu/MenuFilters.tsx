@@ -85,7 +85,7 @@ const MenuCard = ({ item }: { item: (typeof menus)[0] }) => {
     if (window.innerWidth >= 768) return;
     const observer = new IntersectionObserver(
       ([entry]) => setIsMobileActive(entry.isIntersecting),
-      { rootMargin: "-40% 0px -40% 0px", threshold: 0 },
+      { rootMargin: "-48% 0px -48% 0px", threshold: 0 },
     );
     if (cardRef.current) observer.observe(cardRef.current);
     return () => {
@@ -103,16 +103,21 @@ const MenuCard = ({ item }: { item: (typeof menus)[0] }) => {
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-50px" }}
-      className="relative flex flex-col group mx-2 md:mx-0 h-full max-w-[400px] mx-auto"
+      className="relative flex flex-col group mx-4 md:mx-0 h-full md:max-w-[400px] mx-auto w-full md:w-full"
     >
       <div
-        className={`flex flex-col flex-grow rounded-3xl border transition-all duration-500 overflow-hidden py-6 px-6 hover:border-primary/50 ${
+        className={activeClass(
+          `flex flex-col flex-grow rounded-3xl border transition-all duration-500 overflow-hidden py-6 px-6 hover:border-primary/50 hover:shadow-xl ${
+            item.bgColor === "none"
+              ? "bg-white/15 backdrop-blur-xl border-white/40 shadow-2xl z-10 hover:shadow-2xl" // GLASS
+              : !item.bgColor
+                ? "bg-background border-border shadow-sm" // NORMAL
+                : "border-transparent shadow-sm" // CUSTOM
+          }`,
           item.bgColor === "none"
-            ? "bg-white/15 backdrop-blur-xl border-white/40 shadow-2xl z-10" // ULTRA GLASS
-            : !item.bgColor
-              ? "bg-background border-border shadow-sm hover:shadow-xl" // NORMAL (Theme Background)
-              : "border-transparent shadow-sm hover:shadow-xl" // CUSTOM (Hex code handled by style)
-        }`}
+            ? "border-primary/50 shadow-2xl"
+            : "border-primary/50 shadow-xl",
+        )}
         style={
           item.bgColor && item.bgColor !== "none"
             ? { backgroundColor: item.bgColor }
