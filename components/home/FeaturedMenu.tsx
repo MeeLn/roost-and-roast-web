@@ -122,7 +122,7 @@ const MenuCard = ({ item }: { item: (typeof menus)[0] }) => {
 
         {/* --- ACTUAL IMAGE WRAPPER --- */}
         <div
-          className={`relative w-full h-full border border-gray-100/20 shadow-lg overflow-hidden bg-gray-400/40 z-10 ${shapeConfig.roundedClass}`}
+          className={`relative w-full h-full border border-gray-100/20 shadow-lg overflow-hidden bg-[url('/placeholder-1.png')] bg-cover bg-center z-10 ${shapeConfig.roundedClass}`}
         >
           <Image
             src={imgSrc}
