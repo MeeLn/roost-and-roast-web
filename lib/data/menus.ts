@@ -770,10 +770,9 @@ export const menus: MenuItem[] = [
       { label: "Family", price: 20.0 },
     ],
   },
-
   {
     simage: "/smenu/sample/8.png",
-    title: "Snitzel Slaw",
+    title: "Japanese Slaw",
     description: "Crispy chicken schnitzel with fresh slaw.",
     category: "Salads",
     variants: [
@@ -783,10 +782,9 @@ export const menus: MenuItem[] = [
       { label: "Family", price: 20.0 },
     ],
   },
-
   {
     simage: "/smenu/sample/8.png",
-    title: "Snitzel Slaw",
+    title: "Beetroot Feta & Pumpkin",
     description: "Crispy chicken schnitzel with fresh slaw.",
     category: "Salads",
     variants: [
@@ -796,6 +794,31 @@ export const menus: MenuItem[] = [
       { label: "Family", price: 20.0 },
     ],
     bgColor: "#EFEEED",
+  },
+  {
+    simage: "/smenu/sample/9.png",
+    title: "Beetroot Feta & Pumpkin",
+    description: "Crispy chicken schnitzel with fresh slaw.",
+    category: "Salads",
+    variants: [
+      { label: "Small", price: 7.9 },
+      { label: "Regular", price: 12.9 },
+      { label: "Large", price: 14.9 },
+      { label: "Family", price: 20.0 },
+    ],
+  },
+  {
+    simage: "/smenu/sample/9.png",
+    title: "Beetroot Feta & Pumpkin",
+    description: "Crispy chicken schnitzel with fresh slaw.",
+    category: "Salads",
+    variants: [
+      { label: "Small", price: 7.9 },
+      { label: "Regular", price: 12.9 },
+      { label: "Large", price: 14.9 },
+      { label: "Family", price: 20.0 },
+    ],
+    bgColor: "#fd8902",
   },
   //==================
   // DESERTS
