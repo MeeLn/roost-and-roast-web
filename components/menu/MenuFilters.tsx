@@ -34,6 +34,7 @@ interface ShapeConfig {
   sizeClass: string;
   roundedClass: string;
   rxValue: string;
+  scaleClass: string;
 }
 
 const MenuCard = ({ item }: { item: (typeof menus)[0] }) => {
@@ -49,6 +50,7 @@ const MenuCard = ({ item }: { item: (typeof menus)[0] }) => {
         sizeClass: "w-78 h-48",
         roundedClass: "rounded-[2rem]",
         rxValue: "32",
+        scaleClass: "scale-100",
       };
     }
     // 2. SQUARE (simage)
@@ -58,6 +60,7 @@ const MenuCard = ({ item }: { item: (typeof menus)[0] }) => {
         sizeClass: "w-54 h-54",
         roundedClass: "rounded-[2rem]",
         rxValue: "32",
+        scaleClass: "scale-100",
       };
     }
     // 3. CIRCLE (default image)
@@ -66,6 +69,7 @@ const MenuCard = ({ item }: { item: (typeof menus)[0] }) => {
       sizeClass: "w-54 h-54",
       roundedClass: "rounded-full",
       rxValue: "50%",
+      scaleClass: "scale-80",
     };
   }, [item]);
 
@@ -150,7 +154,7 @@ const MenuCard = ({ item }: { item: (typeof menus)[0] }) => {
             blurDataURL={PLACEHOLDER_IMAGE}
             onError={() => setImgSrc(PLACEHOLDER_IMAGE)}
             className={activeClass(
-              "object-cover transition-transform duration-500 scale-80 group-hover:scale-110",
+              `object-cover transition-transform duration-500 ${shapeConfig.scaleClass} group-hover:scale-110`,
               "scale-110",
             )}
           />
