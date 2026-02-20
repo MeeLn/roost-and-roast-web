@@ -106,16 +106,16 @@ const MenuCard = ({ item }: { item: (typeof menus)[0] }) => {
       className="relative flex flex-col group mx-2 md:mx-0 h-full max-w-[400px] mx-auto"
     >
       <div
-        className={`flex flex-col flex-grow rounded-3xl border transition-all duration-500 overflow-hidden py-6 px-6 ${
+        className={`flex flex-col flex-grow rounded-3xl border transition-all duration-500 overflow-hidden py-6 px-6 hover:border-primary/50 ${
           item.bgColor === "none"
             ? "bg-white/15 backdrop-blur-xl border-white/40 shadow-2xl z-10" // ULTRA GLASS
             : !item.bgColor
-              ? "bg-background border-border shadow-sm hover:shadow-xl hover:border-primary/50" // NORMAL (Theme Background)
-              : "shadow-sm hover:shadow-xl" // CUSTOM (Hex code handled by style)
+              ? "bg-background border-border shadow-sm hover:shadow-xl" // NORMAL (Theme Background)
+              : "border-transparent shadow-sm hover:shadow-xl" // CUSTOM (Hex code handled by style)
         }`}
         style={
           item.bgColor && item.bgColor !== "none"
-            ? { backgroundColor: item.bgColor, borderColor: "transparent" }
+            ? { backgroundColor: item.bgColor }
             : {}
         }
       >
