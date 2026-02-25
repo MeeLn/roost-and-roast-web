@@ -596,7 +596,7 @@ export const menus: MenuItem[] = [
   // SALADS
   // =====================
   {
-    simage: "/smenu/sample/1.png",
+    simage: "/smenu/salads/chicken-caesar.png",
     title: "Chicken Caesar",
     description: "Classic Caesar salad with grilled chicken.",
     category: "Salads",
@@ -608,7 +608,7 @@ export const menus: MenuItem[] = [
     ],
   },
   {
-    simage: "/smenu/sample/2.png",
+    simage: "/smenu/salads/rocket-avocado.png",
     title: "Rocket Avocado",
     description: "Fresh rocket leaves with creamy avocado.",
     category: "Salads",
@@ -618,10 +618,9 @@ export const menus: MenuItem[] = [
       { label: "Large", price: 14.9 },
       { label: "Family", price: 20.0 },
     ],
-    bgColor: "#FEF9C3",
   },
   {
-    simage: "/smenu/sample/3.png",
+    simage: "/smenu/salads/fresh-garden-salad.png",
     title: "Fresh Garden Salad",
     description: "Seasonal fresh vegetables with light dressing.",
     category: "Salads",
@@ -631,10 +630,9 @@ export const menus: MenuItem[] = [
       { label: "Large", price: 14.9 },
       { label: "Family", price: 20.0 },
     ],
-    bgColor: "#EBE4E4",
   },
   {
-    simage: "/smenu/sample/4.png",
+    simage: "/smenu/salads/lemon-grass-chicken-salad.png",
     title: "Lemongrass Chicken Salad",
     description: "Lemongrass-marinated chicken with fresh herbs.",
     category: "Salads",
@@ -644,10 +642,9 @@ export const menus: MenuItem[] = [
       { label: "Large", price: 14.9 },
       { label: "Family", price: 20.0 },
     ],
-    bgColor: "#9A908D",
   },
   {
-    simage: "/smenu/sample/5.png",
+    simage: "/smenu/salads/chicken-pesto-pasta.png",
     title: "Chicken Pesto Pasta",
     description: "Pasta salad with chicken and basil pesto.",
     category: "Salads",
@@ -657,10 +654,9 @@ export const menus: MenuItem[] = [
       { label: "Large", price: 14.9 },
       { label: "Family", price: 20.0 },
     ],
-    bgColor: "#FFCACA",
   },
   {
-    simage: "/smenu/sample/6.png",
+    simage: "/smenu/salads/coleslaw.png",
     title: "Coleslaw",
     description: "Creamy coleslaw with fresh cabbage.",
     category: "Salads",
@@ -670,10 +666,9 @@ export const menus: MenuItem[] = [
       { label: "Large", price: 14.9 },
       { label: "Family", price: 20.0 },
     ],
-    bgColor: "#FFB97C",
   },
   {
-    simage: "/smenu/sample/7.png",
+    simage: "/smenu/salads/tabouli.png",
     title: "Tabouli",
     description: "Traditional parsley, tomato, and bulgur salad.",
     category: "Salads",
@@ -683,10 +678,9 @@ export const menus: MenuItem[] = [
       { label: "Large", price: 14.9 },
       { label: "Family", price: 20.0 },
     ],
-    bgColor: "#EDE5D8",
   },
   {
-    simage: "/smenu/sample/1.png",
+    simage: "/smenu/salads/potato-salad.png",
     title: "Potato Salad",
     description: "Creamy potato salad with herbs.",
     category: "Salads",
@@ -698,7 +692,7 @@ export const menus: MenuItem[] = [
     ],
   },
   {
-    simage: "/smenu/sample/2.png",
+    simage: "/smenu/salads/fruit-salad.png",
     title: "Fruit Salad",
     description: "Seasonal fresh fruit mix.",
     category: "Salads",
@@ -710,7 +704,7 @@ export const menus: MenuItem[] = [
     ],
   },
   {
-    simage: "/smenu/sample/3.png",
+    simage: "/smenu/salads/seafood-salad.png",
     title: "Seafood Salad",
     description: "Mixed seafood with crisp salad greens.",
     category: "Salads",
@@ -722,7 +716,7 @@ export const menus: MenuItem[] = [
     ],
   },
   {
-    image: "/smenu/sample/4.png",
+    image: "/smenu/salads/baked-vegetable-with-feta-salad.png",
     title: "Baked Vegetable with Fetta Salad",
     description: "Roasted vegetables with fetta cheese.",
     category: "Salads",
@@ -734,7 +728,7 @@ export const menus: MenuItem[] = [
     ],
   },
   {
-    image: "/smenu/sample/5.png",
+    image: "/smenu/salads/rocket-chickpea-pumpkin-salad.png",
     title: "Rocket Chickpea & Pumpkin Salad",
     description: "Rocket leaves with chickpea and roasted pumpkin.",
     category: "Salads",
@@ -746,7 +740,7 @@ export const menus: MenuItem[] = [
     ],
   },
   {
-    image: "/smenu/sample/6.png",
+    image: "/smenu/salads/mango-chicken-salad.png",
     title: "Mango Chicken Salad",
     description: "Grilled chicken with fresh mango slices.",
     category: "Salads",
@@ -758,7 +752,7 @@ export const menus: MenuItem[] = [
     ],
   },
   {
-    simage: "/smenu/sample/7.png",
+    simage: "/smenu/salads/snitzel-slaw.png",
     title: "Snitzel Slaw",
     description: "Crispy chicken schnitzel with fresh slaw.",
     category: "Salads",
@@ -770,7 +764,7 @@ export const menus: MenuItem[] = [
     ],
   },
   {
-    simage: "/smenu/sample/8.png",
+    simage: "/smenu/salads/japanese-slaw.png",
     title: "Japanese Slaw",
     description: "Crispy chicken schnitzel with fresh slaw.",
     category: "Salads",
@@ -782,7 +776,7 @@ export const menus: MenuItem[] = [
     ],
   },
   {
-    simage: "/smenu/sample/8.png",
+    simage: "/smenu/salads/beetroot-feta&pumpkin.png",
     title: "Beetroot Feta & Pumpkin",
     description: "Crispy chicken schnitzel with fresh slaw.",
     category: "Salads",
@@ -792,7 +786,6 @@ export const menus: MenuItem[] = [
       { label: "Large", price: 14.9 },
       { label: "Family", price: 20.0 },
     ],
-    bgColor: "#EFEEED",
   },
   //==================
   // DESERTS
