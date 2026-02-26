@@ -45,7 +45,7 @@ export const menus: MenuItem[] = [
   // GOURMET ROLLS
   // =====================
   {
-    rimage: "/rmenu/rolls/periperi-chicken-roll.jpg",
+    rimage: "/rmenu/gourmetrolls/periperi-chicken-roll.png",
     title: "Peri Peri Chicken Roll",
     description:
       "marinated grilled chicken breast, lettuce, mayo, peri peri sauce, cheese",
@@ -53,7 +53,7 @@ export const menus: MenuItem[] = [
     category: "Gourmet Rolls",
   },
   {
-    rimage: "/rmenu/rolls/chicken&gravy-roll.jpg",
+    rimage: "/rmenu/gourmetrolls/chicken&gravy-roll.png",
     title: "Chicken Roll with Gravy",
     description: "bbq chicken roll with gravy",
     price: 12.9,
@@ -81,7 +81,7 @@ export const menus: MenuItem[] = [
     category: "Gourmet Rolls",
   },
   {
-    rimage: "/rmenu/rolls/pork-roll-with-gravy.jpg",
+    rimage: "/rmenu/gourmetrolls/pork-roll-with-gravy.png",
     title: "Pork Roll with Gravy",
     description: "roast pork & gravy",
     price: 12.9,
@@ -95,7 +95,7 @@ export const menus: MenuItem[] = [
     category: "Gourmet Rolls",
   },
   {
-    rimage: "/rmenu/rolls/chips&gravy-roll.jpg",
+    rimage: "/rmenu/gourmetrolls/chips&gravy-roll.png",
     title: "Chips & Gravy Roll",
     description: "chips & gravy in a roll",
     price: 8.0,
@@ -253,7 +253,7 @@ export const menus: MenuItem[] = [
     category: "Snacks & Sauces",
   },
   {
-    simage: "/smenu/springroll.jpg",
+    simage: "/smenu/springroll.png",
     title: "Spring Roll",
     description: "",
     price: 3.9,
