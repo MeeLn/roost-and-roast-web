@@ -98,7 +98,7 @@ const MenuCard = ({ item }: { item: (typeof menus)[0] }) => {
   const isDefaultGlassCard = !item.bgColor || item.bgColor === "none";
 
   const cardClassName = activeClass(
-    `flex flex-col flex-grow rounded-3xl border transition-all duration-500 overflow-hidden py-6 px-6 hover:border-primary/80 hover:shadow-xl ${
+    `flex flex-col flex-grow rounded-3xl border transition-all duration-500 overflow-hidden py-5 px-5 hover:border-primary/80 hover:shadow-xl ${
       isDefaultGlassCard
         ? "bg-white/15 backdrop-blur-xl border-slate-400/40 shadow-2xl z-10 hover:shadow-2xl" // GLASS
         : !item.bgColor
@@ -122,11 +122,11 @@ const MenuCard = ({ item }: { item: (typeof menus)[0] }) => {
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-50px" }}
-      className="relative flex flex-col group mx-4 md:mx-0 h-full md:max-w-[400px] mx-auto w-full md:w-full"
+      className="relative flex flex-col group mx-3 md:mx-0 h-full md:max-w-[380px] mx-auto w-full md:w-full"
     >
       <div className={cardClassName} style={cardStyle}>
         {/* IMAGE SECTION */}
-        <div className="relative aspect-square w-full mx-auto mb-4 overflow-hidden rounded-2xl bg-transparent">
+        <div className="relative aspect-square w-full mx-auto mb-3 overflow-hidden rounded-2xl bg-transparent">
           <Image
             src={imgSrc}
             alt={item.title}
@@ -143,17 +143,17 @@ const MenuCard = ({ item }: { item: (typeof menus)[0] }) => {
         </div>
 
         {/* CONTENT SECTION */}
-        <div className="px-6 py-4 flex flex-col items-center flex-grow text-center gap-1">
-          <h3 className="font-modern text-xl font-black text-secondary uppercase tracking-tight leading-tight">
+        <div className="px-5 py-3 flex flex-col items-center flex-grow text-center gap-1">
+          <h3 className="font-modern text-lg md:text-xl font-black text-secondary uppercase tracking-tight leading-tight">
             {item.title}
           </h3>
-          <p className="italic text-sm text-muted-foreground leading-relaxed line-clamp-2">
+          <p className="italic text-xs md:text-sm text-muted-foreground leading-relaxed line-clamp-3">
             {item.description}
           </p>
         </div>
 
         {/* PRICE SECTION */}
-        <div className="mt-auto relative w-[calc(100%+3rem)] -mx-6 -mb-6 overflow-hidden">
+        <div className="mt-auto relative w-[calc(100%+2.5rem)] -mx-5 -mb-5 overflow-hidden">
           {/* Loading Bar Animation */}
           <div
             className={activeClass(
@@ -162,17 +162,17 @@ const MenuCard = ({ item }: { item: (typeof menus)[0] }) => {
             )}
           />
 
-          <div className="relative z-10 py-6 px-4 flex flex-col items-center justify-center min-h-[80px]">
+          <div className="relative z-10 py-5 px-3 flex flex-col items-center justify-center min-h-[72px]">
             {item.variants ? (
-              <div className="flex flex-wrap justify-center gap-2 w-full">
+              <div className="flex flex-wrap justify-center gap-1.5 w-full">
                 {item.variants.map((variant) => (
                   <div
                     key={variant.label}
-                    className="flex flex-col items-center justify-center px-4 py-1 rounded-lg min-w-[60px] transition-all duration-300 hover:bg-black/10 group/price"
+                    className="flex flex-col items-center justify-center px-3 py-1 rounded-lg min-w-[56px] transition-all duration-300 hover:bg-black/10 group/price"
                   >
                     <span
                       className={activeClass(
-                        "font-artistic text-lg text-primary -rotate-3 transition-colors duration-300 group-hover:text-white",
+                        "font-artistic text-base md:text-lg text-primary -rotate-3 transition-colors duration-300 group-hover:text-white",
                         "text-white",
                       )}
                     >
@@ -180,7 +180,7 @@ const MenuCard = ({ item }: { item: (typeof menus)[0] }) => {
                     </span>
                     <span
                       className={activeClass(
-                        "font-modern text-sm font-bold text-primary transition-colors duration-300 group-hover:text-white",
+                        "font-modern text-xs md:text-sm font-bold text-primary transition-colors duration-300 group-hover:text-white",
                         "text-white",
                       )}
                     >
@@ -190,10 +190,10 @@ const MenuCard = ({ item }: { item: (typeof menus)[0] }) => {
                 ))}
               </div>
             ) : (
-              <div className="flex items-baseline gap-2 px-6 py-1 rounded-lg transition-all duration-300 hover:bg-black/10 group/price">
+              <div className="flex items-baseline gap-1.5 px-5 py-1 rounded-lg transition-all duration-300 hover:bg-black/10 group/price">
                 <span
                   className={activeClass(
-                    "font-artistic text-2xl text-primary -rotate-6 lowercase mb-0 transition-colors duration-500 group-hover:text-white",
+                    "font-artistic text-xl md:text-2xl text-primary -rotate-6 lowercase mb-0 transition-colors duration-500 group-hover:text-white",
                     "text-white",
                   )}
                 >
@@ -201,7 +201,7 @@ const MenuCard = ({ item }: { item: (typeof menus)[0] }) => {
                 </span>
                 <span
                   className={activeClass(
-                    "font-modern text-2xl font-bold text-primary transition-colors duration-500 group-hover:text-white",
+                    "font-modern text-xl md:text-2xl font-bold text-primary transition-colors duration-500 group-hover:text-white",
                     "text-white",
                   )}
                 >
@@ -433,7 +433,7 @@ export default function MenuFilters() {
       </motion.div>
 
       {/* Grid Results */}
-      <div className="container max-w-[1500px] mx-auto px-0 md:px-4 min-h-[50vh]">
+      <div className="container max-w-[1400px] mx-auto px-0 md:px-4 min-h-[50vh]">
         <AnimatePresence mode="popLayout">
           {menuGroups.map((group) => (
             <div key={group.category} className="mb-16">
