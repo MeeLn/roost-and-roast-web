@@ -45,7 +45,7 @@ export const menus: MenuItem[] = [
   // GOURMET ROLLS
   // =====================
   {
-    rimage: "/rmenu/gourmetrolls/periperi-chicken-roll.png",
+    rimage: "",
     title: "Peri Peri Chicken Roll",
     description:
       "marinated grilled chicken breast, lettuce, mayo, peri peri sauce, cheese",
@@ -60,14 +60,14 @@ export const menus: MenuItem[] = [
     category: "Gourmet Rolls",
   },
   {
-    image: "/menu/gourmetrolls/bbq-chicken-roll.png",
+    image: "/rmenu/gourmetrolls/bbq-chicken-roll.png",
     title: "BBQ Chicken Roll",
     description: "shredded bbq chicken with lettuce, mayo",
     price: 12.9,
     category: "Gourmet Rolls",
   },
   {
-    image: "/top-down-transparent/schnitzel-roll.png",
+    image: "/rmenu/gourmetrolls/schnitzel-roll.png",
     title: "Schnitzel Roll",
     description: "chicken schnitzel with lettuce & mayo",
     price: 12.9,
@@ -106,7 +106,7 @@ export const menus: MenuItem[] = [
   // GOURMET WRAPS
   // =====================
   {
-    image: "/menu/gourmetwraps/roost-n-roast.png",
+    image: "/smenu/wrap.png",
     title: "Roost & Roast Wrap",
     description:
       "Marinated & grilled chicken breast, cheese, lettuce, Mayo, Sweet chilli Sauce",
@@ -114,7 +114,7 @@ export const menus: MenuItem[] = [
     category: "Gourmet Wraps",
   },
   {
-    image: "/menu/gourmetwraps/portugese-warp.png",
+    image: "",
     title: "Portuguese Wrap",
     description:
       "Marinated & Grilled chicken breast, cheese, lettuce, Mayo, Peri-Peri Sauce",
@@ -122,21 +122,21 @@ export const menus: MenuItem[] = [
     category: "Gourmet Wraps",
   },
   {
-    image: "/menu/gourmetwraps/chicken.png",
+    image: "",
     title: "BLAT Chicken Wrap",
     description: "Bacon, Lettuce, Avocado, Tomato, Chicken Breast, Mayo",
     price: 15.9,
     category: "Gourmet Wraps",
   },
   {
-    image: "/menu/gourmetwraps/chicken-schnitzel.png",
+    image: "",
     title: "Schnitzel Wrap",
     description: "Chicken Schnitzel, lettuce, Cheese, Mayo",
     price: 13.9,
     category: "Gourmet Wraps",
   },
   {
-    image: "/menu/gourmetwraps/veges.png",
+    image: "",
     title: "Breakie Wrap",
     description: "Bacon, Egg, Potato Scallop, Lettuce, BBQ & Mayo",
     price: 13.9,
@@ -161,7 +161,7 @@ export const menus: MenuItem[] = [
     category: "Pita Pockets",
   },
   {
-    image: "/menu/pitapockets/portuguese-pocket.png",
+    image: "",
     title: "Portuguese Pocket",
     description:
       "Marinated & Grilled Breast, Cheese, Lettuce, Aioli, Peri-Peri Sauce",
@@ -180,7 +180,7 @@ export const menus: MenuItem[] = [
   // BAKED DINNER PACKS
   // =====================
   {
-    image: "/top-down-transparent/pork-dinner-pack.png",
+    image: "/smenu/bakeddinnerpacks/pork-dinner-pack.png",
     title: "Pork Dinner Pack",
     description: "220gms Roast pork, 2 choices of vegetables, Peas & Gravy",
     price: 20.9,
@@ -188,14 +188,14 @@ export const menus: MenuItem[] = [
     isPopular: true,
   },
   {
-    image: "/top-down-transparent/beef-dinner-pack.png",
+    image: "/smenu/bakeddinnerpacks/beef-dinner-pack.png",
     title: "Beef Dinner Pack",
     description: "220gms Roast Beef, 2 choices of vegetables, Peas & Gravy",
     price: 20.9,
     category: "Baked Dinner Packs",
   },
   {
-    image: "/top-down-transparent/half-chicken-dinner-pack.png",
+    image: "/smenu/bakeddinnerpacks/half-chicken-dinner-pack.png",
     title: "½ Chicken Dinner Pack",
     description: "½ Charcoal Chicken, 2 choices of vegetables, Peas & Gravy",
     price: 21.9,
@@ -203,7 +203,7 @@ export const menus: MenuItem[] = [
     kj: "6,920",
   },
   {
-    image: "/top-down-transparent/quarter-chicken-dinner-pack.png",
+    image: "/smenu/bakeddinnerpacks/quarter-chicken-dinner-pack.png",
     title: "¼ Chicken Dinner Pack",
     description: "¼ Chicken, 2 choices of vegetables, Peas & Gravy",
     price: 19.9,
