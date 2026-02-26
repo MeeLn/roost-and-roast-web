@@ -343,29 +343,29 @@ export const menus: MenuItem[] = [
   // CHICKEN CHIPS & SALAD PACKS
   // =====================
   {
-    image: "/top-down-transparent/quarter-chicken-chips-salad.png",
+    image:
+      "/smenu/chickenchips&saladpacks/quarter-chicken-chips-and-salads.png",
     title: "¼ Chicken chips & salad",
     description: "¼ chicken, choice of a salad & Chips",
     price: 20.9,
     category: "Chicken Chips & Salad Packs",
   },
   {
-    image: "/top-down-transparent/half-chicken-chips-salad.png",
+    image: "/smenu/chickenchips&saladpacks/half-chicken-chips-and-salads.png",
     title: "½ Chicken chips & salad",
     description: "½ chicken, choice of a salad & Chips",
     price: 22.9,
     category: "Chicken Chips & Salad Packs",
   },
   {
-    image: "/top-down-transparent/quarter-chicken-chips.png",
-    // rimage: "/rmenu/quarter-chicken-dinner-pack.png",
+    image: "/smenu/chickenchips&saladpacks/quarter-chicken-and-chips.png",
     title: "¼ Chicken & chips",
     description: "¼ chicken & Chips",
     price: 15.9,
     category: "Chicken Chips & Salad Packs",
   },
   {
-    image: "/top-down-transparent/half-chicken-chips.png",
+    image: "/smenu/chickenchips&saladpacks/half-chicken-and-chips.png",
     title: "½ Chicken & Chips",
     description: "½ Chicken Chips & Gravy",
     price: 19.9,
@@ -374,7 +374,7 @@ export const menus: MenuItem[] = [
     kj: "5,410",
   },
   {
-    simage: "/smenu/schnitzel-chips-salad.png",
+    simage: "/smenu/chickenchips&saladpacks/schnitzel-chips-salad.png",
     title: "Schnitzel & Chips",
     description: "Chicken Schnitzel & chips & 1 choice of Salad",
     price: 19.9,
@@ -495,7 +495,7 @@ export const menus: MenuItem[] = [
   // HOT FOODS
   // =====================
   {
-    image: "/menu/hotfoods/baked-honey-mustard-veggies.png",
+    image: "/smenu/hotfoods/baked-honey-mustard-vegetables.png",
     title: "Baked Honey Mustard Vegetables",
     description:
       "Oven-baked seasonal vegetables in a sweet honey mustard glaze.",
@@ -520,7 +520,7 @@ export const menus: MenuItem[] = [
     ],
   },
   {
-    image: "/menu/hotfoods/baked-pumpkin.png",
+    image: "/smenu/hotfoods/baked-pumpkin.png",
     title: "Baked Pumpkin",
     description: "Tender baked pumpkin with light seasoning.",
     category: "Hot Foods",
@@ -568,7 +568,7 @@ export const menus: MenuItem[] = [
     ],
   },
   {
-    image: "/menu/hotfoods/fried-rice.png",
+    image: "/smenu/hotfoods/fried-rice.png",
     title: "Fried Rice",
     description: "Classic fried rice with vegetables and seasoning.",
     category: "Hot Foods",
@@ -716,7 +716,7 @@ export const menus: MenuItem[] = [
     ],
   },
   {
-    image: "/smenu/salads/baked-veggies-salad-with-crushed-fetta.png",
+    image: "/smenu/salads/baked-vegetable-with-fetta-salad.png",
     title: "Baked Vegetable with Fetta Salad",
     description: "Roasted vegetables with fetta cheese.",
     category: "Salads",
@@ -728,7 +728,7 @@ export const menus: MenuItem[] = [
     ],
   },
   {
-    image: "/smenu/salads/pumpkin.png",
+    image: "",
     title: "Rocket Chickpea & Pumpkin Salad",
     description: "Rocket leaves with chickpea and roasted pumpkin.",
     category: "Salads",
@@ -740,7 +740,7 @@ export const menus: MenuItem[] = [
     ],
   },
   {
-    image: "/smenu/salads/chicken-mango-salad.png",
+    image: "",
     title: "Mango Chicken Salad",
     description: "Grilled chicken with fresh mango slices.",
     category: "Salads",
