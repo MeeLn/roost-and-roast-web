@@ -24,7 +24,7 @@ const MenuCard = ({ item }: { item: (typeof menus)[0] }) => {
     if (window.innerWidth >= 768) return;
     const observer = new IntersectionObserver(
       ([entry]) => setIsMobileActive(entry.isIntersecting),
-      { rootMargin: "-48% 0px -48% 0px", threshold: 0 },
+      { rootMargin: "-35% 0px -35% 0px", threshold: 0 },
     );
     if (cardRef.current) observer.observe(cardRef.current);
     return () => {
@@ -45,8 +45,8 @@ const MenuCard = ({ item }: { item: (typeof menus)[0] }) => {
           : "border-transparent shadow-sm"
     }`,
     isDefaultGlassCard
-      ? "border-primary/50 shadow-2xl"
-      : "border-primary/50 shadow-xl",
+      ? "!border-primary/80 shadow-2xl"
+      : "!border-primary/80 shadow-xl",
   );
 
   const cardStyle =
@@ -73,7 +73,10 @@ const MenuCard = ({ item }: { item: (typeof menus)[0] }) => {
             placeholder="blur"
             blurDataURL={PLACEHOLDER_IMAGE}
             onError={() => setImgSrc(PLACEHOLDER_IMAGE)}
-            className="object-cover transition-transform duration-700 group-hover:scale-105"
+            className={activeClass(
+              "object-cover transition-transform duration-700 group-hover:scale-105",
+              "scale-105",
+            )}
           />
         </div>
 
