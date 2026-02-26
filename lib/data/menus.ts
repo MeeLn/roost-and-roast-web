@@ -214,14 +214,14 @@ export const menus: MenuItem[] = [
   // ROASTS
   // =====================
   {
-    image: "/menu/roasts/pork-with-crackle.png",
+    image: "/smenu/roasts/pork-with-crackle.png",
     title: "Pork with Crackle",
     description: "Price per kg",
     price: 45,
     category: "Roasts",
   },
   {
-    image: "/top-down-transparent/beef-roast.png",
+    image: "/smenu/roasts/roast-beef.png",
     title: "Roast Beef",
     description: "Price per kg",
     price: 50,
@@ -232,42 +232,42 @@ export const menus: MenuItem[] = [
   // SNACKS & SAUCES
   // =====================
   {
-    image: "/top-down-transparent/devil-wings.png",
+    image: "/smenu/snacks&sauces/devil-wings.png",
     title: "Devil Wings",
     description: "or 5 for $10",
     price: 2.5,
     category: "Snacks & Sauces",
   },
   {
-    image: "/top-down-transparent/chicken-tenders.png",
+    image: "/smenu/snacks&sauces/sweet-chilli-tenders.png",
     title: "Sweet Chilli Tenders",
     description: "or 5 for $10",
     price: 2.5,
     category: "Snacks & Sauces",
   },
   {
-    image: "/top-down-transparent/chicken-skewers.png",
+    image: "/smenu/snacks&sauces/chicken-skewers.png",
     title: "Chicken Skewers",
     description: "",
     price: 3.9,
     category: "Snacks & Sauces",
   },
   {
-    simage: "/smenu/springroll.png",
+    simage: "/smenu/snacks&sauces/spring-roll.png",
     title: "Spring Roll",
     description: "",
     price: 3.9,
     category: "Snacks & Sauces",
   },
   {
-    image: "/top-down-transparent/curry-puff.png",
+    image: "/smenu/snacks&sauces/curry-puff.png",
     title: "Curry Puff",
     description: "",
     price: 3.0,
     category: "Snacks & Sauces",
   },
   {
-    image: "/top-down-transparent/potato-scallops.png",
+    image: "/smenu/snacks&sauces/potato-scallops.png",
     title: "Potato Scallops",
     description: "",
     price: 2.0,
@@ -409,7 +409,7 @@ export const menus: MenuItem[] = [
     category: "Family Deals",
   },
   {
-    image: "/menu/familydeals/r-and-r-deal.png",
+    image: "/smenu/familydeals/r&r-deal.png",
     title: "R&R Deal",
     description:
       "2* Charcoal Chickens, 2* Large Chips, 1* Large Gravy, 1* 1.25 ltr Drink",
@@ -417,7 +417,7 @@ export const menus: MenuItem[] = [
     category: "Family Deals",
   },
   {
-    image: "/menu/familydeals/big-roost-deal.png",
+    image: "/smenu/familydeals/big-roost-deal.png",
     title: "Big Roost Deal",
     description:
       "2* XL Charcoal Chickens, 2* Large Chips, 2* Large Salad or Large Veggies, 1* Large Drink (1.25L), 1* Large Gravy",
@@ -437,7 +437,7 @@ export const menus: MenuItem[] = [
   // HOT CHIPS
   // =====================
   {
-    image: "/top-down-transparent/chips.png",
+    image: "",
     title: "Hot Chips",
     description: "Choice of chicken, plain, or peri peri salt.",
     variants: [
@@ -448,7 +448,7 @@ export const menus: MenuItem[] = [
     category: "Hot Chips",
   },
   {
-    image: "/top-down-transparent/chips-with-gravy.png",
+    image: "",
     title: "Hot Chips with Gravy",
     description: "Choice of chicken, plain, or peri peri salt.",
     variants: [
@@ -464,7 +464,7 @@ export const menus: MenuItem[] = [
   // WEDGES
   // =====================
   {
-    image: "/top-down-transparent/wedges.png",
+    image: "",
     title: "Wedges",
     description: "Sauces ($1.5 ea): Sour cream or sweet chilli.",
     variants: [
@@ -480,7 +480,7 @@ export const menus: MenuItem[] = [
   // SWEET POTATO
   // =====================
   {
-    image: "/menu/sweetpotato/sweet-potato.png",
+    image: "",
     title: "Sweet Potato",
     description: "Chilli sauce available for $1.5 ea.",
     variants: [
