@@ -74,7 +74,7 @@ export const menus: MenuItem[] = [
     category: "Gourmet Rolls",
   },
   {
-    image: "/menu/gourmetrolls/roost-n-roost-chicken-roll.png",
+    image: "",
     title: "Roost & Roast Chicken Roll",
     description: "charcoal chicken, tabouli, garlic mayo",
     price: 13.9,
@@ -88,7 +88,7 @@ export const menus: MenuItem[] = [
     category: "Gourmet Rolls",
   },
   {
-    image: "/menu/gourmetrolls/bacon-and-egg-roll.png",
+    image: "",
     title: "Bacon & Egg Roll",
     description: "bacon, egg, cheese, bbq sauce or tomato sauce",
     price: 10.0,
@@ -143,7 +143,7 @@ export const menus: MenuItem[] = [
     category: "Gourmet Wraps",
   },
   {
-    image: "/menu/gourmetwraps/falafel-wraps.png",
+    image: "",
     title: "Falafel Wrap",
     description: "Falafel, Tabouli, Hummus",
     price: 13.9,
@@ -154,7 +154,7 @@ export const menus: MenuItem[] = [
   // PITA POCKETS
   // =====================
   {
-    image: "/menu/pitapockets/roost&roast-pocket.png",
+    image: "",
     title: "Roost & Roast Pocket",
     description: "Marinated & Grilled Breast, Tabouli, Garlic Sauce",
     price: 13.9,
@@ -169,7 +169,7 @@ export const menus: MenuItem[] = [
     category: "Pita Pockets",
   },
   {
-    image: "/menu/pitapockets/falafel-pocket.png",
+    image: "",
     title: "Falafel Pocket",
     description: "Falafel, Tabouli, Garlic sauce",
     price: 13.9,
@@ -289,7 +289,7 @@ export const menus: MenuItem[] = [
     category: "Snacks & Sauces",
   },
   {
-    image: "/menu/snacks&sauces/chicken-salt.png",
+    image: "",
     title: "Chicken Salt or Peri Peri Salt",
     description: "",
     price: 2.5,
