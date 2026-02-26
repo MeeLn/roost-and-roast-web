@@ -508,7 +508,7 @@ export const menus: MenuItem[] = [
     ],
   },
   {
-    image: "/menu/hotfoods/roast-potatoes.png",
+    image: "/smenu/hotfoods/roast-potato.png",
     title: "Roast Potato",
     description: "Crispy roasted potatoes seasoned with herbs.",
     category: "Hot Foods",
@@ -532,7 +532,7 @@ export const menus: MenuItem[] = [
     ],
   },
   {
-    image: "/menu/steamed-vegetables-with-mornay-sauce.png",
+    image: "/smenu/hotfoods/steamed-vegetables-with-mornay-sauce.png",
     title: "Steamed Vegetables with Mornay Sauce",
     description: "Fresh steamed vegetables topped with creamy mornay sauce.",
     category: "Hot Foods",
@@ -544,7 +544,7 @@ export const menus: MenuItem[] = [
     ],
   },
   {
-    image: "/menu/hotfoods/creamy-potato-bake.png",
+    image: "/smenu/hotfoods/creamy-potato-bake.png",
     title: "Creamy Potato Bake",
     description: "Baked potatoes in a rich and creamy sauce.",
     category: "Hot Foods",
@@ -556,7 +556,7 @@ export const menus: MenuItem[] = [
     ],
   },
   {
-    image: "/menu/creamy-chicken-mushroon-bacon-pasta.png",
+    image: "/smenu/hotfoods/creamy-chicken-pasta-with-bacon-&-mushroom.png",
     title: "Creamy Chicken Pasta with Bacon & Mushroom",
     description: "Creamy pasta with chicken, bacon, and mushrooms.",
     category: "Hot Foods",
@@ -716,7 +716,7 @@ export const menus: MenuItem[] = [
     ],
   },
   {
-    image: "/smenu/salads/baked-vegetable-with-feta-salad.png",
+    image: "/smenu/salads/baked-veggies-salad-with-crushed-fetta.png",
     title: "Baked Vegetable with Fetta Salad",
     description: "Roasted vegetables with fetta cheese.",
     category: "Salads",
@@ -728,7 +728,7 @@ export const menus: MenuItem[] = [
     ],
   },
   {
-    image: "/smenu/salads/rocket-chickpea-pumpkin-salad.png",
+    image: "/smenu/salads/pumpkin.png",
     title: "Rocket Chickpea & Pumpkin Salad",
     description: "Rocket leaves with chickpea and roasted pumpkin.",
     category: "Salads",
@@ -740,7 +740,7 @@ export const menus: MenuItem[] = [
     ],
   },
   {
-    image: "/smenu/salads/mango-chicken-salad.png",
+    image: "/smenu/salads/chicken-mango-salad.png",
     title: "Mango Chicken Salad",
     description: "Grilled chicken with fresh mango slices.",
     category: "Salads",
