@@ -580,7 +580,7 @@ export const menus: MenuItem[] = [
     ],
   },
   {
-    image: "/menu/hotfoods/stir-fried-hokkien-noodle.png",
+    image: "",
     title: "Stir Fried Hokkien Noodle",
     description: "Stir-fried hokkien noodles with vegetables and sauce.",
     category: "Hot Foods",
