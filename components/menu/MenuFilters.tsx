@@ -85,7 +85,7 @@ const MenuCard = ({ item }: { item: (typeof menus)[0] }) => {
     if (window.innerWidth >= 768) return;
     const observer = new IntersectionObserver(
       ([entry]) => setIsMobileActive(entry.isIntersecting),
-      { rootMargin: "-35% 0px -35% 0px", threshold: 0 },
+      { rootMargin: "-50% 0px -50% 0px", threshold: 0 },
     );
     if (cardRef.current) observer.observe(cardRef.current);
     return () => {
@@ -413,7 +413,7 @@ export default function MenuFilters() {
           layout
           className={`relative transition-all duration-500 ${
             isSticky
-              ? "w-12 md:w-80 flex-shrink-0 ml-auto group"
+              ? "w-12 md:w-76.5 flex-shrink-0 ml-auto group"
               : "w-full md:w-[800px] mx-auto"
           }`}
         >
