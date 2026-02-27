@@ -70,12 +70,11 @@ const MenuCard = ({ item }: { item: (typeof menus)[0] }) => {
 
   return (
     <motion.div
-      layout
       ref={cardRef}
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-50px" }}
-      className="relative flex flex-col group h-full w-[330px] mx-auto"
+      className="relative flex flex-col group h-full w-[330px]"
     >
       <div
         className={`${cardClassName} mx-auto w-[330px] h-[480px]`}
@@ -180,12 +179,12 @@ const MenuCard = ({ item }: { item: (typeof menus)[0] }) => {
 
 // --- MAIN FEATURED SECTION ---
 export default function FeaturedMenu() {
-  // Logic: Get popular items, then slice strictly to the first 3
-  const featuredItems = menus.filter((item) => item.isPopular).slice(0, 3);
+  // Logic: Get popular items and slice based on breakpoint
+  const featuredItems = menus.filter((item) => item.isPopular).slice(0, 4);
 
   return (
     <section className="py-24 bg-surface" id="featured-menu">
-      <div className="container max-w-[1400px] mx-auto px-4 md:px-0">
+      <div className="container max-w-[1600px] mx-auto px-0 md:px-4">
         {/* Header */}
         <div className="text-center mb-24 md:mb-32">
           <span className="text-primary-light font-bold tracking-wider uppercase text-sm mb-2 block">
@@ -203,8 +202,8 @@ export default function FeaturedMenu() {
           </p>
         </div>
 
-        {/* Grid Layout - Fixed 3 items */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-3 md:gap-x-4 lg:gap-x-5 gap-y-8 sm:gap-y-10 md:gap-y-12">
+        {/* Grid Layout - same spacing/wrapping behavior as MenuFilters */}
+        <div className="flex flex-wrap justify-center gap-x-14 gap-y-20">
           {featuredItems.map((item) => (
             <MenuCard key={item.title} item={item} />
           ))}

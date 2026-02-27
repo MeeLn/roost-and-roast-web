@@ -333,7 +333,8 @@ export const menus: MenuItem[] = [
   {
     image: "/top-down-transparent/quarter-chicken.png",
     title: "Quarter Chicken",
-    description: "Quarter charcoal chicken, juicy, seasoned, and flame roasted.",
+    description:
+      "Quarter charcoal chicken, juicy, seasoned, and flame roasted.",
     price: 7.9,
     category: "Tasty Charcoal Chicken",
     kj: "1,950",
@@ -387,24 +388,21 @@ export const menus: MenuItem[] = [
   {
     image: "/menu/familydeals/chicken-and-chips-deals.png",
     title: "Chicken & Chips Deal",
-    description:
-      "XL charcoal chicken, large chips, plus drink or small gravy.",
+    description: "XL charcoal chicken, large chips, plus drink or small gravy.",
     price: 33,
     category: "Family Deals",
   },
   {
     image: "/menu/familydeals/chicken&salad-deal.png",
     title: "Chicken & Salad Deal",
-    description:
-      "XL charcoal chicken, large salad, plus drink or small gravy.",
+    description: "XL charcoal chicken, large salad, plus drink or small gravy.",
     price: 35,
     category: "Family Deals",
   },
   {
     image: "/menu/familydeals/family-deal.png",
     title: "Family Deal",
-    description:
-      "XL chicken, large chips, salad or veggies, and small gravy.",
+    description: "XL chicken, large chips, salad or veggies, and small gravy.",
     price: 45,
     category: "Family Deals",
   },
@@ -419,16 +417,14 @@ export const menus: MenuItem[] = [
   {
     image: "/smenu/familydeals/big-roost-deal.png",
     title: "Big Roost Deal",
-    description:
-      "Two XL chickens, chips, salad or veggies, drink, and gravy.",
+    description: "Two XL chickens, chips, salad or veggies, drink, and gravy.",
     price: 92,
     category: "Family Deals",
   },
   {
     image: "/menu/familydeals/roost&roast-deal.png",
     title: "Roost & Roast Deal",
-    description:
-      "Half kg pork, XL chicken, chips, veggie, salad, and gravy.",
+    description: "Half kg pork, XL chicken, chips, veggie, salad, and gravy.",
     price: 85,
     category: "Family Deals",
   },
@@ -457,7 +453,6 @@ export const menus: MenuItem[] = [
       { label: "Large", price: 14.0 },
     ],
     category: "Hot Chips",
-    isPopular: true,
   },
 
   // =====================
@@ -473,7 +468,6 @@ export const menus: MenuItem[] = [
       { label: "Large", price: 14.0 },
     ],
     category: "Wedges",
-    isPopular: true,
   },
 
   // =====================
@@ -582,7 +576,8 @@ export const menus: MenuItem[] = [
   {
     image: "",
     title: "Stir Fried Hokkien Noodle",
-    description: "Stir-fried hokkien noodles with vegetables and savoury sauce.",
+    description:
+      "Stir-fried hokkien noodles with vegetables and savoury sauce.",
     category: "Hot Foods",
     variants: [
       { label: "Small", price: 7.9 },
@@ -702,6 +697,7 @@ export const menus: MenuItem[] = [
       { label: "Large", price: 14.9 },
       { label: "Family", price: 20.0 },
     ],
+    isPopular: true,
   },
   {
     simage: "/smenu/salads/seafood-salad.png",
@@ -766,7 +762,8 @@ export const menus: MenuItem[] = [
   {
     simage: "/smenu/salads/japanese-slaw.png",
     title: "Japanese Slaw",
-    description: "Japanese-style slaw with crisp vegetables and light dressing.",
+    description:
+      "Japanese-style slaw with crisp vegetables and light dressing.",
     category: "Salads",
     variants: [
       { label: "Small", price: 7.9 },
@@ -801,8 +798,7 @@ export const menus: MenuItem[] = [
   {
     image: "/menu/desserts/sago-pudding.png",
     title: "Sago Pudding",
-    description:
-      "Soft sago pearls in coconut milk with a touch of palm sugar.",
+    description: "Soft sago pearls in coconut milk with a touch of palm sugar.",
     price: 5.5,
     category: "Desserts",
   },
@@ -825,8 +821,7 @@ export const menus: MenuItem[] = [
   {
     image: "/menu/desserts/chocolate-mousse.png",
     title: "Chocolate Mousse",
-    description:
-      "Rich dark chocolate mousse finished with cocoa and berries.",
+    description: "Rich dark chocolate mousse finished with cocoa and berries.",
     price: 7.9,
     category: "Desserts",
   },
