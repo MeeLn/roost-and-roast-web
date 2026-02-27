@@ -48,56 +48,56 @@ export const menus: MenuItem[] = [
     rimage: "",
     title: "Peri Peri Chicken Roll",
     description:
-      "marinated grilled chicken breast, lettuce, mayo, peri peri sauce, cheese",
+      "Grilled chicken breast, lettuce, mayo, peri peri, and cheese.",
     price: 13.9,
     category: "Gourmet Rolls",
   },
   {
     rimage: "/rmenu/gourmetrolls/chicken&gravy-roll.png",
     title: "Chicken Roll with Gravy",
-    description: "bbq chicken roll with gravy",
+    description: "BBQ chicken roll served warm with rich, savoury gravy.",
     price: 12.9,
     category: "Gourmet Rolls",
   },
   {
     image: "/rmenu/gourmetrolls/bbq-chicken-roll.png",
     title: "BBQ Chicken Roll",
-    description: "shredded bbq chicken with lettuce, mayo",
+    description: "Shredded BBQ chicken, lettuce, and creamy mayo in a roll.",
     price: 12.9,
     category: "Gourmet Rolls",
   },
   {
     image: "/rmenu/gourmetrolls/schnitzel-roll.png",
     title: "Schnitzel Roll",
-    description: "chicken schnitzel with lettuce & mayo",
+    description: "Crispy chicken schnitzel, lettuce, and mayo in a soft roll.",
     price: 12.9,
     category: "Gourmet Rolls",
   },
   {
     image: "",
     title: "Roost & Roast Chicken Roll",
-    description: "charcoal chicken, tabouli, garlic mayo",
+    description: "Charcoal chicken, tabouli, and garlic mayo in a soft roll.",
     price: 13.9,
     category: "Gourmet Rolls",
   },
   {
     rimage: "/rmenu/gourmetrolls/pork-roll-with-gravy.png",
     title: "Pork Roll with Gravy",
-    description: "roast pork & gravy",
+    description: "Roast pork in a fresh roll with smooth, rich gravy.",
     price: 12.9,
     category: "Gourmet Rolls",
   },
   {
     image: "",
     title: "Bacon & Egg Roll",
-    description: "bacon, egg, cheese, bbq sauce or tomato sauce",
+    description: "Bacon, egg, and cheese with your choice of BBQ or tomato.",
     price: 10.0,
     category: "Gourmet Rolls",
   },
   {
     rimage: "/rmenu/gourmetrolls/chips&gravy-roll.png",
     title: "Chips & Gravy Roll",
-    description: "chips & gravy in a roll",
+    description: "Hot chips and savoury gravy packed inside a fresh roll.",
     price: 8.0,
     category: "Gourmet Rolls",
   },
@@ -109,7 +109,7 @@ export const menus: MenuItem[] = [
     image: "/smenu/wrap.png",
     title: "Roost & Roast Wrap",
     description:
-      "Marinated & grilled chicken breast, cheese, lettuce, Mayo, Sweet chilli Sauce",
+      "Grilled chicken breast, cheese, lettuce, mayo, and sweet chilli.",
     price: 13.9,
     category: "Gourmet Wraps",
   },
@@ -117,35 +117,35 @@ export const menus: MenuItem[] = [
     image: "",
     title: "Portuguese Wrap",
     description:
-      "Marinated & Grilled chicken breast, cheese, lettuce, Mayo, Peri-Peri Sauce",
+      "Grilled chicken breast, cheese, lettuce, mayo, and peri peri.",
     price: 13.9,
     category: "Gourmet Wraps",
   },
   {
     image: "",
     title: "BLAT Chicken Wrap",
-    description: "Bacon, Lettuce, Avocado, Tomato, Chicken Breast, Mayo",
+    description: "Bacon, lettuce, avocado, tomato, chicken breast, and mayo.",
     price: 15.9,
     category: "Gourmet Wraps",
   },
   {
     image: "",
     title: "Schnitzel Wrap",
-    description: "Chicken Schnitzel, lettuce, Cheese, Mayo",
+    description: "Chicken schnitzel, lettuce, cheese, and mayo in soft wrap.",
     price: 13.9,
     category: "Gourmet Wraps",
   },
   {
     image: "",
     title: "Breakie Wrap",
-    description: "Bacon, Egg, Potato Scallop, Lettuce, BBQ & Mayo",
+    description: "Bacon, egg, potato scallop, lettuce, BBQ sauce, and mayo.",
     price: 13.9,
     category: "Gourmet Wraps",
   },
   {
     image: "",
     title: "Falafel Wrap",
-    description: "Falafel, Tabouli, Hummus",
+    description: "Falafel, tabouli, and hummus wrapped fresh to order daily.",
     price: 13.9,
     category: "Gourmet Wraps",
   },
@@ -156,7 +156,7 @@ export const menus: MenuItem[] = [
   {
     image: "",
     title: "Roost & Roast Pocket",
-    description: "Marinated & Grilled Breast, Tabouli, Garlic Sauce",
+    description: "Marinated grilled chicken breast, tabouli, and garlic sauce.",
     price: 13.9,
     category: "Pita Pockets",
   },
@@ -164,14 +164,14 @@ export const menus: MenuItem[] = [
     image: "",
     title: "Portuguese Pocket",
     description:
-      "Marinated & Grilled Breast, Cheese, Lettuce, Aioli, Peri-Peri Sauce",
+      "Grilled chicken breast, cheese, lettuce, aioli, and peri peri.",
     price: 13.9,
     category: "Pita Pockets",
   },
   {
     image: "",
     title: "Falafel Pocket",
-    description: "Falafel, Tabouli, Garlic sauce",
+    description: "Falafel, tabouli, and garlic sauce in a warm pita pocket.",
     price: 13.9,
     category: "Pita Pockets",
   },
@@ -182,7 +182,7 @@ export const menus: MenuItem[] = [
   {
     image: "/smenu/bakeddinnerpacks/pork-dinner-pack.png",
     title: "Pork Dinner Pack",
-    description: "220gms Roast pork, 2 choices of vegetables, Peas & Gravy",
+    description: "220g roast pork, two vegetables, peas, and rich gravy.",
     price: 20.9,
     category: "Baked Dinner Packs",
     isPopular: true,
@@ -190,14 +190,14 @@ export const menus: MenuItem[] = [
   {
     image: "/smenu/bakeddinnerpacks/beef-dinner-pack.png",
     title: "Beef Dinner Pack",
-    description: "220gms Roast Beef, 2 choices of vegetables, Peas & Gravy",
+    description: "220g roast beef, two vegetables, peas, and rich gravy.",
     price: 20.9,
     category: "Baked Dinner Packs",
   },
   {
     image: "/smenu/bakeddinnerpacks/half-chicken-dinner-pack.png",
     title: "½ Chicken Dinner Pack",
-    description: "½ Charcoal Chicken, 2 choices of vegetables, Peas & Gravy",
+    description: "Half charcoal chicken, two vegetables, peas, and gravy.",
     price: 21.9,
     category: "Baked Dinner Packs",
     kj: "6,920",
@@ -205,7 +205,7 @@ export const menus: MenuItem[] = [
   {
     image: "/smenu/bakeddinnerpacks/quarter-chicken-dinner-pack.png",
     title: "¼ Chicken Dinner Pack",
-    description: "¼ Chicken, 2 choices of vegetables, Peas & Gravy",
+    description: "Quarter chicken, two vegetables, peas, and rich gravy.",
     price: 19.9,
     category: "Baked Dinner Packs",
   },
@@ -216,14 +216,14 @@ export const menus: MenuItem[] = [
   {
     image: "/smenu/roasts/pork-with-crackle.png",
     title: "Pork with Crackle",
-    description: "Price per kg",
+    description: "Fresh roast pork with crackle, priced conveniently per kg.",
     price: 45,
     category: "Roasts",
   },
   {
     image: "/smenu/roasts/roast-beef.png",
     title: "Roast Beef",
-    description: "Price per kg",
+    description: "Tender sliced roast beef, priced conveniently per kilogram.",
     price: 50,
     category: "Roasts",
   },
@@ -234,42 +234,42 @@ export const menus: MenuItem[] = [
   {
     image: "/smenu/snacks&sauces/devil-wings.png",
     title: "Devil Wings",
-    description: "or 5 for $10",
+    description: "Spicy devil wings, single serve, or grab five for just ten.",
     price: 2.5,
     category: "Snacks & Sauces",
   },
   {
     image: "/smenu/snacks&sauces/sweet-chilli-tenders.png",
     title: "Sweet Chilli Tenders",
-    description: "or 5 for $10",
+    description: "Crispy tenders with sweet chilli glaze, or five for ten.",
     price: 2.5,
     category: "Snacks & Sauces",
   },
   {
     image: "/smenu/snacks&sauces/chicken-skewers.png",
     title: "Chicken Skewers",
-    description: "",
+    description: "Seasoned chicken skewers grilled fresh and served warm.",
     price: 3.9,
     category: "Snacks & Sauces",
   },
   {
     simage: "/smenu/snacks&sauces/spring-roll.png",
     title: "Spring Roll",
-    description: "",
+    description: "Crispy spring roll with savoury filling, cooked to golden.",
     price: 3.9,
     category: "Snacks & Sauces",
   },
   {
     image: "/smenu/snacks&sauces/curry-puff.png",
     title: "Curry Puff",
-    description: "",
+    description: "Flaky curry puff with aromatic filling and crisp pastry.",
     price: 3.0,
     category: "Snacks & Sauces",
   },
   {
     image: "/smenu/snacks&sauces/potato-scallops.png",
     title: "Potato Scallops",
-    description: "",
+    description: "Golden potato scallops, lightly seasoned and freshly fried.",
     price: 2.0,
     category: "Snacks & Sauces",
   },
@@ -277,35 +277,35 @@ export const menus: MenuItem[] = [
     image: "/menu/snacks&sauces/sauces.png",
     title: "Sauces",
     description:
-      "Peri Peri | Garlic Sauce | Chilli Mayo | Garlic Mayo | Sour Cream",
+      "Peri peri, garlic sauce, chilli mayo, garlic mayo, sour cream.",
     price: 2.5,
     category: "Snacks & Sauces",
   },
   {
     image: "/menu/snacks&sauces/other-sauces.png",
     title: "Other Sauces",
-    description: "Sweet Chilli | Tomato Sauce | BBQ Sauce",
+    description: "Sweet chilli, tomato sauce, and BBQ sauce options served.",
     price: 1.5,
     category: "Snacks & Sauces",
   },
   {
     image: "",
     title: "Chicken Salt or Peri Peri Salt",
-    description: "",
+    description: "Classic chicken salt or peri peri salt to boost flavour.",
     price: 2.5,
     category: "Snacks & Sauces",
   },
   {
     image: "/top-down-transparent/peri-peri-sauce.png",
     title: "Bottled Peri Peri Sauce",
-    description: "",
+    description: "Take-home bottled peri peri sauce packed with bold heat.",
     price: 10.0,
     category: "Snacks & Sauces",
   },
   {
     image: "/menu/snacks&sauces/bottled-salad-dressing.png",
     title: "Bottled Salad Dressing",
-    description: "",
+    description: "House salad dressing bottled fresh for easy home serving.",
     price: 7.0,
     category: "Snacks & Sauces",
   },
@@ -316,7 +316,7 @@ export const menus: MenuItem[] = [
   {
     image: "/top-down-transparent/whole-chicken.png",
     title: "Whole Chicken",
-    description: "Charcoal Chicken",
+    description: "Whole charcoal chicken, juicy, seasoned, and flame roasted.",
     price: 20.0,
     category: "Tasty Charcoal Chicken",
     isPopular: true,
@@ -325,7 +325,7 @@ export const menus: MenuItem[] = [
   {
     image: "/top-down-transparent/half-chicken.png",
     title: "Half Chicken",
-    description: "Charcoal Chicken",
+    description: "Half charcoal chicken, juicy, seasoned, and flame roasted.",
     price: 12.5,
     category: "Tasty Charcoal Chicken",
     kj: "3,910",
@@ -333,7 +333,7 @@ export const menus: MenuItem[] = [
   {
     image: "/top-down-transparent/quarter-chicken.png",
     title: "Quarter Chicken",
-    description: "Charcoal Chicken",
+    description: "Quarter charcoal chicken, juicy, seasoned, and flame roasted.",
     price: 7.9,
     category: "Tasty Charcoal Chicken",
     kj: "1,950",
@@ -346,28 +346,28 @@ export const menus: MenuItem[] = [
     image:
       "/smenu/chickenchips&saladpacks/quarter-chicken-chips-and-salads.png",
     title: "¼ Chicken chips & salad",
-    description: "¼ chicken, choice of a salad & Chips",
+    description: "Quarter chicken with chips and your choice of fresh salad.",
     price: 20.9,
     category: "Chicken Chips & Salad Packs",
   },
   {
     image: "/smenu/chickenchips&saladpacks/half-chicken-chips-and-salads.png",
     title: "½ Chicken chips & salad",
-    description: "½ chicken, choice of a salad & Chips",
+    description: "Half chicken with chips and your choice of fresh salad.",
     price: 22.9,
     category: "Chicken Chips & Salad Packs",
   },
   {
     image: "/smenu/chickenchips&saladpacks/quarter-chicken-and-chips.png",
     title: "¼ Chicken & chips",
-    description: "¼ chicken & Chips",
+    description: "Quarter charcoal chicken served hot with a side of chips.",
     price: 15.9,
     category: "Chicken Chips & Salad Packs",
   },
   {
     image: "/smenu/chickenchips&saladpacks/half-chicken-and-chips.png",
     title: "½ Chicken & Chips",
-    description: "½ Chicken Chips & Gravy",
+    description: "Half charcoal chicken with crispy chips and warm gravy.",
     price: 19.9,
     category: "Chicken Chips & Salad Packs",
     isPopular: true,
@@ -376,7 +376,7 @@ export const menus: MenuItem[] = [
   {
     simage: "/smenu/chickenchips&saladpacks/schnitzel-chips-salad.png",
     title: "Schnitzel & Chips",
-    description: "Chicken Schnitzel & chips & 1 choice of Salad",
+    description: "Chicken schnitzel with chips and one fresh salad choice.",
     price: 19.9,
     category: "Chicken Chips & Salad Packs",
   },
@@ -388,7 +388,7 @@ export const menus: MenuItem[] = [
     image: "/menu/familydeals/chicken-and-chips-deals.png",
     title: "Chicken & Chips Deal",
     description:
-      "1* XL Charcoal Chicken, 1* Large Chips, 1* Large Drink (1.25L) or Small Gravy",
+      "XL charcoal chicken, large chips, plus drink or small gravy.",
     price: 33,
     category: "Family Deals",
   },
@@ -396,7 +396,7 @@ export const menus: MenuItem[] = [
     image: "/menu/familydeals/chicken&salad-deal.png",
     title: "Chicken & Salad Deal",
     description:
-      "1* XL Charcoal Chicken, 1* Large Salad, 1* Large Drink (1.25L) or Small Gravy",
+      "XL charcoal chicken, large salad, plus drink or small gravy.",
     price: 35,
     category: "Family Deals",
   },
@@ -404,7 +404,7 @@ export const menus: MenuItem[] = [
     image: "/menu/familydeals/family-deal.png",
     title: "Family Deal",
     description:
-      "1* XL Charcoal Chicken, 1* Large Chips, 1* Large Salad or Large Veggies, 1* Small Gravy",
+      "XL chicken, large chips, salad or veggies, and small gravy.",
     price: 45,
     category: "Family Deals",
   },
@@ -412,7 +412,7 @@ export const menus: MenuItem[] = [
     image: "/smenu/familydeals/r&r-deal.png",
     title: "R&R Deal",
     description:
-      "2* Charcoal Chickens, 2* Large Chips, 1* Large Gravy, 1* 1.25 ltr Drink",
+      "Two chickens, two large chips, large gravy, and a 1.25L drink.",
     price: 65,
     category: "Family Deals",
   },
@@ -420,7 +420,7 @@ export const menus: MenuItem[] = [
     image: "/smenu/familydeals/big-roost-deal.png",
     title: "Big Roost Deal",
     description:
-      "2* XL Charcoal Chickens, 2* Large Chips, 2* Large Salad or Large Veggies, 1* Large Drink (1.25L), 1* Large Gravy",
+      "Two XL chickens, chips, salad or veggies, drink, and gravy.",
     price: 92,
     category: "Family Deals",
   },
@@ -428,7 +428,7 @@ export const menus: MenuItem[] = [
     image: "/menu/familydeals/roost&roast-deal.png",
     title: "Roost & Roast Deal",
     description:
-      "1/2 Kg Pork, 1* XL Charcoal Chicken, 1* Large Chips, 1* Regular Veggie, 1* Regular Salad, 1* Large Gravy",
+      "Half kg pork, XL chicken, chips, veggie, salad, and gravy.",
     price: 85,
     category: "Family Deals",
   },
@@ -439,7 +439,7 @@ export const menus: MenuItem[] = [
   {
     image: "",
     title: "Hot Chips",
-    description: "Choice of chicken, plain, or peri peri salt.",
+    description: "Hot chips with plain, chicken salt, or peri peri seasoning.",
     variants: [
       { label: "Small", price: 7.0 },
       { label: "Regular", price: 9.0 },
@@ -450,7 +450,7 @@ export const menus: MenuItem[] = [
   {
     image: "",
     title: "Hot Chips with Gravy",
-    description: "Choice of chicken, plain, or peri peri salt.",
+    description: "Hot chips and rich gravy with your preferred salt option.",
     variants: [
       { label: "Small", price: 7.9 },
       { label: "Regular", price: 10.5 },
@@ -466,7 +466,7 @@ export const menus: MenuItem[] = [
   {
     image: "",
     title: "Wedges",
-    description: "Sauces ($1.5 ea): Sour cream or sweet chilli.",
+    description: "Crispy wedges; add sour cream or sweet chilli for extra.",
     variants: [
       { label: "Small", price: 8.0 },
       { label: "Medium", price: 10.0 },
@@ -482,7 +482,7 @@ export const menus: MenuItem[] = [
   {
     image: "",
     title: "Sweet Potato",
-    description: "Chilli sauce available for $1.5 ea.",
+    description: "Crispy sweet potato with optional chilli sauce add-on.",
     variants: [
       { label: "Small", price: 8.0 },
       { label: "Medium", price: 10.0 },
@@ -498,7 +498,7 @@ export const menus: MenuItem[] = [
     image: "/smenu/hotfoods/baked-honey-mustard-vegetables.png",
     title: "Baked Honey Mustard Vegetables",
     description:
-      "Oven-baked seasonal vegetables in a sweet honey mustard glaze.",
+      "Seasonal vegetables oven baked in a sweet honey mustard glaze.",
     category: "Hot Foods",
     variants: [
       { label: "Small", price: 7.9 },
@@ -510,7 +510,7 @@ export const menus: MenuItem[] = [
   {
     image: "/smenu/hotfoods/roast-potato.png",
     title: "Roast Potato",
-    description: "Crispy roasted potatoes seasoned with herbs.",
+    description: "Crispy roast potatoes seasoned with herbs and sea salt.",
     category: "Hot Foods",
     variants: [
       { label: "Small", price: 7.9 },
@@ -522,7 +522,7 @@ export const menus: MenuItem[] = [
   {
     image: "/smenu/hotfoods/baked-pumpkin.png",
     title: "Baked Pumpkin",
-    description: "Tender baked pumpkin with light seasoning.",
+    description: "Tender baked pumpkin finished with light savoury seasoning.",
     category: "Hot Foods",
     variants: [
       { label: "Small", price: 7.9 },
@@ -534,7 +534,7 @@ export const menus: MenuItem[] = [
   {
     image: "/smenu/hotfoods/steamed-vegetables-with-mornay-sauce.png",
     title: "Steamed Vegetables with Mornay Sauce",
-    description: "Fresh steamed vegetables topped with creamy mornay sauce.",
+    description: "Fresh steamed vegetables topped with smooth mornay sauce.",
     category: "Hot Foods",
     variants: [
       { label: "Small", price: 7.9 },
@@ -546,7 +546,7 @@ export const menus: MenuItem[] = [
   {
     image: "/smenu/hotfoods/creamy-potato-bake.png",
     title: "Creamy Potato Bake",
-    description: "Baked potatoes in a rich and creamy sauce.",
+    description: "Layered potato bake finished in a rich creamy sauce.",
     category: "Hot Foods",
     variants: [
       { label: "Small", price: 7.9 },
@@ -558,7 +558,7 @@ export const menus: MenuItem[] = [
   {
     image: "/smenu/hotfoods/creamy-chicken-pasta-with-bacon-&-mushroom.png",
     title: "Creamy Chicken Pasta with Bacon & Mushroom",
-    description: "Creamy pasta with chicken, bacon, and mushrooms.",
+    description: "Creamy pasta with chicken, bacon, and mushroom pieces.",
     category: "Hot Foods",
     variants: [
       { label: "Small", price: 7.9 },
@@ -570,7 +570,7 @@ export const menus: MenuItem[] = [
   {
     image: "/smenu/hotfoods/fried-rice.png",
     title: "Fried Rice",
-    description: "Classic fried rice with vegetables and seasoning.",
+    description: "Classic fried rice with vegetables and balanced seasoning.",
     category: "Hot Foods",
     variants: [
       { label: "Small", price: 7.9 },
@@ -582,7 +582,7 @@ export const menus: MenuItem[] = [
   {
     image: "",
     title: "Stir Fried Hokkien Noodle",
-    description: "Stir-fried hokkien noodles with vegetables and sauce.",
+    description: "Stir-fried hokkien noodles with vegetables and savoury sauce.",
     category: "Hot Foods",
     variants: [
       { label: "Small", price: 7.9 },
@@ -598,7 +598,7 @@ export const menus: MenuItem[] = [
   {
     simage: "/smenu/salads/chicken-caesar.png",
     title: "Chicken Caesar",
-    description: "Classic Caesar salad with grilled chicken.",
+    description: "Classic Caesar salad topped with tender grilled chicken.",
     category: "Salads",
     variants: [
       { label: "Small", price: 7.9 },
@@ -610,7 +610,7 @@ export const menus: MenuItem[] = [
   {
     simage: "/smenu/salads/rocket-avocado.png",
     title: "Rocket Avocado",
-    description: "Fresh rocket leaves with creamy avocado.",
+    description: "Fresh rocket leaves tossed with creamy avocado pieces.",
     category: "Salads",
     variants: [
       { label: "Small", price: 7.9 },
@@ -622,7 +622,7 @@ export const menus: MenuItem[] = [
   {
     simage: "/smenu/salads/fresh-garden-salad.png",
     title: "Fresh Garden Salad",
-    description: "Seasonal fresh vegetables with light dressing.",
+    description: "Seasonal garden vegetables with a light house dressing.",
     category: "Salads",
     variants: [
       { label: "Small", price: 7.9 },
@@ -634,7 +634,7 @@ export const menus: MenuItem[] = [
   {
     simage: "/smenu/salads/lemon-grass-chicken-salad.png",
     title: "Lemongrass Chicken Salad",
-    description: "Lemongrass-marinated chicken with fresh herbs.",
+    description: "Lemongrass chicken with crisp greens and fresh herbs.",
     category: "Salads",
     variants: [
       { label: "Small", price: 7.9 },
@@ -646,7 +646,7 @@ export const menus: MenuItem[] = [
   {
     simage: "/smenu/salads/chicken-pesto-pasta.png",
     title: "Chicken Pesto Pasta",
-    description: "Pasta salad with chicken and basil pesto.",
+    description: "Pasta salad with chicken, basil pesto, and fresh greens.",
     category: "Salads",
     variants: [
       { label: "Small", price: 7.9 },
@@ -658,7 +658,7 @@ export const menus: MenuItem[] = [
   {
     simage: "/smenu/salads/coleslaw.png",
     title: "Coleslaw",
-    description: "Creamy coleslaw with fresh cabbage.",
+    description: "Creamy coleslaw with fresh cabbage and carrot ribbons.",
     category: "Salads",
     variants: [
       { label: "Small", price: 7.9 },
@@ -670,7 +670,7 @@ export const menus: MenuItem[] = [
   {
     simage: "/smenu/salads/tabouli.png",
     title: "Tabouli",
-    description: "Traditional parsley, tomato, and bulgur salad.",
+    description: "Traditional tabouli with parsley, tomato, and bulgur wheat.",
     category: "Salads",
     variants: [
       { label: "Small", price: 7.9 },
@@ -682,7 +682,7 @@ export const menus: MenuItem[] = [
   {
     simage: "/smenu/salads/potato-salad.png",
     title: "Potato Salad",
-    description: "Creamy potato salad with herbs.",
+    description: "Creamy potato salad blended with herbs and light dressing.",
     category: "Salads",
     variants: [
       { label: "Small", price: 7.9 },
@@ -694,7 +694,7 @@ export const menus: MenuItem[] = [
   {
     simage: "/smenu/salads/fruit-salad.png",
     title: "Fruit Salad",
-    description: "Seasonal fresh fruit mix.",
+    description: "Seasonal fruit salad with a fresh, naturally sweet mix.",
     category: "Salads",
     variants: [
       { label: "Small", price: 7.9 },
@@ -706,7 +706,7 @@ export const menus: MenuItem[] = [
   {
     simage: "/smenu/salads/seafood-salad.png",
     title: "Seafood Salad",
-    description: "Mixed seafood with crisp salad greens.",
+    description: "Mixed seafood served with crisp salad greens and dressing.",
     category: "Salads",
     variants: [
       { label: "Small", price: 7.9 },
@@ -718,7 +718,7 @@ export const menus: MenuItem[] = [
   {
     image: "/smenu/salads/baked-vegetable-with-fetta-salad.png",
     title: "Baked Vegetable with Fetta Salad",
-    description: "Roasted vegetables with fetta cheese.",
+    description: "Roasted vegetables with fetta cheese and fresh salad mix.",
     category: "Salads",
     variants: [
       { label: "Small", price: 7.9 },
@@ -730,7 +730,7 @@ export const menus: MenuItem[] = [
   {
     image: "",
     title: "Rocket Chickpea & Pumpkin Salad",
-    description: "Rocket leaves with chickpea and roasted pumpkin.",
+    description: "Rocket, chickpea, and roasted pumpkin tossed fresh daily.",
     category: "Salads",
     variants: [
       { label: "Small", price: 7.9 },
@@ -742,7 +742,7 @@ export const menus: MenuItem[] = [
   {
     image: "",
     title: "Mango Chicken Salad",
-    description: "Grilled chicken with fresh mango slices.",
+    description: "Grilled chicken salad with fresh mango and crisp greens.",
     category: "Salads",
     variants: [
       { label: "Small", price: 7.9 },
@@ -754,7 +754,7 @@ export const menus: MenuItem[] = [
   {
     simage: "/smenu/salads/snitzel-slaw.png",
     title: "Snitzel Slaw",
-    description: "Crispy chicken schnitzel with fresh slaw.",
+    description: "Crispy chicken schnitzel paired with crunchy fresh slaw.",
     category: "Salads",
     variants: [
       { label: "Small", price: 7.9 },
@@ -766,7 +766,7 @@ export const menus: MenuItem[] = [
   {
     simage: "/smenu/salads/japanese-slaw.png",
     title: "Japanese Slaw",
-    description: "Crispy chicken schnitzel with fresh slaw.",
+    description: "Japanese-style slaw with crisp vegetables and light dressing.",
     category: "Salads",
     variants: [
       { label: "Small", price: 7.9 },
@@ -778,7 +778,7 @@ export const menus: MenuItem[] = [
   {
     simage: "/smenu/salads/beetroot-feta&pumpkin.png",
     title: "Beetroot Feta & Pumpkin",
-    description: "Crispy chicken schnitzel with fresh slaw.",
+    description: "Beetroot, fetta, and roasted pumpkin in a fresh salad mix.",
     category: "Salads",
     variants: [
       { label: "Small", price: 7.9 },
@@ -794,7 +794,7 @@ export const menus: MenuItem[] = [
     image: "/menu/desserts/rice-pudding.png",
     title: "Rice Pudding",
     description:
-      "Classic, creamy, and comforting slow-cooked rice blended with rich milk, a hint of vanilla, and a gentle sprinkle of cinnamon.",
+      "Creamy slow-cooked rice pudding with vanilla and cinnamon notes.",
     price: 5.5,
     category: "Desserts",
   },
@@ -802,7 +802,7 @@ export const menus: MenuItem[] = [
     image: "/menu/desserts/sago-pudding.png",
     title: "Sago Pudding",
     description:
-      "A delightful and refreshing treat made with delicate sago pearls, rich coconut milk, and sweetened with a touch of palm sugar syrup.",
+      "Soft sago pearls in coconut milk with a touch of palm sugar.",
     price: 5.5,
     category: "Desserts",
   },
@@ -810,7 +810,7 @@ export const menus: MenuItem[] = [
     image: "/menu/desserts/apple-custard.png",
     title: "Apple Pudding",
     description:
-      "Warm, spiced baked apples blanketed in a rich, silky vanilla custard and topped with a light dusting of cinnamon.",
+      "Warm spiced apple pudding layered with silky vanilla custard.",
     price: 5.5,
     category: "Desserts",
   },
@@ -818,7 +818,7 @@ export const menus: MenuItem[] = [
     image: "/menu/desserts/banoffee-pie.png",
     title: "Banoffee Pie",
     description:
-      "A heavenly dessert featuring a buttery biscuit base, sticky caramel toffee, fresh sliced bananas, and a generous mound of whipped cream.",
+      "Biscuit base with toffee, banana slices, and whipped cream top.",
     price: 7.9,
     category: "Desserts",
   },
@@ -826,7 +826,7 @@ export const menus: MenuItem[] = [
     image: "/menu/desserts/chocolate-mousse.png",
     title: "Chocolate Mousse",
     description:
-      "Decadent, airy, and rich dark chocolate mousse finished with a light dusting of cocoa powder and fresh seasonal berries.",
+      "Rich dark chocolate mousse finished with cocoa and berries.",
     price: 7.9,
     category: "Desserts",
   },
