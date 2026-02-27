@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
+import { useState, useMemo, useRef, useEffect } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
@@ -10,21 +10,35 @@ import { ArrowRight } from "lucide-react";
 // Using a fallback image if local asset isn't available
 const PLACEHOLDER_IMAGE = "/placeholder.png";
 
+interface ShapeConfig {
+  src: string;
+}
+
 // --- UPDATED MENU CARD COMPONENT ---
 const MenuCard = ({ item }: { item: (typeof menus)[0] }) => {
   const cardRef = useRef<HTMLDivElement>(null);
   const [isMobileActive, setIsMobileActive] = useState(false);
-  const [imgSrc, setImgSrc] = useState(item.image || PLACEHOLDER_IMAGE);
+  const shapeConfig: ShapeConfig = useMemo(() => {
+    if (item.rimage && item.rimage.trim() !== "") {
+      return { src: item.rimage };
+    }
+    if (item.simage && item.simage.trim() !== "") {
+      return { src: item.simage };
+    }
+    return { src: item.image || PLACEHOLDER_IMAGE };
+  }, [item]);
+
+  const [imgSrc, setImgSrc] = useState(shapeConfig.src);
 
   useEffect(() => {
-    setImgSrc(item.image || PLACEHOLDER_IMAGE);
-  }, [item.image]);
+    setImgSrc(shapeConfig.src);
+  }, [shapeConfig.src]);
 
   useEffect(() => {
     if (window.innerWidth >= 768) return;
     const observer = new IntersectionObserver(
       ([entry]) => setIsMobileActive(entry.isIntersecting),
-      { rootMargin: "-35% 0px -35% 0px", threshold: 0 },
+      { rootMargin: "-50% 0px -50% 0px", threshold: 0 },
     );
     if (cardRef.current) observer.observe(cardRef.current);
     return () => {
@@ -37,7 +51,7 @@ const MenuCard = ({ item }: { item: (typeof menus)[0] }) => {
   const isDefaultGlassCard = !item.bgColor || item.bgColor === "none";
 
   const cardClassName = activeClass(
-    `flex flex-col flex-grow rounded-3xl border transition-all duration-500 overflow-hidden py-5 px-5 hover:border-primary/80 hover:shadow-xl ${
+    `flex flex-col flex-grow rounded-3xl border transition-all duration-500 overflow-hidden px-4 py-2 hover:border-primary/80 hover:shadow-xl ${
       isDefaultGlassCard
         ? "bg-white/15 backdrop-blur-xl border-slate-400/40 shadow-2xl z-10 hover:shadow-2xl"
         : !item.bgColor
@@ -45,8 +59,8 @@ const MenuCard = ({ item }: { item: (typeof menus)[0] }) => {
           : "border-transparent shadow-sm"
     }`,
     isDefaultGlassCard
-      ? "!border-primary/80 shadow-2xl"
-      : "!border-primary/80 shadow-xl",
+      ? "!border-primary shadow-2xl"
+      : "!border-primary shadow-xl",
   );
 
   const cardStyle =
@@ -61,10 +75,13 @@ const MenuCard = ({ item }: { item: (typeof menus)[0] }) => {
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-50px" }}
-      className="relative flex flex-col group mx-3 md:mx-0 h-full md:max-w-[380px] mx-auto w-full md:w-full"
+      className="relative flex flex-col group h-full w-[330px] mx-auto"
     >
-      <div className={cardClassName} style={cardStyle}>
-        <div className="relative aspect-square w-full mx-auto mb-3 overflow-hidden rounded-2xl bg-transparent">
+      <div
+        className={`${cardClassName} mx-auto w-[330px] h-[480px]`}
+        style={cardStyle}
+      >
+        <div className="relative w-[280px] h-[280px] mx-auto mb-2 overflow-hidden rounded-2xl bg-transparent">
           <Image
             src={imgSrc}
             alt={item.title}
@@ -74,22 +91,32 @@ const MenuCard = ({ item }: { item: (typeof menus)[0] }) => {
             blurDataURL={PLACEHOLDER_IMAGE}
             onError={() => setImgSrc(PLACEHOLDER_IMAGE)}
             className={activeClass(
-              "object-cover transition-transform duration-700 group-hover:scale-105",
+              "object-contain transition-transform duration-700 group-hover:scale-105",
               "scale-105",
             )}
           />
         </div>
 
-        <div className="px-5 py-3 flex flex-col items-center flex-grow text-center gap-1">
+        <div className="p-2 flex flex-col items-center justify-end flex-grow text-center gap-1">
           <h3 className="font-modern text-lg md:text-xl font-black text-secondary uppercase tracking-tight leading-tight">
             {item.title}
           </h3>
-          <p className="italic text-xs md:text-sm text-muted-foreground leading-relaxed line-clamp-2">
+          <p
+            lang="en"
+            className="self-stretch w-full italic text-xs md:text-sm text-muted-foreground leading-relaxed line-clamp-3 hyphens-auto"
+            style={{
+              textAlign: "justify",
+              textAlignLast: "center",
+              textJustify: "auto",
+              wordSpacing: "-0.08em",
+              letterSpacing: "-0.015em",
+            }}
+          >
             {item.description}
           </p>
         </div>
 
-        <div className="mt-auto relative w-[calc(100%+2.5rem)] -mx-5 -mb-5 overflow-hidden">
+        <div className="mt-auto relative w-[calc(100%+2rem)] -mx-4 -mb-2 overflow-hidden">
           <div
             className={activeClass(
               "absolute inset-0 bg-primary origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500 ease-out z-0",
@@ -97,13 +124,13 @@ const MenuCard = ({ item }: { item: (typeof menus)[0] }) => {
             )}
           />
 
-          <div className="relative z-10 py-5 px-3 flex flex-col items-center justify-center min-h-[72px]">
+          <div className="relative z-10 p-2 flex flex-col items-center justify-center min-h-[72px]">
             {item.variants ? (
               <div className="flex flex-wrap justify-center gap-1.5 w-full">
                 {item.variants.map((variant) => (
                   <div
                     key={variant.label}
-                    className="flex flex-col items-center justify-center px-3 py-1 rounded-lg min-w-[56px] transition-all duration-300 hover:bg-black/10 group/price"
+                    className="flex flex-col items-center justify-center px-2 py-2 rounded-lg min-w-[56px] transition-all duration-300 hover:bg-black/10 group/price"
                   >
                     <span
                       className={activeClass(
@@ -115,7 +142,7 @@ const MenuCard = ({ item }: { item: (typeof menus)[0] }) => {
                     </span>
                     <span
                       className={activeClass(
-                        "font-modern text-xs md:text-sm font-bold text-primary group-hover:text-white transition-colors duration-300",
+                        "font-modern text-xs md:text-sm font-bold text-primary transition-colors duration-300 group-hover:text-white",
                         "text-white",
                       )}
                     >
@@ -125,10 +152,10 @@ const MenuCard = ({ item }: { item: (typeof menus)[0] }) => {
                 ))}
               </div>
             ) : (
-              <div className="flex items-baseline gap-1.5 px-5 py-1 rounded-lg transition-all duration-300 hover:bg-black/10 group/price">
+              <div className="flex items-baseline gap-1.5 px-2 py-2 rounded-lg transition-all duration-300 hover:bg-black/10 group/price">
                 <span
                   className={activeClass(
-                    "font-artistic text-xl md:text-2xl text-primary -rotate-6 lowercase mb-0 transition-colors duration-500 group-hover:text-white",
+                    "font-artistic text-xl md:text-2xl text-primary -rotate-6 lowercase mb-0 mr-1 transition-colors duration-500 group-hover:text-white",
                     "text-white",
                   )}
                 >

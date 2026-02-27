@@ -450,7 +450,7 @@ export default function MenuFilters() {
         <AnimatePresence mode="popLayout">
           {menuGroups.map((group) => (
             <div key={group.category} className="mb-16">
-              <div className="mx-auto w-fit max-w-full md:max-w-[716px] lg:max-w-[1102px] xl:max-w-[1488px]">
+              <div className="mx-auto w-fit max-w-[380px] md:max-w-[716px] lg:max-w-[1102px] xl:max-w-[1488px]">
                 <div className="grid w-full grid-cols-[1fr_auto_1fr] items-center mt-0 md:mt-8 mb-12 md:mb-16">
                   <span
                     aria-hidden="true"
@@ -466,7 +466,7 @@ export default function MenuFilters() {
                     className="text-4xl md:text-7xl font-artistic text-secondary inline-block relative text-center px-2"
                   >
                     <span className="relative z-10">{group.category}</span>
-                    <span className="absolute bottom-2 left-0 w-full h-2 md:h-3 bg-primary/20 -z-0 -rotate-1 rounded-full"></span>
+                    <span className="absolute -bottom-2 md:bottom-2 left-0 w-full h-2 md:h-3 bg-primary/20 -z-0 -rotate-1 rounded-full"></span>
                   </motion.h2>
                   <span className="justify-self-end mr-8 md:mr-4 ml-6 text-md text-primary/40 md:text-xl font-artistic font-semibold whitespace-nowrap">
                     {group.items.length} of {menus.length}
