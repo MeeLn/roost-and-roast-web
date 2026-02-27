@@ -203,7 +203,7 @@ export default function FeaturedMenu() {
         </div>
 
         {/* Grid Layout - same spacing/wrapping behavior as MenuFilters */}
-        <div className="flex flex-wrap justify-center gap-x-14 gap-y-20">
+        <div className="flex flex-wrap justify-center gap-x-14 gap-y-20 mx-4">
           {featuredItems.map((item) => (
             <MenuCard key={item.title} item={item} />
           ))}
