@@ -15,7 +15,7 @@ export default function Footer() {
   const ROTATING_TEXT = "ROOST AND ROAST • ROOST AND ROAST • ";
 
   // --- CONFIGURATION ---
-  const TYPING_TEXT = "Flamed Kissed Chicken";
+  const TYPING_TEXT = "Flame Kissed Chicken";
   const CHAR_DURATION = 80;
   const HOLD_DELAY = 2000;
 

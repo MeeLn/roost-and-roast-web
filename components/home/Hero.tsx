@@ -14,7 +14,7 @@ const HERO_CONTENT = [
       "/home/hero/meat-3.png",
       "/home/hero/meat-4.png",
     ],
-    badge: "Flamed Kissed Chicken",
+    badge: "Flame Kissed Chicken",
     bgText: "CHARCOAL",
     headlineLine1: "CRAFTING THE",
     headlineLine2: "PERFECT",
