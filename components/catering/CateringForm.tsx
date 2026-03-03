@@ -142,7 +142,7 @@ export default function CateringForm() {
       );
 
       if (response.ok) {
-        toast.success("Catering inquiry sent! We'll allow 24hrs for a quote.", {
+        toast.success("Catering enquiry sent! We'll allow 24hrs for a quote.", {
           duration: 5000,
           position: "bottom-right",
           style: { background: "#10b981", color: "#fff", fontWeight: "bold" },
@@ -165,7 +165,7 @@ export default function CateringForm() {
         throw new Error("Submission failed");
       }
     } catch (error) {
-      toast.error("Failed to send inquiry. Please check your connection.", {
+      toast.error("Failed to send enquiry. Please check your connection.", {
         duration: 5000,
         position: "bottom-right",
         style: { background: "#ef4444", color: "#fff", fontWeight: "bold" },
@@ -483,10 +483,10 @@ export default function CateringForm() {
               "Sending..."
             ) : isSent ? (
               <span className="flex items-center gap-2">
-                <Check size={20} strokeWidth={3} /> Inquiry Sent!
+                <Check size={20} strokeWidth={3} /> Enquiry Sent!
               </span>
             ) : (
-              "Inquiry"
+              "Enquiry"
             )}
           </button>
         </div>
