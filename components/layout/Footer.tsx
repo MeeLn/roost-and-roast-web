@@ -326,6 +326,14 @@ export default function Footer() {
                     className="object-contain"
                   />
                 </div>
+                <div className="relative h-12 w-28 grayscale-0 md:grayscale hover:grayscale-0 transition-all duration-300">
+                  <Image
+                    src="/logos/ml-logo.svg"
+                    alt="Order on Uber Eats"
+                    fill
+                    className="object-contain"
+                  />
+                </div>
               </div>
             </div>
           </div>
