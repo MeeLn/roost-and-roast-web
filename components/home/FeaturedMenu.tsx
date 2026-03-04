@@ -116,12 +116,12 @@ const MenuCard = ({ item }: { item: (typeof menus)[0] }) => {
         </div>
 
         <div className="mt-auto relative w-[calc(100%+2rem)] -mx-4 -mb-2 overflow-hidden">
-          <div
+          {/* <div
             className={activeClass(
               "absolute inset-0 bg-primary origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500 ease-out z-0",
               "scale-x-100",
             )}
-          />
+          /> */}
 
           <div className="relative z-10 p-2 flex flex-col items-center justify-center min-h-[72px]">
             {item.variants ? (
@@ -129,20 +129,20 @@ const MenuCard = ({ item }: { item: (typeof menus)[0] }) => {
                 {item.variants.map((variant) => (
                   <div
                     key={variant.label}
-                    className="flex flex-col items-center justify-center px-2 py-2 rounded-lg min-w-[56px] transition-all duration-300 hover:bg-black/10 group/price"
+                    className="flex flex-col items-center justify-center px-2 py-2 rounded-lg min-w-[56px] transition-all duration-300 group/price"
                   >
                     <span
                       className={activeClass(
-                        "font-artistic text-base md:text-lg text-primary -rotate-3 transition-colors duration-300 group-hover:text-white",
-                        "text-white",
+                        "font-artistic text-base md:text-lg text-primary -rotate-3 transition-colors duration-300",
+                        "text-primary",
                       )}
                     >
                       {variant.label}
                     </span>
                     <span
                       className={activeClass(
-                        "font-modern text-xs md:text-sm font-bold text-primary transition-colors duration-300 group-hover:text-white",
-                        "text-white",
+                        "font-modern text-xs md:text-sm font-bold text-primary transition-colors duration-300",
+                        "text-primary",
                       )}
                     >
                       ${variant.price.toFixed(0)}
@@ -151,19 +151,19 @@ const MenuCard = ({ item }: { item: (typeof menus)[0] }) => {
                 ))}
               </div>
             ) : (
-              <div className="flex items-baseline gap-1.5 px-2 py-2 rounded-lg transition-all duration-300 hover:bg-black/10 group/price">
+              <div className="flex items-baseline gap-1.5 px-2 py-2 rounded-lg transition-all duration-300 group/price">
                 <span
                   className={activeClass(
-                    "font-artistic text-xl md:text-2xl text-primary -rotate-6 lowercase mb-0 mr-1 transition-colors duration-500 group-hover:text-white",
-                    "text-white",
+                    "font-artistic text-xl md:text-2xl text-primary -rotate-6 lowercase mb-0 mr-1 transition-colors duration-500",
+                    "text-primary",
                   )}
                 >
                   only
                 </span>
                 <span
                   className={activeClass(
-                    "font-modern text-xl md:text-2xl font-bold text-primary transition-colors duration-500 group-hover:text-white",
-                    "text-white",
+                    "font-modern text-xl md:text-2xl font-bold text-primary transition-colors duration-500",
+                    "text-primary",
                   )}
                 >
                   ${item.price?.toFixed(2) || "12.00"}
