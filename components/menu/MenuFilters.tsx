@@ -100,7 +100,7 @@ const MenuCard = ({ item }: { item: (typeof menus)[0] }) => {
   const cardClassName = activeClass(
     `flex flex-col flex-grow rounded-3xl border transition-all duration-500 overflow-hidden px-4 py-2 hover:border-primary/80 hover:shadow-xl ${
       isDefaultGlassCard
-        ? "bg-white/15 backdrop-blur-xl border-slate-400/40 shadow-2xl z-10 hover:shadow-2xl" // GLASS
+        ? "bg-white/15 backdrop-blur-xl border-primary/80 shadow-2xl z-10 hover:shadow-2xl" // GLASS
         : !item.bgColor
           ? "bg-background border-border shadow-sm" // NORMAL
           : "border-transparent shadow-sm" // CUSTOM
@@ -168,12 +168,12 @@ const MenuCard = ({ item }: { item: (typeof menus)[0] }) => {
         {/* PRICE SECTION */}
         <div className="mt-auto relative w-[calc(100%+2rem)] -mx-4 -mb-2 overflow-hidden">
           {/* Loading Bar Animation */}
-          {/* <div
+          <div
             className={activeClass(
-              "absolute inset-0 bg-primary origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500 ease-out z-0",
+              "absolute inset-0 bg-primary origin-left scale-x-100 transition-transform duration-500 ease-out z-0",
               "scale-x-100",
             )}
-          /> */}
+          />
 
           <div className="relative z-10 p-2 flex flex-col items-center justify-center min-h-[72px]">
             {item.variants ? (
@@ -185,16 +185,16 @@ const MenuCard = ({ item }: { item: (typeof menus)[0] }) => {
                   >
                     <span
                       className={activeClass(
-                        "font-artistic text-base md:text-lg text-primary -rotate-3 transition-colors duration-300",
-                        "text-primary",
+                        "font-artistic text-base md:text-lg text-white -rotate-3 transition-colors duration-300",
+                        "text-white",
                       )}
                     >
                       {variant.label}
                     </span>
                     <span
                       className={activeClass(
-                        "font-modern text-xs md:text-sm font-bold text-primary transition-colors duration-300",
-                        "text-primary",
+                        "font-modern text-xs md:text-sm font-bold text-white transition-colors duration-300",
+                        "text-white",
                       )}
                     >
                       ${variant.price.toFixed(0)}
@@ -206,16 +206,16 @@ const MenuCard = ({ item }: { item: (typeof menus)[0] }) => {
               <div className="flex items-baseline gap-1.5 px-2 py-2 rounded-lg transition-all duration-300 group/price">
                 <span
                   className={activeClass(
-                    "font-artistic text-xl md:text-2xl text-primary -rotate-6 lowercase mb-0 mr-1 transition-colors duration-500",
-                    "text-primary",
+                    "font-artistic text-xl md:text-2xl text-white -rotate-6 lowercase mb-0 mr-1 transition-colors duration-500",
+                    "text-white",
                   )}
                 >
                   only
                 </span>
                 <span
                   className={activeClass(
-                    "font-modern text-xl md:text-2xl font-bold text-primary transition-colors duration-500",
-                    "text-primary",
+                    "font-modern text-xl md:text-2xl font-bold text-white transition-colors duration-500",
+                    "text-white",
                   )}
                 >
                   ${item.price?.toFixed(2) || "12.00"}
