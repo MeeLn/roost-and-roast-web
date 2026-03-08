@@ -314,7 +314,7 @@ export const menus: MenuItem[] = [
     image: "/top-down-transparent/whole-chicken.png",
     title: "Whole Chicken",
     description: "Charcoal Chicken",
-    price: 20.0,
+    price: 22.0,
     category: "Tasty Charcoal Chicken",
     isPopular: true,
   },
@@ -329,7 +329,7 @@ export const menus: MenuItem[] = [
     image: "/top-down-transparent/quarter-chicken.png",
     title: "Quarter Chicken",
     description: "Charcoal Chicken",
-    price: 7.9,
+    price: 8.0,
     category: "Tasty Charcoal Chicken",
   },
 
