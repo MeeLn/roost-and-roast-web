@@ -317,7 +317,7 @@ export const menus: MenuItem[] = [
     image: "/top-down-transparent/whole-chicken.png",
     title: "Whole Chicken",
     description: "Whole charcoal chicken, juicy, seasoned, and flame roasted.",
-    price: 20.0,
+    price: 22.0,
     category: "Tasty Charcoal Chicken",
     isPopular: true,
     kj: "7,820",
@@ -335,7 +335,7 @@ export const menus: MenuItem[] = [
     title: "Quarter Chicken",
     description:
       "Quarter charcoal chicken, juicy, seasoned, and flame roasted.",
-    price: 7.9,
+    price: 8.0,
     category: "Tasty Charcoal Chicken",
     kj: "1,950",
   },
