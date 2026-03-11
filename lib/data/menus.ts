@@ -774,8 +774,8 @@ export const menus: MenuItem[] = [
   },
   {
     simage: "/smenu/salads/beetroot-feta&pumpkin.png",
-    title: "Beetroot Feta & Pumpkin",
-    description: "Beetroot, feta, and roasted pumpkin in a fresh salad mix.",
+    title: "Beetroot Fetta & Pumpkin",
+    description: "Beetroot, fetta, and roasted pumpkin in a fresh salad mix.",
     category: "Salads",
     variants: [
       { label: "Small", price: 7.9 },
