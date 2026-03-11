@@ -616,8 +616,8 @@ export const menus: MenuItem[] = [
   },
   {
     simage: "/smenu/salads/fresh-garden-salad.png",
-    title: "Fresh Garden Salad",
-    description: "Seasonal garden vegetables with a light house dressing.",
+    title: "Greek Salad",
+    description: "Seasonal greek vegetables with a light house dressing.",
     category: "Salads",
     variants: [
       { label: "Small", price: 7.9 },
