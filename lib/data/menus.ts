@@ -603,7 +603,7 @@ export const menus: MenuItem[] = [
     ],
   },
   {
-    simage: "/smenu/salads/rocket-avocado.png",
+    simage: "",
     title: "Rocket Avocado",
     description: "Fresh rocket leaves tossed with creamy avocado pieces.",
     category: "Salads",
@@ -775,7 +775,7 @@ export const menus: MenuItem[] = [
   {
     simage: "/smenu/salads/beetroot-feta&pumpkin.png",
     title: "Beetroot Feta & Pumpkin",
-    description: "Beetroot, fetta, and roasted pumpkin in a fresh salad mix.",
+    description: "Beetroot, feta, and roasted pumpkin in a fresh salad mix.",
     category: "Salads",
     variants: [
       { label: "Small", price: 7.9 },
