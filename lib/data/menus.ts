@@ -437,9 +437,9 @@ export const menus: MenuItem[] = [
     title: "Hot Chips",
     description: "Hot chips with plain, chicken salt, or peri peri seasoning.",
     variants: [
-      { label: "Small", price: 7.0 },
-      { label: "Regular", price: 9.0 },
-      { label: "Large", price: 12.0 },
+      { label: "Small", price: 7.5 },
+      { label: "Regular", price: 9.5 },
+      { label: "Large", price: 12.5 },
     ],
     category: "Hot Chips",
   },

@@ -197,7 +197,7 @@ const MenuCard = ({ item }: { item: (typeof menus)[0] }) => {
                         "text-white",
                       )}
                     >
-                      ${variant.price.toFixed(0)}
+                      ${variant.price.toFixed(2)}
                     </span>
                   </div>
                 ))}
