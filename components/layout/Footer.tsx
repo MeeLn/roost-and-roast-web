@@ -247,8 +247,7 @@ export default function Footer() {
                   <div className="flex items-start gap-4 text-stone-600 group-hover:text-primary transition-colors">
                     <MapPin size={20} className="shrink-0 mt-1" />
                     <span className="font-modern leading-snug">
-                      West Gosford Shopping village,
-                      <br /> 23/299 Brisbane Water Drive
+                      23/299 Brisbane Water Drive
                       <br /> West Gosford NSW, 2250
                     </span>
                   </div>
@@ -272,12 +271,10 @@ export default function Footer() {
                 </div>
               </a>
 
-              <a href="mailto:catering@roostnroast.com.au" className="group">
+              <a href="mailto:info@roostnroast.com.au" className="group">
                 <div className="flex items-center gap-4 text-stone-600 group-hover:text-primary transition-colors">
                   <Mail size={20} className="shrink-0" />
-                  <span className="font-medium">
-                    catering@roostnroast.com.au
-                  </span>
+                  <span className="font-medium">info@roostnroast.com.au</span>
                 </div>
               </a>
             </div>
