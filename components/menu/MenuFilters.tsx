@@ -85,7 +85,7 @@ const MenuCard = ({ item }: { item: (typeof menus)[0] }) => {
     if (window.innerWidth >= 768) return;
     const observer = new IntersectionObserver(
       ([entry]) => setIsMobileActive(entry.isIntersecting),
-      { rootMargin: "-40% 0px -40% 0px", threshold: 0 },
+      { rootMargin: "-50% 0px -50% 0px", threshold: 0 },
     );
     if (cardRef.current) observer.observe(cardRef.current);
     return () => {
@@ -95,6 +95,25 @@ const MenuCard = ({ item }: { item: (typeof menus)[0] }) => {
 
   const activeClass = (base: string, active: string) =>
     `${base} ${isMobileActive ? active : ""}`;
+  const isDefaultGlassCard = !item.bgColor || item.bgColor === "none";
+
+  const cardClassName = activeClass(
+    `flex flex-col flex-grow rounded-3xl border transition-all duration-500 overflow-hidden px-4 py-2 hover:border-primary/80 hover:shadow-xl ${
+      isDefaultGlassCard
+        ? "bg-white/15 backdrop-blur-xl border-primary/80 shadow-2xl z-10 hover:shadow-2xl" // GLASS
+        : !item.bgColor
+          ? "bg-background border-border shadow-sm" // NORMAL
+          : "border-transparent shadow-sm" // CUSTOM
+    }`,
+    isDefaultGlassCard
+      ? "!border-primary shadow-2xl"
+      : "!border-primary shadow-xl",
+  );
+
+  const cardStyle =
+    item.bgColor && item.bgColor !== "none"
+      ? { backgroundColor: item.bgColor }
+      : {};
 
   return (
     <motion.div
@@ -103,11 +122,14 @@ const MenuCard = ({ item }: { item: (typeof menus)[0] }) => {
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-50px" }}
-      className="relative flex flex-col group mx-2 md:mx-0 h-full max-w-[400px] mx-auto"
+      className="relative flex flex-col group h-full w-[330px]"
     >
-      <div className="flex flex-col flex-grow bg-background rounded-3xl border border-border shadow-sm hover:shadow-xl hover:border-primary/50 transition-all duration-500 overflow-hidden py-6 px-6">
+      <div
+        className={`${cardClassName} mx-auto w-[330px] h-[480px]`}
+        style={cardStyle}
+      >
         {/* IMAGE SECTION */}
-        <div className="relative aspect-square w-full mx-auto mb-4 overflow-hidden rounded-2xl bg-transparent">
+        <div className="relative w-[280px] h-[280px] mx-auto mb-2 overflow-hidden rounded-2xl bg-transparent">
           <Image
             src={imgSrc}
             alt={item.title}
@@ -116,41 +138,54 @@ const MenuCard = ({ item }: { item: (typeof menus)[0] }) => {
             placeholder="blur"
             blurDataURL={PLACEHOLDER_IMAGE}
             onError={() => setImgSrc(PLACEHOLDER_IMAGE)}
-            className="object-cover transition-transform duration-700 group-hover:scale-105"
+            className={activeClass(
+              "object-contain transition-transform duration-700 group-hover:scale-105",
+              "scale-105",
+            )}
           />
         </div>
 
         {/* CONTENT SECTION */}
-        <div className="px-6 py-4 flex flex-col items-center flex-grow text-center gap-1">
-          <h3 className="font-modern text-xl font-black text-secondary uppercase tracking-tight leading-tight">
+        <div className="p-2 flex flex-col items-center justify-end flex-grow text-center gap-1">
+          <h3 className="font-modern text-lg md:text-xl font-black text-secondary uppercase tracking-tight leading-tight">
             {item.title}
           </h3>
-          <p className="italic text-sm text-muted-foreground leading-relaxed line-clamp-2">
+          <p
+            lang="en"
+            className="self-stretch w-full italic text-xs md:text-sm text-muted-foreground leading-relaxed line-clamp-3 hyphens-auto"
+            style={{
+              textAlign: "justify",
+              textAlignLast: "center",
+              textJustify: "auto",
+              wordSpacing: "-0.08em",
+              letterSpacing: "-0.015em",
+            }}
+          >
             {item.description}
           </p>
         </div>
 
         {/* PRICE SECTION */}
-        <div className="mt-auto relative w-[calc(100%+3rem)] -mx-6 -mb-6 overflow-hidden">
+        <div className="mt-auto relative w-[calc(100%+2rem)] -mx-4 -mb-2 overflow-hidden">
           {/* Loading Bar Animation */}
           <div
             className={activeClass(
-              "absolute inset-0 bg-primary origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500 ease-out z-0",
+              "absolute inset-0 bg-primary origin-left scale-x-100 transition-transform duration-500 ease-out z-0",
               "scale-x-100",
             )}
           />
 
-          <div className="relative z-10 py-6 px-4 flex flex-col items-center justify-center min-h-[80px]">
+          <div className="relative z-10 p-2 flex flex-col items-center justify-center min-h-[72px]">
             {item.variants ? (
-              <div className="flex flex-wrap justify-center gap-2 w-full">
+              <div className="flex flex-wrap justify-center gap-1.5 w-full">
                 {item.variants.map((variant) => (
                   <div
                     key={variant.label}
-                    className="flex flex-col items-center justify-center px-4 py-1 rounded-lg min-w-[60px] transition-all duration-300 hover:bg-black/10 group/price"
+                    className="flex flex-col items-center justify-center px-2 py-2 rounded-lg min-w-[56px] transition-all duration-300 group/price"
                   >
                     <span
                       className={activeClass(
-                        "font-artistic text-lg text-primary -rotate-3 transition-colors duration-300 group-hover:text-white",
+                        "font-artistic text-base md:text-lg text-white -rotate-3 transition-colors duration-300",
                         "text-white",
                       )}
                     >
@@ -158,20 +193,20 @@ const MenuCard = ({ item }: { item: (typeof menus)[0] }) => {
                     </span>
                     <span
                       className={activeClass(
-                        "font-modern text-sm font-bold text-primary transition-colors duration-300 group-hover:text-white",
+                        "font-modern text-xs md:text-sm font-bold text-white transition-colors duration-300",
                         "text-white",
                       )}
                     >
-                      ${variant.price.toFixed(0)}
+                      ${variant.price.toFixed(2)}
                     </span>
                   </div>
                 ))}
               </div>
             ) : (
-              <div className="flex items-baseline gap-2 px-6 py-1 rounded-lg transition-all duration-300 hover:bg-black/10 group/price">
+              <div className="flex items-baseline gap-1.5 px-2 py-2 rounded-lg transition-all duration-300 group/price">
                 <span
                   className={activeClass(
-                    "font-artistic text-2xl text-primary -rotate-6 lowercase mb-0 transition-colors duration-500 group-hover:text-white",
+                    "font-artistic text-xl md:text-2xl text-white -rotate-6 lowercase mb-0 mr-1 transition-colors duration-500",
                     "text-white",
                   )}
                 >
@@ -179,7 +214,7 @@ const MenuCard = ({ item }: { item: (typeof menus)[0] }) => {
                 </span>
                 <span
                   className={activeClass(
-                    "font-modern text-2xl font-bold text-primary transition-colors duration-500 group-hover:text-white",
+                    "font-modern text-xl md:text-2xl font-bold text-white transition-colors duration-500",
                     "text-white",
                   )}
                 >
@@ -378,7 +413,7 @@ export default function MenuFilters() {
           layout
           className={`relative transition-all duration-500 ${
             isSticky
-              ? "w-12 md:w-80 flex-shrink-0 ml-auto group"
+              ? "w-12 md:w-76.5 flex-shrink-0 ml-auto group"
               : "w-full md:w-[800px] mx-auto"
           }`}
         >
@@ -411,27 +446,40 @@ export default function MenuFilters() {
       </motion.div>
 
       {/* Grid Results */}
-      <div className="container max-w-[1500px] mx-auto px-0 md:px-4 min-h-[50vh]">
+      <div className="container max-w-[1600px] mx-auto px-0 md:px-4 min-h-[50vh]">
         <AnimatePresence mode="popLayout">
           {menuGroups.map((group) => (
             <div key={group.category} className="mb-16">
-              <div className="flex justify-center w-full">
-                <motion.h2
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: false }}
-                  className="text-4xl md:text-7xl font-artistic text-secondary mb-12 md:mb-16 inline-block relative text-center mt-0 md:mt-8 px-2"
-                >
-                  <span className="relative z-10">{group.category}</span>
-                  <span className="absolute bottom-2 left-0 w-full h-2 md:h-3 bg-primary/20 -z-0 -rotate-1 rounded-full"></span>
-                </motion.h2>
-              </div>
+              <div className="mx-auto w-fit max-w-[380px] md:max-w-[716px] lg:max-w-[1102px] xl:max-w-[1488px]">
+                <div className="grid w-full grid-cols-[1fr_auto_1fr] items-center mt-0 md:mt-8 mb-12 md:mb-16">
+                  <span
+                    aria-hidden="true"
+                    className="justify-self-start mr-4 invisible text-md text-primary/40 md:text-xl font-artistic font-semibold whitespace-nowrap"
+                  >
+                    {group.items.length} of {menus.length}
+                    <span className="hidden sm:inline"> Items</span>
+                  </span>
+                  <motion.h2
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: false }}
+                    className="text-4xl md:text-7xl font-artistic text-secondary inline-block relative text-center px-2"
+                  >
+                    <span className="relative z-10">{group.category}</span>
+                    <span className="absolute -bottom-2 md:bottom-2 left-0 w-full h-2 md:h-3 bg-primary/20 -z-0 -rotate-1 rounded-full"></span>
+                  </motion.h2>
+                  <span className="justify-self-end mr-8 md:mr-4 ml-6 text-md text-primary/40 md:text-xl font-artistic font-semibold whitespace-nowrap">
+                    {group.items.length} of {menus.length}
+                    <span className="hidden sm:inline"> Items</span>
+                  </span>
+                </div>
 
-              {/* Reduced gap-y for tighter layout */}
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-2 gap-y-20 pt-4 md:pt-12">
-                {group.items.map((item) => (
-                  <MenuCard key={item.title} item={item} />
-                ))}
+                {/* Reduced gap-y for tighter layout */}
+                <div className="flex flex-wrap justify-center gap-x-14 gap-y-20 pt-4 md:pt-12">
+                  {group.items.map((item) => (
+                    <MenuCard key={item.title} item={item} />
+                  ))}
+                </div>
               </div>
             </div>
           ))}

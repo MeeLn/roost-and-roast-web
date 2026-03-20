@@ -45,8 +45,8 @@ export default function ContactLocation() {
                           Location
                         </h4>
                         <p className="text-text-main text-sm font-medium">
-                          West Gosford Shopping Village, 23/299 Brisbane Water
-                          Drive West Gosford NSW, 2250
+                          23/299 Brisbane Water Drive
+                          <br /> West Gosford NSW, 2250
                         </p>
                       </div>
                     </div>
@@ -72,7 +72,7 @@ export default function ContactLocation() {
                 </div>
 
                 <div className="flex">
-                  <a href="mailto:catering@roostnroast.com.au">
+                  <a href="mailto:info@roostnroast.com.au">
                     <div className="flex items-center gap-6 group">
                       <div className="flex-shrink-0 w-12 h-12 flex items-center justify-center bg-white rounded-xl text-primary shadow-sm border border-primary/10 transition-transform group-hover:scale-110">
                         <Mail size={24} />
@@ -82,7 +82,7 @@ export default function ContactLocation() {
                           Email
                         </h4>
                         <p className="text-text-main text-sm font-medium">
-                          catering@roostnroast.com.au
+                          info@roostnroast.com.au
                         </p>
                       </div>
                     </div>
