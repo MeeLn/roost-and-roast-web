@@ -9,6 +9,7 @@ import {
 import "./globals.css";
 import clsx from "clsx";
 import ScrollToTop from "@/components/ui/ScrollToTop";
+import { constructMetadata } from "@/lib/metadata";
 
 const dancing_script = Dancing_Script({
   subsets: ["latin"],
@@ -43,11 +44,7 @@ const font_modern = Raleway({
   weight: ["400", "500", "600", "700", "800", "900"],
 });
 
-export const metadata: Metadata = {
-  title: "Roost and Roast - Premium Charcoal Chicken & Roast",
-  description:
-    "Experience the finest charcoal chicken and gourmet roasts. Fresh, flavorful, and fantastic.",
-};
+export const metadata = constructMetadata();
 
 export default function RootLayout({
   children,
@@ -56,9 +53,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <head>
-        <link rel="icon" href="/logos/logo-rounded.svg" />
-      </head>
+      <head />
       <body
         className={clsx(
           inter.variable,
