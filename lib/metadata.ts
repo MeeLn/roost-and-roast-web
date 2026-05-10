@@ -1,4 +1,4 @@
-import { Metadata } from "next";
+import  Metadata from "next";
 
 export const SITE_CONFIG = {
   name: "Roost and Roast",
